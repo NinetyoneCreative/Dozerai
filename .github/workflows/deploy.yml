@@ -1,0 +1,52 @@
+name: Build & Deploy to Hostinger
+
+# Auto-deploy on every push to main. Builds the static export and uploads
+# the out/ folder to Hostinger over FTP(S). Manual runs available too.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Only one deploy at a time; cancel an in-progress run if a newer push arrives.
+concurrency:
+  group: hostinger-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build # next.config has output:'export' -> emits ./out
+
+      - name: Deploy out/ to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Hostinger supports explicit FTPS on port 21. If your account only
+          # allows plain FTP, change this to: ftp
+          protocol: ftps
+          port: 21
+          # Trailing slash matters: upload the CONTENTS of out/, not the folder.
+          local-dir: ./out/
+          # The web root of your temp URL, e.g. /public_html/ — MUST end in /.
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          # Skip the CI/version-control noise if it ever lands in out/.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.DS_Store
