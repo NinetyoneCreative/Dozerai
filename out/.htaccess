@@ -1,0 +1,20 @@
+# Dozer.ai static export — served by Apache/LiteSpeed (Hostinger).
+# This file is copied into out/ at build time and lives at the document root.
+
+DirectoryIndex index.html
+
+# Next.js export uses trailingSlash, so each route is a folder with its own
+# index.html (e.g. /cameras/). DirectorySlash (default On) redirects /cameras
+# -> /cameras/ automatically. Serve the static 404 page for anything missing.
+ErrorDocument 404 /404.html
+
+# Long-cache immutable build assets; let HTML revalidate.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType font/otf "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

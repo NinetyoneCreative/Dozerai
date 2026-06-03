@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://www.dozer.ai
+Sitemap: https://www.dozer.ai/sitemap.xml

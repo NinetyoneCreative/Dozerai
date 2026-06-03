@@ -1,7 +1,9 @@
 /node_modules
 /.next
-/out
 /build
+# NOTE: /out (static export) is intentionally COMMITTED so Hostinger can serve
+# it from a plain `git pull` without running a build. If you switch to a
+# build-on-deploy or CI flow, re-add `/out` here and `git rm -r --cached out`.
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
