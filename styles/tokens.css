@@ -1,0 +1,35 @@
+/**
+ * Dozer.ai design tokens — extracted verbatim from the live site's Next.js CSS
+ * bundle (/_next/static/css/042fb76698679e6b.css) on 2026-06-03.
+ *
+ * Colors come from the brand utility classes (.bg-dozer-yellow, .text-dark-grey,
+ * etc.). Fonts come from the @font-face rules in the same bundle (Gotham .otf
+ * files self-hosted under /public/fonts, Share Tech Mono via next/font).
+ *
+ * These are the single source of truth and are mirrored in tailwind.config.ts.
+ * Do not restyle the brand here.
+ */
+
+:root {
+  /* ---- Brand colors (exact) ---- */
+  --color-dozer-yellow: rgb(253 172 19); /* #FDAC13 — primary accent / CTA */
+  --color-dozer-white: rgb(244 247 249); /* #F4F7F9 — light page background */
+  --color-darker-grey: rgb(77 82 96); /* #4D5260 — dark section bg / dark ink */
+  --color-dark-grey: rgb(92 99 116); /* #5C6374 — body text / ink */
+  --color-medium-grey: rgb(167 170 177); /* #A7AAB1 — borders / muted text */
+  --color-black: rgb(0 0 0);
+  --color-white: rgb(255 255 255);
+
+  /* ---- Typography ---- */
+  /* --font-gotham + --font-share-tech-mono are injected by next/font in layout.tsx */
+  --font-heading: var(--font-gotham), Gotham, ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-gotham), Gotham, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-share-tech-mono), shareTechMono, ui-monospace, monospace;
+
+  /* ---- Layout ---- */
+  --container-max: 1440px; /* main container width on live site */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-pill: 9999px;
+  --line-height-base: 1.5;
+}

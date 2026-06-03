@@ -1,0 +1,78 @@
+@import "../styles/tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* offset anchor scroll for the sticky header */
+    scroll-padding-top: 6rem;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  body {
+    margin: 0;
+    line-height: var(--line-height-base);
+    font-family: var(--font-body);
+    color: var(--color-dark-grey);
+    background-color: var(--color-dozer-white);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--color-darker-grey);
+    text-wrap: balance;
+  }
+
+  /* Visible, on-brand focus ring for keyboard users (AA). */
+  :focus-visible {
+    outline: 3px solid var(--color-dozer-yellow);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-dozer-yellow);
+    color: #000;
+  }
+}
+
+@layer components {
+  /* Monospace eyebrow/kicker label — a recurring brand motif. */
+  .kicker {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    color: var(--color-dozer-yellow);
+  }
+}
+
+/* Respect users who prefer reduced motion: kill transitions/animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
