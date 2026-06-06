@@ -87,7 +87,7 @@ export default function HomePage() {
               </CtaLink>
             </div>
             <p className="mt-4 text-sm text-medium-grey">
-              Pilot one machine · Free install · No long-term contract
+              45-day pilot · One machine · One low fee · No long-term contract
             </p>
           </div>
 
