@@ -57,9 +57,10 @@ Container `max-width: 1440px`; radii `0.25rem` / `0.5rem` / pill; line-height `1
 | Route | File | Notes |
 |---|---|---|
 | `/` | [`app/page.tsx`](app/page.tsx) | Home |
-| `/cameras` | [`app/cameras/page.tsx`](app/cameras/page.tsx) | Product |
-| `/intelligence` | [`app/intelligence/page.tsx`](app/intelligence/page.tsx) | Product |
-| `/dashboards` | [`app/dashboards/page.tsx`](app/dashboards/page.tsx) | Product |
+| `/cameras` | [`app/cameras/page.tsx`](app/cameras/page.tsx) | Hardware foundation |
+| `/safety` | [`app/safety/page.tsx`](app/safety/page.tsx) | **Safety Intelligence Suite** (available now) — replaces old `/intelligence` (301 redirect in `public/.htaccess`) |
+| `/productivity` | [`app/productivity/page.tsx`](app/productivity/page.tsx) | **Productivity & Analytics Suite** (coming soon · 60–90 days) |
+| `/dashboards` | [`app/dashboards/page.tsx`](app/dashboards/page.tsx) | The view across both suites |
 | `/industries` | [`app/industries/page.tsx`](app/industries/page.tsx) | Vertical funnel index |
 | `/industries/[slug]` | [`app/industries/[slug]/page.tsx`](app/industries/[slug]/page.tsx) | Per-vertical sales funnel (heavy-civil, aggregates, demolition, mining-landfill) — content in [`lib/industries.ts`](lib/industries.ts) |
 | `/demo` | [`app/demo/page.tsx`](app/demo/page.tsx) | Conversion page |

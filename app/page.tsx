@@ -9,8 +9,10 @@ import { UseCaseGrid } from "@/components/UseCaseGrid";
 import { PricingBlock } from "@/components/PricingBlock";
 import { Testimonial } from "@/components/Testimonial";
 import { CtaBand } from "@/components/CtaBand";
+import { StatusBadge } from "@/components/StatusBadge";
 import { buildMetadata } from "@/lib/seo";
 import { ASSETS } from "@/lib/site";
+import { SAFETY_SUITE, PRODUCTIVITY_SUITE } from "@/lib/suites";
 
 export const metadata: Metadata = buildMetadata({
   title: "Excavator Blind-Spot & Backup Cameras for Heavy Equipment",
@@ -19,24 +21,33 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
 });
 
-const PRODUCTS = [
+/** The two product suites, surfaced prominently on the home page. */
+const SUITE_CARDS = [
+  {
+    suite: SAFETY_SUITE,
+    href: "/safety",
+    blurb:
+      "Production-ready today. Real-time object detection, exclusion-zone proximity monitoring, PPE compliance, and in-cab driver alerts — with a supervisor dashboard for every event.",
+  },
+  {
+    suite: PRODUCTIVITY_SUITE,
+    href: "/productivity",
+    blurb:
+      "Coming soon. Job-cost allocation, fleet utilization analytics, AI jobsite reports, activity heat maps, and ERP integrations — built on the same cameras.",
+  },
+];
+
+/** The platform layers both suites sit on. */
+const FOUNDATION = [
   {
     href: "/cameras",
     name: "Cameras",
-    blurb:
-      "Durable, IP-rated cameras with 360° vision and proximity measurement, mounted right on the machine.",
-  },
-  {
-    href: "/intelligence",
-    name: "Intelligence",
-    blurb:
-      "AI that classifies people and vehicles, alerts operators in-cab, and records every safety event.",
+    blurb: "Durable, IP-rated 360° depth-sensing cameras mounted right on the machine.",
   },
   {
     href: "/dashboards",
     name: "Dashboards",
-    blurb:
-      "Review footage, safety events, and productivity by machine and map area across your whole fleet.",
+    blurb: "One place to review footage, events, and analytics by machine and map area.",
   },
 ];
 
@@ -56,9 +67,11 @@ export default function HomePage() {
             </h1>
             <p className="mt-5 max-w-xl text-lg text-dark-grey">
               Dozer mounts depth-sensing cameras and sensors directly on
-              excavators, dozers, wheel loaders, and haul trucks — giving every
-              operator a 360° virtual spotter, real-time proximity alerts, and a
-              recorded view of everything around the machine.
+              excavators, dozers, wheel loaders, and haul trucks. The{" "}
+              <span className="font-medium text-darker-grey">Safety Intelligence Suite</span>{" "}
+              is production-ready today — and the{" "}
+              <span className="font-medium text-darker-grey">Productivity &amp; Analytics Suite</span>{" "}
+              turns the same cameras into job-cost and fleet insight, arriving in 60–90 days.
             </p>
 
             {/* Conversion ladder: primary intro, secondary watch demo, tertiary pricing */}
@@ -99,25 +112,65 @@ export default function HomePage() {
 
       <ProofBar />
 
-      {/* Product overview */}
-      <Section tone="light" spacing="lg" aria-labelledby="products-heading">
+      {/* Platform: one platform, two suites */}
+      <Section tone="light" spacing="lg" aria-labelledby="platform-heading">
         <div className="max-w-3xl">
-          <p className="kicker">The system</p>
-          <h2 id="products-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            Cameras, intelligence, and dashboards — working as one
+          <p className="kicker">The platform</p>
+          <h2 id="platform-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
+            One platform. Two suites.
           </h2>
+          <p className="mt-4 text-lg text-dark-grey">
+            Start with safety today and grow into productivity — all from the same
+            cameras on the same machines.
+          </p>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {PRODUCTS.map((p) => (
+
+        {/* Two suites */}
+        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+          {SUITE_CARDS.map(({ suite, href, blurb }) => (
             <Link
-              key={p.href}
-              href={p.href}
-              className="group flex flex-col rounded-md border border-medium-grey/30 bg-white p-6 transition-colors hover:border-dozer-yellow"
+              key={href}
+              href={href}
+              className="group flex flex-col rounded-md border border-medium-grey/30 bg-white p-7 transition-colors hover:border-dozer-yellow"
             >
-              <h3 className="text-xl font-medium text-darker-grey">{p.name}</h3>
-              <p className="mt-2 flex-1 text-dark-grey">{p.blurb}</p>
-              <span className="mt-4 text-sm font-medium text-dark-grey group-hover:text-darker-grey">
-                Explore {p.name} →
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-2xl font-bold text-darker-grey">{suite.name}</h3>
+                <StatusBadge status={suite.status} timeline={suite.timeline} />
+              </div>
+              <p className="mt-3 text-dark-grey">{blurb}</p>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {suite.categories.map((c) => (
+                  <li
+                    key={c.key}
+                    className="rounded-full border border-medium-grey/40 px-3 py-1 text-xs text-dark-grey"
+                  >
+                    {c.name}
+                  </li>
+                ))}
+              </ul>
+              <span className="mt-6 text-sm font-medium text-dark-grey group-hover:text-darker-grey">
+                {suite.status === "available"
+                  ? `Explore ${suite.shortName} →`
+                  : `See what's coming →`}
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        {/* Foundation: cameras + dashboards */}
+        <div className="mt-5 grid gap-5 sm:grid-cols-2">
+          {FOUNDATION.map((f) => (
+            <Link
+              key={f.href}
+              href={f.href}
+              className="group flex items-center justify-between gap-4 rounded-md border border-medium-grey/30 bg-dozer-white p-5 transition-colors hover:border-dozer-yellow"
+            >
+              <div>
+                <h3 className="font-medium text-darker-grey">{f.name}</h3>
+                <p className="mt-0.5 text-sm text-dark-grey">{f.blurb}</p>
+              </div>
+              <span className="shrink-0 text-dark-grey group-hover:text-darker-grey" aria-hidden="true">
+                →
               </span>
             </Link>
           ))}

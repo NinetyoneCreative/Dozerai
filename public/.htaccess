@@ -3,6 +3,10 @@
 
 DirectoryIndex index.html
 
+# The Intelligence page was reframed as the Safety Intelligence Suite.
+# Preserve old links / SEO with a permanent redirect.
+Redirect 301 /intelligence /safety/
+
 # Next.js export uses trailingSlash, so each route is a folder with its own
 # index.html (e.g. /cameras/). DirectorySlash (default On) redirects /cameras
 # -> /cameras/ automatically. Serve the static 404 page for anything missing.

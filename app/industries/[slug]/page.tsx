@@ -136,8 +136,8 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
             One system, tuned to your environment
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
-            The same cameras, intelligence, and dashboards — pointed at the
-            hazards that actually matter on a {industry.name.toLowerCase()} site.
+            The same cameras, safety intelligence, and dashboards — pointed at
+            the hazards that actually matter on a {industry.name.toLowerCase()} site.
           </p>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
