@@ -55,13 +55,21 @@
 }
 
 @layer components {
-  /* Monospace eyebrow/kicker label — a recurring brand motif. */
+  /* Monospace eyebrow/kicker label — a recurring brand motif, styled as a
+     highlighter mark: the dozer-yellow selection color as a background with
+     black text, wrapping just the label (matches ::selection). */
   .kicker {
+    display: inline-block;
     font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 0.18em;
     font-size: 0.78rem;
-    color: var(--color-dozer-yellow);
+    line-height: 1.4;
+    color: #000;
+    background-color: var(--color-dozer-yellow);
+    padding: 0.2em 0.45em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 }
 
