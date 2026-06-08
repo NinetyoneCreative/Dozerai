@@ -173,7 +173,10 @@ export default function HomePage() {
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {CLARITY.map((c) => (
             <div key={c.label} className="rounded-md border border-medium-grey/30 bg-white p-6">
-              <p className="kicker">{c.label}</p>
+              {/* Plain label here — intentionally NOT the highlighted .kicker style */}
+              <p className="font-mono text-[0.78rem] uppercase tracking-[0.18em] text-dozer-yellow">
+                {c.label}
+              </p>
               <p className="mt-3 text-dark-grey">{c.body}</p>
             </div>
           ))}
