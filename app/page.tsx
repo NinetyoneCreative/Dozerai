@@ -47,9 +47,10 @@ const CLARITY = [
 ];
 
 /**
- * Cost framing. NOTE: the OSHA points are well-established; the productivity
- * figure is directional. TODO before launch: confirm and cite exact sources
- * (OSHA fatality data; an industry productivity study for the ~30% figure).
+ * Cost framing. All three stats are cited: OSHA for the two safety figures
+ * (TODO before launch: link the specific OSHA fatality pages), and the
+ * PlanGrid & FMI "Construction Disconnected" (2018) report for the 35%
+ * non-optimal-time figure (~14 hrs/week; ~$177B/yr in labor).
  */
 const COST_FRAMING = [
   {
@@ -63,9 +64,9 @@ const COST_FRAMING = [
     source: "Source: OSHA Focus Four",
   },
   {
-    stat: "~30%+",
-    label: "of job site time can be lost to idle equipment and rework",
-    source: "Industry studies — TODO: confirm citation",
+    stat: "35%",
+    label: "of a construction pro's time goes to non-optimal work — rework, conflicts, and chasing information",
+    source: "Source: PlanGrid & FMI, Construction Disconnected (2018)",
   },
 ];
 
