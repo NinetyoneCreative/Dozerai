@@ -9,6 +9,7 @@ import { PricingBlock } from "@/components/PricingBlock";
 import { Testimonial } from "@/components/Testimonial";
 import { CtaBand } from "@/components/CtaBand";
 import { StatusBadge } from "@/components/StatusBadge";
+import { SuiteIcon } from "@/components/SuiteIcon";
 import { buildMetadata } from "@/lib/seo";
 import { ASSETS } from "@/lib/site";
 import { SAFETY_SUITE, PRODUCTIVITY_SUITE } from "@/lib/suites";
@@ -88,20 +89,13 @@ const HOW_IT_WORKS = [
   },
 ];
 
-/** Safety + Productivity framed as outcomes of the one product. */
-const OUTCOME_CARDS = [
-  {
-    suite: SAFETY_SUITE,
-    href: "/safety",
-    blurb:
-      "Detect people in blind spots, alert operators before contact, and keep an objective record of every event.",
-  },
-  {
-    suite: PRODUCTIVITY_SUITE,
-    href: "/productivity",
-    blurb:
-      "Turn machine activity into job costs, utilization, and AI jobsite reports — so you can see where time and money go.",
-  },
+/**
+ * Safety + Productivity framed as outcomes of the one product. Each links to
+ * its section on the Product page, where the modules live in full.
+ */
+const OUTCOME_GROUPS = [
+  { suite: SAFETY_SUITE, href: "/product#safety" },
+  { suite: PRODUCTIVITY_SUITE, href: "/product#productivity" },
 ];
 
 export default function HomePage() {
@@ -248,7 +242,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Outcomes: Safety + Productivity as applications of the product */}
+      {/* What it delivers — modules grouped by Safety / Productivity */}
       <Section tone="light" spacing="lg" aria-labelledby="outcomes-heading">
         <div className="max-w-3xl">
           <p className="kicker">What it delivers</p>
@@ -256,38 +250,54 @@ export default function HomePage() {
             Safer sites. More productive days.
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
-            Safety and productivity aren&apos;t separate products — they&apos;re what
-            the same system delivers once it understands your site.
+            Safety and productivity aren&apos;t separate products — they&apos;re the
+            modules the same system delivers once it understands your site.
           </p>
         </div>
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          {OUTCOME_CARDS.map(({ suite, href, blurb }) => (
-            <Link
-              key={href}
-              href={href}
-              className="group flex flex-col rounded-md border border-medium-grey/30 bg-white p-7 transition-colors hover:border-dozer-yellow"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <h3 className="text-2xl font-bold text-darker-grey">{suite.shortName}</h3>
+
+        <div className="mt-12 space-y-12">
+          {OUTCOME_GROUPS.map(({ suite, href }) => (
+            <div key={suite.slug}>
+              {/* Group label */}
+              <div className="flex flex-wrap items-center gap-3 border-b border-medium-grey/30 pb-4">
+                <h3 className="text-xl font-bold text-darker-grey">{suite.shortName}</h3>
                 <StatusBadge status={suite.status} timeline={suite.timeline} />
+                <Link
+                  href={href}
+                  className="ml-auto text-sm font-medium text-dark-grey hover:text-darker-grey"
+                >
+                  {suite.status === "available" ? "Explore →" : "See what's coming →"}
+                </Link>
               </div>
-              <p className="mt-3 text-dark-grey">{blurb}</p>
-              <ul className="mt-5 flex flex-wrap gap-2">
-                {suite.categories.map((c) => (
-                  <li
-                    key={c.key}
-                    className="rounded-full border border-medium-grey/40 px-3 py-1 text-xs text-dark-grey"
-                  >
-                    {c.name}
+
+              {/* Module cards — one per feature category */}
+              <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {suite.categories.map((cat) => (
+                  <li key={cat.key}>
+                    <Link
+                      href={`${href.split("#")[0]}#${cat.key}`}
+                      className="group flex h-full flex-col rounded-md border border-medium-grey/30 bg-white p-6 transition-colors hover:border-dozer-yellow"
+                    >
+                      <span
+                        className={`flex h-11 w-11 items-center justify-center rounded-md ${
+                          suite.status === "available"
+                            ? "bg-dozer-yellow/15 text-darker-grey"
+                            : "bg-dozer-white text-dark-grey"
+                        }`}
+                      >
+                        <SuiteIcon name={cat.icon} />
+                      </span>
+                      <h4 className="mt-4 font-bold text-darker-grey">{cat.name}</h4>
+                      <ul className="mt-2 space-y-1 text-sm text-dark-grey">
+                        {cat.features.map((f) => (
+                          <li key={f.name}>{f.name}</li>
+                        ))}
+                      </ul>
+                    </Link>
                   </li>
                 ))}
               </ul>
-              <span className="mt-6 text-sm font-medium text-dark-grey group-hover:text-darker-grey">
-                {suite.status === "available"
-                  ? `Explore ${suite.shortName} →`
-                  : `See what's coming →`}
-              </span>
-            </Link>
+            </div>
           ))}
         </div>
       </Section>

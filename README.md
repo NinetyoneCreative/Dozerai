@@ -57,9 +57,7 @@ Container `max-width: 1440px`; radii `0.25rem` / `0.5rem` / pill; line-height `1
 | Route | File | Notes |
 |---|---|---|
 | `/` | [`app/page.tsx`](app/page.tsx) | Home — leads with AI perceptual intelligence positioning |
-| `/product` | [`app/product/page.tsx`](app/product/page.tsx) | **The whole system as one product** (eyes on site → data capture → pipeline → site intelligence → insights & actions). Combines the former `/cameras` + `/dashboards` (both 301-redirect here via `public/.htaccess`) |
-| `/safety` | [`app/safety/page.tsx`](app/safety/page.tsx) | Safety — an application of the product (available now); replaces old `/intelligence` (301 redirect) |
-| `/productivity` | [`app/productivity/page.tsx`](app/productivity/page.tsx) | Productivity — an application of the product (coming soon · 60–90 days) |
+| `/product` | [`app/product/page.tsx`](app/product/page.tsx) | **The whole system + both applications, on one page.** System (eyes on site → data capture → pipeline → site intelligence → insights & actions), then a `#safety` section (available now) and a `#productivity` section (coming soon · 60–90 days). Absorbs the former `/cameras`, `/dashboards`, `/safety`, `/productivity` — all 301-redirect here via `public/.htaccess`. Suite content from [`lib/suites.ts`](lib/suites.ts) |
 | `/industries` | [`app/industries/page.tsx`](app/industries/page.tsx) | Vertical funnel index (kept for SEO) |
 | `/industries/[slug]` | [`app/industries/[slug]/page.tsx`](app/industries/[slug]/page.tsx) | Per-vertical sales funnel (heavy-civil, aggregates, demolition, mining-landfill) — content in [`lib/industries.ts`](lib/industries.ts) |
 | `/demo` | [`app/demo/page.tsx`](app/demo/page.tsx) | Conversion page |

@@ -10,6 +10,10 @@ Redirect 301 /intelligence /safety/
 Redirect 301 /cameras /product/
 Redirect 301 /dashboards /product/
 
+# Safety + Productivity are now sections on the Product page.
+Redirect 301 /safety /product/
+Redirect 301 /productivity /product/
+
 # Next.js export uses trailingSlash, so each route is a folder with its own
 # index.html (e.g. /cameras/). DirectorySlash (default On) redirects /cameras
 # -> /cameras/ automatically. Serve the static 404 page for anything missing.

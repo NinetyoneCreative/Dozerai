@@ -5,7 +5,8 @@
  *   - Safety Intelligence Suite      — Available now (production-ready)
  *   - Productivity & Analytics Suite — Coming soon (60–90 days)
  *
- * Drives /safety, /productivity, the home "platform" section, and the footer.
+ * Drives the Safety + Productivity sections on /product and the home
+ * "what it delivers" module grid.
  * Future / next-generation capabilities (3D site intelligence, Trackunit,
  * autonomous ops) are intentionally NOT represented here.
  */
