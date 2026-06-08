@@ -293,14 +293,6 @@ export default function ProductPage() {
           <p className="mx-auto mt-5 max-w-2xl text-lg text-dark-grey">
             {PRODUCTIVITY_SUITE.heroSub}
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <CtaLink href="/demo" variant="primary" trackId="product_prod_early_access">
-              Get early access
-            </CtaLink>
-            <CtaLink href="#job-cost" variant="secondary" trackId="product_prod_explore">
-              See what&apos;s coming
-            </CtaLink>
-          </div>
           <p className="mt-4 text-sm text-medium-grey">
             Same cameras you can deploy today — new insight arriving in{" "}
             {PRODUCTIVITY_SUITE.timeline}.
