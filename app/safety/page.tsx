@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Section } from "@/components/Section";
 import { CtaLink } from "@/components/CtaLink";
 import { SafeVideo } from "@/components/SafeVideo";
@@ -30,7 +31,13 @@ export default function SafetyPage() {
       <Section tone="light" spacing="lg" aria-labelledby="safety-heading">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <div className="flex items-center gap-3">
+            <Link
+              href="/product"
+              className="text-sm font-medium text-dark-grey hover:text-darker-grey"
+            >
+              An application of Dozer AI →
+            </Link>
+            <div className="mt-3 flex items-center gap-3">
               <p className="kicker">Safety Intelligence Suite</p>
               <StatusBadge status={SAFETY_SUITE.status} />
             </div>
@@ -41,6 +48,11 @@ export default function SafetyPage() {
               {SAFETY_SUITE.heroHeadline}
             </h1>
             <p className="mt-5 max-w-xl text-lg text-dark-grey">{SAFETY_SUITE.heroSub}</p>
+            <p className="mt-3 max-w-xl text-dark-grey">
+              Safety is what Dozer&apos;s perceptual intelligence delivers first — the
+              same system that understands your site, focused on keeping people clear
+              of the iron.
+            </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <CtaLink href="/demo" variant="primary" trackId="safety_hero_intro">
                 Book a 15-min intro

@@ -4,7 +4,6 @@ import { Section } from "@/components/Section";
 import { CtaLink } from "@/components/CtaLink";
 import { SafeVideo } from "@/components/SafeVideo";
 import { ProofBar } from "@/components/ProofBar";
-import { OutcomesSection } from "@/components/OutcomesSection";
 import { UseCaseGrid } from "@/components/UseCaseGrid";
 import { PricingBlock } from "@/components/PricingBlock";
 import { Testimonial } from "@/components/Testimonial";
@@ -15,72 +14,123 @@ import { ASSETS } from "@/lib/site";
 import { SAFETY_SUITE, PRODUCTIVITY_SUITE } from "@/lib/suites";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Excavator Blind-Spot & Backup Cameras for Heavy Equipment",
+  title: "AI Perceptual Intelligence for Heavy Job Sites",
   description:
-    "Dozer.ai mounts AI depth-sensing cameras on excavators, dozers, loaders, and haul trucks for real-time blind-spot alerts, proximity detection, and backover prevention on the jobsite.",
+    "Dozer is an AI perceptual intelligence system for heavy job sites. Cameras and sensors on your equipment detect people, measure proximity, and turn messy, busy sites into safer, more productive operations.",
   path: "/",
 });
 
-/** The two product suites, surfaced prominently on the home page. */
-const SUITE_CARDS = [
+/** Complex environments Dozer is built for. */
+const ENVIRONMENTS = [
+  "Heavy civil",
+  "Underground utilities",
+  "Grading & earthwork",
+  "Aggregates",
+  "Demolition",
+  "Mining & landfill",
+];
+
+/** Plain-English "what / who / what it drives" trio. */
+const CLARITY = [
+  {
+    label: "What it is",
+    body: "An AI perceptual intelligence system — cameras and sensors on your equipment, plus the AI that understands what they see.",
+  },
+  {
+    label: "Who it's for",
+    body: "Safety directors, equipment and fleet managers, and owners running busy, equipment-heavy job sites.",
+  },
+  {
+    label: "What it drives",
+    body: "Fewer incidents, less wasted time, and a clear, shared record of what actually happens on site.",
+  },
+];
+
+/**
+ * Cost framing. NOTE: the OSHA points are well-established; the productivity
+ * figure is directional. TODO before launch: confirm and cite exact sources
+ * (OSHA fatality data; an industry productivity study for the ~30% figure).
+ */
+const COST_FRAMING = [
+  {
+    stat: "~1 in 5",
+    label: "U.S. worker deaths happen in construction",
+    source: "Source: OSHA",
+  },
+  {
+    stat: "Struck-by",
+    label: "is a leading cause of construction fatalities",
+    source: "Source: OSHA Focus Four",
+  },
+  {
+    stat: "~30%+",
+    label: "of job site time can be lost to idle equipment and rework",
+    source: "Industry studies — TODO: confirm citation",
+  },
+];
+
+/** How the system works, in three plain steps. */
+const HOW_IT_WORKS = [
+  {
+    n: "01",
+    name: "It sees",
+    body: "Rugged cameras and depth sensors on every machine give a 360° view of the people, equipment, and ground around it.",
+  },
+  {
+    n: "02",
+    name: "It understands",
+    body: "AI classifies workers, vehicles, and objects, measures how close they are, and maps activity across the whole site.",
+  },
+  {
+    n: "03",
+    name: "It acts",
+    body: "Operators get real-time alerts in the cab. Supervisors get clear dashboards and reports to review and improve.",
+  },
+];
+
+/** Safety + Productivity framed as outcomes of the one product. */
+const OUTCOME_CARDS = [
   {
     suite: SAFETY_SUITE,
     href: "/safety",
     blurb:
-      "Production-ready today. Real-time object detection, exclusion-zone proximity monitoring, PPE compliance, and in-cab driver alerts — with a supervisor dashboard for every event.",
+      "Detect people in blind spots, alert operators before contact, and keep an objective record of every event.",
   },
   {
     suite: PRODUCTIVITY_SUITE,
     href: "/productivity",
     blurb:
-      "Coming soon. Job-cost allocation, fleet utilization analytics, AI jobsite reports, activity heat maps, and ERP integrations — built on the same cameras.",
-  },
-];
-
-/** The platform layers both suites sit on. */
-const FOUNDATION = [
-  {
-    href: "/cameras",
-    name: "Cameras",
-    blurb: "Durable, IP-rated 360° depth-sensing cameras mounted right on the machine.",
-  },
-  {
-    href: "/dashboards",
-    name: "Dashboards",
-    blurb: "One place to review footage, events, and analytics by machine and map area.",
+      "Turn machine activity into job costs, utilization, and AI jobsite reports — so you can see where time and money go.",
   },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* HERO — with the conversion-path near-miss reel */}
+      {/* HERO — lead with AI perceptual intelligence */}
       <Section tone="light" spacing="lg" aria-labelledby="hero-heading">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="kicker">Heavy equipment safety cameras</p>
+            <p className="kicker">AI perceptual intelligence</p>
             <h1
               id="hero-heading"
               className="mt-4 text-4xl font-bold leading-[1.1] text-darker-grey sm:text-5xl"
             >
-              AI blind-spot cameras that prevent backovers on heavy equipment
+              Make sense of everything moving on your job site
             </h1>
             <p className="mt-5 max-w-xl text-lg text-dark-grey">
-              Dozer mounts depth-sensing cameras and sensors directly on
-              excavators, dozers, wheel loaders, and haul trucks. The{" "}
-              <span className="font-medium text-darker-grey">Safety Intelligence Suite</span>{" "}
-              is production-ready today — and the{" "}
-              <span className="font-medium text-darker-grey">Productivity &amp; Analytics Suite</span>{" "}
-              turns the same cameras into job-cost and fleet insight, arriving in 60–90 days.
+              Dozer puts AI-powered eyes on your heavy equipment. It sees the
+              people, machines, materials, and changing conditions across complex
+              sites — heavy civil, underground utilities, and more — and turns that
+              into a safer, more productive operation.
             </p>
 
-            {/* Conversion ladder: primary intro, secondary watch demo, tertiary pricing */}
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <CtaLink href="/demo" variant="primary" trackId="home_hero_intro">
                 Book a 15-min intro
               </CtaLink>
-              <CtaLink href="#near-miss" variant="secondary" trackId="home_hero_watch">
-                ▶ Watch a 90-sec demo
+              <CtaLink href="/product" variant="secondary" trackId="home_hero_product">
+                See how it works
               </CtaLink>
               <CtaLink href="/demo#pricing" variant="ghost" trackId="home_hero_pricing">
                 Get pricing
@@ -91,20 +141,20 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Near-miss reel — likely the highest-converting element */}
-          <div id="near-miss" className="scroll-mt-28">
+          {/* Live detection reel */}
+          <div className="scroll-mt-28">
             <div className="overflow-hidden rounded-md border border-medium-grey/30 bg-black shadow-sm">
               <SafeVideo
                 src={ASSETS.importantObjectsVideo}
-                label="Near-miss reel: a Dozer in-cab alert flags a worker in the blind spot before an incident."
-                trackId="home_near_miss"
+                label="Dozer AI detecting people, vehicles, and objects around heavy equipment in real time."
+                trackId="home_hero_reel"
                 ambient
                 className="aspect-video w-full object-cover"
               />
             </div>
             <p className="mt-3 text-center text-sm text-dark-grey">
-              Real computer-vision detection — this alert flags a high-risk object
-              in the blind spot before it becomes an incident.
+              Real perception in a messy scene — Dozer tells people apart from
+              equipment and flags a hazard before it becomes an incident.
             </p>
           </div>
         </div>
@@ -112,29 +162,113 @@ export default function HomePage() {
 
       <ProofBar />
 
-      {/* Platform: one platform, two suites */}
-      <Section tone="light" spacing="lg" aria-labelledby="platform-heading">
+      {/* What Dozer is / who it's for / what it drives */}
+      <Section tone="light" spacing="lg" aria-labelledby="clarity-heading">
         <div className="max-w-3xl">
-          <p className="kicker">The platform</p>
-          <h2 id="platform-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            One platform. Two suites.
+          <p className="kicker">What is Dozer?</p>
+          <h2 id="clarity-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
+            Perception for sites with a lot going on
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
-            Start with safety today and grow into productivity — all from the same
-            cameras on the same machines.
+            A busy job site is full of moving parts — people on foot, equipment
+            swinging and backing, materials, and conditions that change by the hour.
+            Dozer makes sense of it all so your team can act on what matters.
           </p>
         </div>
 
-        {/* Two suites */}
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {CLARITY.map((c) => (
+            <div key={c.label} className="rounded-md border border-medium-grey/30 bg-white p-6">
+              <p className="kicker">{c.label}</p>
+              <p className="mt-3 text-dark-grey">{c.body}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Environments */}
+        <div className="mt-8">
+          <p className="text-sm font-medium text-darker-grey">Built for environments like:</p>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {ENVIRONMENTS.map((e) => (
+              <li
+                key={e}
+                className="rounded-full border border-medium-grey/40 bg-white px-3 py-1 text-sm text-dark-grey"
+              >
+                {e}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      {/* Cost framing — why it matters */}
+      <Section tone="dark" spacing="lg" aria-labelledby="cost-heading">
+        <div className="max-w-3xl">
+          <p className="kicker">Why it matters</p>
+          <h2 id="cost-heading" className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+            The two most expensive things on a site: accidents and wasted time
+          </h2>
+        </div>
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          {COST_FRAMING.map((c) => (
+            <div key={c.label} className="rounded-md border border-white/15 bg-white/5 p-6">
+              <p className="text-3xl font-bold text-dozer-yellow">{c.stat}</p>
+              <p className="mt-2 text-dozer-white/90">{c.label}</p>
+              <p className="mt-3 text-xs text-dozer-white/50">{c.source}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-8 max-w-3xl text-dozer-white/80">
+          Dozer attacks both: it helps prevent the incident before it happens, and
+          it shows you where time and money quietly leak out of the day.
+        </p>
+      </Section>
+
+      {/* How it works — three plain steps */}
+      <Section tone="white" spacing="lg" aria-labelledby="how-heading">
+        <div className="max-w-3xl">
+          <p className="kicker">How it works</p>
+          <h2 id="how-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
+            It sees. It understands. It acts.
+          </h2>
+        </div>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {HOW_IT_WORKS.map((s) => (
+            <div key={s.n} className="rounded-md border border-medium-grey/30 bg-dozer-white p-6">
+              <span className="font-mono text-sm text-dozer-yellow">{s.n}</span>
+              <h3 className="mt-1 text-xl font-bold text-darker-grey">{s.name}</h3>
+              <p className="mt-2 text-dark-grey">{s.body}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8">
+          <CtaLink href="/product" variant="secondary" trackId="home_how_product">
+            See the full system →
+          </CtaLink>
+        </div>
+      </Section>
+
+      {/* Outcomes: Safety + Productivity as applications of the product */}
+      <Section tone="light" spacing="lg" aria-labelledby="outcomes-heading">
+        <div className="max-w-3xl">
+          <p className="kicker">What it delivers</p>
+          <h2 id="outcomes-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
+            Safer sites. More productive days.
+          </h2>
+          <p className="mt-4 text-lg text-dark-grey">
+            Safety and productivity aren&apos;t separate products — they&apos;re what
+            the same system delivers once it understands your site.
+          </p>
+        </div>
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          {SUITE_CARDS.map(({ suite, href, blurb }) => (
+          {OUTCOME_CARDS.map(({ suite, href, blurb }) => (
             <Link
               key={href}
               href={href}
               className="group flex flex-col rounded-md border border-medium-grey/30 bg-white p-7 transition-colors hover:border-dozer-yellow"
             >
               <div className="flex items-center justify-between gap-3">
-                <h3 className="text-2xl font-bold text-darker-grey">{suite.name}</h3>
+                <h3 className="text-2xl font-bold text-darker-grey">{suite.shortName}</h3>
                 <StatusBadge status={suite.status} timeline={suite.timeline} />
               </div>
               <p className="mt-3 text-dark-grey">{blurb}</p>
@@ -156,28 +290,7 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
-
-        {/* Foundation: cameras + dashboards */}
-        <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          {FOUNDATION.map((f) => (
-            <Link
-              key={f.href}
-              href={f.href}
-              className="group flex items-center justify-between gap-4 rounded-md border border-medium-grey/30 bg-dozer-white p-5 transition-colors hover:border-dozer-yellow"
-            >
-              <div>
-                <h3 className="font-medium text-darker-grey">{f.name}</h3>
-                <p className="mt-0.5 text-sm text-dark-grey">{f.blurb}</p>
-              </div>
-              <span className="shrink-0 text-dark-grey group-hover:text-darker-grey" aria-hidden="true">
-                →
-              </span>
-            </Link>
-          ))}
-        </div>
       </Section>
-
-      <OutcomesSection />
 
       <UseCaseGrid />
 

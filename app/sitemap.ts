@@ -4,10 +4,9 @@ import { INDUSTRIES } from "@/lib/industries";
 
 const routes = [
   { path: "/", priority: 1 },
-  { path: "/cameras", priority: 0.9 },
+  { path: "/product", priority: 0.9 },
   { path: "/safety", priority: 0.9 },
   { path: "/productivity", priority: 0.9 },
-  { path: "/dashboards", priority: 0.9 },
   { path: "/industries", priority: 0.8 },
   ...INDUSTRIES.map((i) => ({ path: `/industries/${i.slug}`, priority: 0.8 })),
   { path: "/demo", priority: 0.95 },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Section } from "@/components/Section";
 import { CtaLink } from "@/components/CtaLink";
 import { SuiteFeatures } from "@/components/SuiteFeatures";
@@ -25,7 +26,13 @@ export default function ProductivityPage() {
       {/* Hero */}
       <Section tone="light" spacing="lg" aria-labelledby="prod-heading">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="flex items-center justify-center gap-3">
+          <Link
+            href="/product"
+            className="text-sm font-medium text-dark-grey hover:text-darker-grey"
+          >
+            An application of Dozer AI →
+          </Link>
+          <div className="mt-3 flex items-center justify-center gap-3">
             <p className="kicker">Productivity &amp; Analytics Suite</p>
             <StatusBadge status={PRODUCTIVITY_SUITE.status} timeline={PRODUCTIVITY_SUITE.timeline} />
           </div>
