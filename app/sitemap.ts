@@ -8,6 +8,7 @@ const routes = [
   { path: "/industries", priority: 0.8 },
   ...INDUSTRIES.map((i) => ({ path: `/industries/${i.slug}`, priority: 0.8 })),
   { path: "/demo", priority: 0.95 },
+  { path: "/contact", priority: 0.6 },
   { path: "/privacy-policy", priority: 0.3 },
   { path: "/terms-of-service", priority: 0.3 },
 ];

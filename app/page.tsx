@@ -8,7 +8,6 @@ import { UseCaseGrid } from "@/components/UseCaseGrid";
 import { PricingBlock } from "@/components/PricingBlock";
 import { Testimonial } from "@/components/Testimonial";
 import { CtaBand } from "@/components/CtaBand";
-import { StatusBadge } from "@/components/StatusBadge";
 import { SuiteIcon } from "@/components/SuiteIcon";
 import { buildMetadata } from "@/lib/seo";
 import { ASSETS } from "@/lib/site";
@@ -261,12 +260,11 @@ export default function HomePage() {
               {/* Group label */}
               <div className="flex flex-wrap items-center gap-3 border-b border-medium-grey/30 pb-4">
                 <h3 className="text-xl font-bold text-darker-grey">{suite.shortName}</h3>
-                <StatusBadge status={suite.status} timeline={suite.timeline} />
                 <Link
                   href={href}
                   className="ml-auto text-sm font-medium text-dark-grey hover:text-darker-grey"
                 >
-                  {suite.status === "available" ? "Explore →" : "See what's coming →"}
+                  Explore →
                 </Link>
               </div>
 

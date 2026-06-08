@@ -18,6 +18,7 @@ export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Product", href: "/product" },
   { label: "Industries", href: "/industries" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const EXTERNAL = {
@@ -25,6 +26,15 @@ export const EXTERNAL = {
   login: "https://beta.app.dozer.ai",
   // TODO: replace with the real Calendly / Chili Piper booking link before launch.
   booking: "https://calendly.com/dozer-ai/intro", // PLACEHOLDER
+};
+
+/** Direct contact details. TODO: confirm real values before launch. */
+export const CONTACT = {
+  email: "hello@dozer.ai", // TODO: confirm address
+  sales: "sales@dozer.ai", // TODO: confirm address
+  phone: "+1 (555) 555-0100", // PLACEHOLDER — replace with real number
+  phoneHref: "tel:+15555550100", // PLACEHOLDER
+  responseTime: "within one business day",
 };
 
 /** Social profiles for the footer. TODO: replace "#" with real URLs before launch. */

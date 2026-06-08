@@ -61,6 +61,7 @@ Container `max-width: 1440px`; radii `0.25rem` / `0.5rem` / pill; line-height `1
 | `/industries` | [`app/industries/page.tsx`](app/industries/page.tsx) | Vertical funnel index (kept for SEO) |
 | `/industries/[slug]` | [`app/industries/[slug]/page.tsx`](app/industries/[slug]/page.tsx) | Per-vertical sales funnel (heavy-civil, aggregates, demolition, mining-landfill) — content in [`lib/industries.ts`](lib/industries.ts) |
 | `/demo` | [`app/demo/page.tsx`](app/demo/page.tsx) | Conversion page |
+| `/contact` | [`app/contact/page.tsx`](app/contact/page.tsx) | Contact — form ([`ContactForm`](components/ContactForm.tsx)) + contact methods + testimonial + calendar fallback |
 | `/privacy-policy` | [`app/privacy-policy/page.tsx`](app/privacy-policy/page.tsx) | Legal stub |
 | `/terms-of-service` | [`app/terms-of-service/page.tsx`](app/terms-of-service/page.tsx) | Legal stub |
 

@@ -14,6 +14,8 @@ export type AnalyticsEvent =
   | "cta_click"
   | "demo_form_start"
   | "demo_form_submit"
+  | "contact_form_start"
+  | "contact_form_submit"
   | "scroll_depth"
   | "video_play";
 

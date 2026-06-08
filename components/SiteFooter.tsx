@@ -121,6 +121,11 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/contact" className="text-dark-grey hover:text-darker-grey">
+                  Contact us
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy-policy" className="text-dark-grey hover:text-darker-grey">
                   Privacy Policy
                 </Link>

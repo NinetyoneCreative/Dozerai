@@ -2,23 +2,51 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NAV_LINKS, EXTERNAL, ASSETS } from "@/lib/site";
+import { INDUSTRIES } from "@/lib/industries";
 import { SafeImage } from "@/components/SafeImage";
 import { CtaLink } from "@/components/CtaLink";
 import { track } from "@/lib/analytics";
 
 /**
- * Shared sticky header. Nav structure matches the live site:
- * logo → Home · Cameras · Intelligence · Dashboards, plus Login (beta app)
- * and a primary "Request Demo" button.
+ * Shared sticky header.
+ * Nav: logo → Home · Product · Industries (dropdown) · Contact, plus Login
+ * (beta app) and a primary "Request Demo" button.
  */
 export function SiteHeader() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // mobile menu
+  const [industriesOpen, setIndustriesOpen] = useState(false); // desktop dropdown
+  const dropdownRef = useRef<HTMLLIElement>(null);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+  // Close menus on route change.
+  useEffect(() => {
+    setOpen(false);
+    setIndustriesOpen(false);
+  }, [pathname]);
+
+  // Close the desktop dropdown on outside click or Escape.
+  useEffect(() => {
+    if (!industriesOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIndustriesOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIndustriesOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [industriesOpen]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-medium-grey/30 bg-dozer-white/90 backdrop-blur supports-[backdrop-filter]:bg-dozer-white/75">
@@ -39,21 +67,78 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-7 md:flex">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={`text-sm transition-colors hover:text-darker-grey ${
-                  isActive(link.href)
-                    ? "font-medium text-darker-grey"
-                    : "text-dark-grey"
-                }`}
-                aria-current={isActive(link.href) ? "page" : undefined}
+          {NAV_LINKS.map((link) =>
+            link.href === "/industries" ? (
+              <li
+                key={link.href}
+                ref={dropdownRef}
+                className="relative"
+                onMouseEnter={() => setIndustriesOpen(true)}
+                onMouseLeave={() => setIndustriesOpen(false)}
               >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+                <button
+                  type="button"
+                  className={`flex items-center gap-1 text-sm transition-colors hover:text-darker-grey ${
+                    isActive(link.href) ? "font-medium text-darker-grey" : "text-dark-grey"
+                  }`}
+                  aria-haspopup="true"
+                  aria-expanded={industriesOpen}
+                  onClick={() => setIndustriesOpen((v) => !v)}
+                >
+                  {link.label}
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    className={`transition-transform ${industriesOpen ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  >
+                    <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+
+                {industriesOpen && (
+                  <div className="absolute left-0 top-full pt-2">
+                    <ul className="w-60 overflow-hidden rounded-md border border-medium-grey/30 bg-white py-1 shadow-lg">
+                      <li>
+                        <Link
+                          href="/industries"
+                          className="block px-4 py-2 text-sm font-medium text-darker-grey hover:bg-dozer-white"
+                        >
+                          All industries
+                        </Link>
+                      </li>
+                      <li aria-hidden="true">
+                        <hr className="my-1 border-medium-grey/20" />
+                      </li>
+                      {INDUSTRIES.map((ind) => (
+                        <li key={ind.slug}>
+                          <Link
+                            href={`/industries/${ind.slug}`}
+                            className="block px-4 py-2 text-sm text-dark-grey hover:bg-dozer-white hover:text-darker-grey"
+                          >
+                            {ind.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </li>
+            ) : (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`text-sm transition-colors hover:text-darker-grey ${
+                    isActive(link.href) ? "font-medium text-darker-grey" : "text-dark-grey"
+                  }`}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
 
         <div className="hidden items-center gap-4 md:flex">
@@ -92,17 +177,42 @@ export function SiteHeader() {
       {open && (
         <div id="mobile-menu" className="border-t border-medium-grey/30 bg-dozer-white md:hidden">
           <ul className="flex flex-col px-5 py-3">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block py-2 text-dark-grey hover:text-darker-grey"
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.href === "/industries" ? (
+                <li key={link.href}>
+                  <Link
+                    href="/industries"
+                    className="block py-2 font-medium text-dark-grey hover:text-darker-grey"
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                  <ul className="mb-1 ml-3 border-l border-medium-grey/30 pl-3">
+                    {INDUSTRIES.map((ind) => (
+                      <li key={ind.slug}>
+                        <Link
+                          href={`/industries/${ind.slug}`}
+                          className="block py-1.5 text-sm text-dark-grey hover:text-darker-grey"
+                          onClick={() => setOpen(false)}
+                        >
+                          {ind.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block py-2 text-dark-grey hover:text-darker-grey"
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
           <div className="flex flex-col gap-3 border-t border-medium-grey/30 px-5 py-4">
             <a
