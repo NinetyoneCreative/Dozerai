@@ -209,7 +209,7 @@ export default function HomePage() {
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
           {COST_FRAMING.map((c) => (
             <div key={c.label} className="rounded-md border border-white/15 bg-white/5 p-6">
-              <p className="text-3xl font-bold text-dozer-yellow">{c.stat}</p>
+              <p className="font-mono text-3xl font-bold text-dozer-yellow">{c.stat}</p>
               <p className="mt-2 text-dozer-white/90">{c.label}</p>
               <p className="mt-3 text-xs text-dozer-white/50">{c.source}</p>
             </div>
