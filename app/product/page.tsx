@@ -192,7 +192,7 @@ export default function ProductPage() {
       <Section id="safety" tone="light" spacing="lg" aria-labelledby="safety-heading">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="kicker">Safety · {SAFETY_SUITE.name}</p>
+            <p className="kicker">{SAFETY_SUITE.name}</p>
             <h2
               id="safety-heading"
               className="mt-4 text-3xl font-bold leading-tight text-darker-grey sm:text-4xl"
@@ -283,7 +283,7 @@ export default function ProductPage() {
       {/* ===================== PRODUCTIVITY ===================== */}
       <Section id="productivity" tone="white" spacing="lg" aria-labelledby="prod-heading">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="kicker">Productivity · {PRODUCTIVITY_SUITE.name}</p>
+          <p className="kicker">{PRODUCTIVITY_SUITE.name}</p>
           <h2
             id="prod-heading"
             className="mt-4 text-3xl font-bold leading-tight text-darker-grey sm:text-4xl"
