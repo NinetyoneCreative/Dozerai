@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
     default:
-      "Dozer.ai — AI Blind-Spot & Backup Cameras for Heavy Equipment",
+      "Dozer.ai: AI Blind-Spot & Backup Cameras for Heavy Equipment",
     template: "%s | Dozer.ai",
   },
   description: SITE.description,

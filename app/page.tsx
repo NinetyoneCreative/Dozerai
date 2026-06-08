@@ -33,7 +33,7 @@ const ENVIRONMENTS = [
 const CLARITY = [
   {
     label: "What it is",
-    body: "An AI perceptual intelligence system — cameras and sensors on your equipment, plus the AI that understands what they see.",
+    body: "An AI perceptual intelligence system, cameras and sensors on your equipment, plus the AI that understands what they see.",
   },
   {
     label: "Who it's for",
@@ -64,7 +64,7 @@ const COST_FRAMING = [
   },
   {
     stat: "35%",
-    label: "of a construction pro's time goes to non-optimal work — rework, conflicts, and chasing information",
+    label: "of a construction pro's time goes to non-optimal work, rework, conflicts, and chasing information",
     source: "Source: PlanGrid & FMI, Construction Disconnected (2018)",
   },
 ];
@@ -100,7 +100,7 @@ const OUTCOME_GROUPS = [
 export default function HomePage() {
   return (
     <>
-      {/* HERO — lead with AI perceptual intelligence */}
+      {/* HERO, lead with AI perceptual intelligence */}
       <Section tone="light" spacing="lg" aria-labelledby="hero-heading">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
@@ -114,7 +114,7 @@ export default function HomePage() {
             <p className="mt-5 max-w-xl text-lg text-dark-grey">
               Dozer puts AI-powered eyes on your heavy equipment. It sees the
               people, machines, materials, and changing conditions across complex
-              sites — heavy civil, underground utilities, and more — and turns that
+              sites like heavy civil and underground utilities, and turns that
               into a safer, more productive operation.
             </p>
 
@@ -146,7 +146,7 @@ export default function HomePage() {
               />
             </div>
             <p className="mt-3 text-center text-sm text-dark-grey">
-              Real perception in a messy scene — Dozer tells people apart from
+              Real perception in a messy scene, Dozer tells people apart from
               equipment and flags a hazard before it becomes an incident.
             </p>
           </div>
@@ -163,7 +163,7 @@ export default function HomePage() {
             Perception for sites with a lot going on
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
-            A busy job site is full of moving parts — people on foot, equipment
+            A busy job site is full of moving parts, people on foot, equipment
             swinging and backing, materials, and conditions that change by the hour.
             Dozer makes sense of it all so your team can act on what matters.
           </p>
@@ -172,7 +172,7 @@ export default function HomePage() {
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {CLARITY.map((c) => (
             <div key={c.label} className="rounded-md border border-medium-grey/30 bg-white p-6">
-              {/* Plain label here — intentionally NOT the highlighted .kicker style */}
+              {/* Plain label here, intentionally NOT the highlighted .kicker style */}
               <p className="font-mono text-[0.78rem] uppercase tracking-[0.18em] text-dozer-yellow">
                 {c.label}
               </p>
@@ -197,7 +197,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Cost framing — why it matters */}
+      {/* Cost framing, why it matters */}
       <Section tone="dark" spacing="lg" aria-labelledby="cost-heading">
         <div className="max-w-3xl">
           <p className="kicker">Why it matters</p>
@@ -220,7 +220,7 @@ export default function HomePage() {
         </p>
       </Section>
 
-      {/* How it works — three plain steps */}
+      {/* How it works, three plain steps */}
       <Section tone="white" spacing="lg" aria-labelledby="how-heading">
         <div className="max-w-3xl">
           <p className="kicker">How it works</p>
@@ -244,7 +244,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* What it delivers — modules grouped by Safety / Productivity */}
+      {/* What it delivers, modules grouped by Safety / Productivity */}
       <Section tone="light" spacing="lg" aria-labelledby="outcomes-heading">
         <div className="max-w-3xl">
           <p className="kicker">What it delivers</p>
@@ -252,7 +252,7 @@ export default function HomePage() {
             Safer sites. More productive days.
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
-            Safety and productivity aren&apos;t separate products — they&apos;re the
+            Safety and productivity aren&apos;t separate products, they&apos;re the
             modules the same system delivers once it understands your site.
           </p>
         </div>
@@ -271,7 +271,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              {/* Module cards — one per feature category */}
+              {/* Module cards, one per feature category */}
               <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {suite.categories.map((cat) => (
                   <li key={cat.key}>

@@ -76,7 +76,7 @@ export function ContactForm() {
             <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <h3 className="mt-4 text-xl font-bold text-darker-grey">Thanks — message received</h3>
+        <h3 className="mt-4 text-xl font-bold text-darker-grey">Thanks, message received</h3>
         <p className="mt-2 text-dark-grey">
           We&apos;ll get back to you within one business day. If it&apos;s urgent,
           use the phone or calendar link on the left.

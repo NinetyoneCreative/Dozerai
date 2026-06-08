@@ -1,9 +1,7 @@
 /**
- * Product-suite content model — the single source of truth for the two
- * Dozer.ai suites, mirrored from the product roadmap:
- *
- *   - Safety Intelligence Suite      — Available now (production-ready)
- *   - Productivity & Analytics Suite — Coming soon (60–90 days)
+ * Product-suite content model: the single source of truth for the two
+ * Dozer.ai suites, mirrored from the product roadmap (Safety Intelligence
+ * Suite and Productivity & Analytics Suite).
  *
  * Drives the Safety + Productivity sections on /product and the home
  * "what it delivers" module grid.
@@ -41,8 +39,6 @@ export interface Suite {
   name: string;
   shortName: string;
   status: SuiteStatus;
-  /** GA timeline for coming-soon suites. */
-  timeline?: string;
   /** SEO title (keyword-led). */
   title: string;
   metaDescription: string;
@@ -57,7 +53,7 @@ export const SAFETY_SUITE: Suite = {
   name: "Safety Intelligence Suite",
   shortName: "Safety Intelligence",
   status: "available",
-  title: "Safety Intelligence Suite — AI Blind-Spot & Proximity Detection",
+  title: "Safety Intelligence Suite, AI Blind-Spot & Proximity Detection",
   metaDescription:
     "Dozer.ai Safety Intelligence Suite: production-ready AI object detection, exclusion-zone proximity monitoring, PPE compliance, and in-cab driver alerts for heavy equipment.",
   heroKicker: "Safety Intelligence Suite · Available now",
@@ -107,14 +103,13 @@ export const PRODUCTIVITY_SUITE: Suite = {
   name: "Productivity & Analytics Suite",
   shortName: "Productivity & Analytics",
   status: "coming-soon",
-  timeline: "60–90 days",
-  title: "Productivity & Analytics Suite — Heavy Equipment Fleet Analytics",
+  title: "Productivity & Analytics Suite, Heavy Equipment Fleet Analytics",
   metaDescription:
-    "Coming soon: the Dozer.ai Productivity & Analytics Suite turns machine activity into job-cost allocation, utilization analytics, AI jobsite reports, heat maps, and ERP integrations.",
-  heroKicker: "Productivity & Analytics Suite · Coming soon",
+    "The Dozer.ai Productivity & Analytics Suite turns machine activity into job-cost allocation, utilization analytics, AI jobsite reports, heat maps, and ERP integrations.",
+  heroKicker: "Productivity & Analytics Suite",
   heroHeadline: "Turn machine activity into job costs, utilization, and insight",
   heroSub:
-    "Under active development and targeted for general availability within 60–90 days. The same cameras already improving safety will soon measure how — and how efficiently — work gets done.",
+    "Built on the same cameras already improving safety, the Productivity & Analytics Suite turns machine activity into a clear picture of how, and how efficiently, work gets done.",
   categories: [
     {
       key: "job-cost",

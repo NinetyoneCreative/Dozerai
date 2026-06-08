@@ -11,10 +11,10 @@ import { ASSETS } from "@/lib/site";
 import { SAFETY_SUITE, PRODUCTIVITY_SUITE } from "@/lib/suites";
 
 const DESCRIPTION =
-  "Dozer is one AI system that puts eyes on your job site: rugged cameras and sensors on your equipment, real-time perception of people and conditions, and clear insights and alerts your team can act on — for both safety and productivity.";
+  "Dozer is one AI system that puts eyes on your job site: rugged cameras and sensors on your equipment, real-time perception of people and conditions, and clear insights and alerts your team can act on, for both safety and productivity.";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Product — How Dozer's AI Job Site System Works",
+  title: "Product, How Dozer's AI Job Site System Works",
   description: DESCRIPTION,
   path: "/product",
 });
@@ -24,17 +24,17 @@ const STAGES = [
   {
     n: "01",
     name: "Eyes on site",
-    body: "Rugged, IP-rated cameras and depth sensors mount directly on your excavators, dozers, loaders, and haul trucks — giving every machine a 360° view of the people, equipment, and ground around it.",
+    body: "Rugged, IP-rated cameras and depth sensors mount directly on your excavators, dozers, loaders, and haul trucks, giving every machine a 360° view of the people, equipment, and ground around it.",
   },
   {
     n: "02",
     name: "Data capture",
-    body: "Each machine continuously captures video, depth and point-cloud measurements, GPS location, and machine state — a complete, time-stamped record of what happened, where, and when.",
+    body: "Each machine continuously captures video, depth and point-cloud measurements, GPS location, and machine state, a complete, time-stamped record of what happened, where, and when.",
   },
   {
     n: "03",
     name: "Data pipeline",
-    body: "That data moves off the machine through a pipeline built for the field — processed at the edge for instant alerts and synced to the cloud for site-wide analysis.",
+    body: "That data moves off the machine through a pipeline built for the field, processed at the edge for instant alerts and synced to the cloud for site-wide analysis.",
   },
   {
     n: "04",
@@ -44,7 +44,7 @@ const STAGES = [
   {
     n: "05",
     name: "Insights & actions",
-    body: "The result reaches the people who need it — real-time alerts in the cab, and clear dashboards and reports for supervisors to review events, productivity, and disputes.",
+    body: "The result reaches the people who need it, real-time alerts in the cab, and clear dashboards and reports for supervisors to review events, productivity, and disputes.",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function ProductPage() {
             <p className="mt-5 max-w-xl text-lg text-dark-grey">
               Dozer is a single, end-to-end system: cameras and sensors on your
               equipment, an AI that understands what they see, and clear insights
-              your team can act on — for a safer, more productive site.
+              your team can act on, for a safer, more productive site.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <CtaLink href="/demo" variant="primary" trackId="product_hero_intro">
@@ -99,12 +99,12 @@ export default function ProductPage() {
         </div>
       </Section>
 
-      {/* How it works — the five stages */}
+      {/* How it works, the five stages */}
       <Section id="how-it-works" tone="white" spacing="lg" aria-labelledby="how-heading">
         <div className="max-w-3xl">
           <p className="kicker">How it works</p>
           <h2 id="how-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            From the machine to a decision — one connected system
+            From the machine to a decision, one connected system
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
             Every part of Dozer works together, so raw footage becomes something
@@ -140,7 +140,7 @@ export default function ProductPage() {
           <FeatureRow
             kicker="Eyes on site"
             title="Cameras and sensors built for the jobsite"
-            body="Durable, IP-rated cameras with a 360° spherical field of view and stereoscopic depth sensing — mounted right on the machine and built to survive harsh conditions."
+            body="Durable, IP-rated cameras with a 360° spherical field of view and stereoscopic depth sensing, mounted right on the machine and built to survive harsh conditions."
             points={[
               "360° view of the cabin, attachment, and everything around the machine",
               "Stereoscopic depth sensing for centimeter-accurate proximity",
@@ -157,7 +157,7 @@ export default function ProductPage() {
             reverse
             kicker="Insights & actions"
             title="Alerts in the cab. Answers on the dashboard."
-            body="Operators get real-time warnings the moment a hazard appears. Supervisors get a single dashboard to review footage, events, productivity, and disputes — by machine and by map area."
+            body="Operators get real-time warnings the moment a hazard appears. Supervisors get a single dashboard to review footage, events, productivity, and disputes, by machine and by map area."
             points={[
               "In-cab alerts for hazards, proximity, and zone violations",
               "Review events and footage by machine or location",
@@ -180,10 +180,9 @@ export default function ProductPage() {
             One product, two applications
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
-            Safety and productivity aren&apos;t separate products — they&apos;re what
-            the same system delivers once it understands your site. Safety is
-            production-ready today; productivity analytics arrive in{" "}
-            {PRODUCTIVITY_SUITE.timeline}.
+            Safety and productivity aren&apos;t separate products, they&apos;re what
+            the same system delivers once it understands your site, all from the
+            same cameras on the same machines.
           </p>
         </div>
       </Section>
@@ -230,7 +229,7 @@ export default function ProductPage() {
           <FeatureRow
             kicker="Object detection"
             title="Important objects in a chaotic environment"
-            body="Computer vision classifies personnel, vehicles, and objects around the machine in real time — so the system knows the difference between a dirt pile and a person."
+            body="Computer vision classifies personnel, vehicles, and objects around the machine in real time, so the system knows the difference between a dirt pile and a person."
             points={[
               "Real-time detection of workers, equipment, and vehicles",
               "Exclusion-zone proximity monitoring around heavy equipment",
@@ -264,7 +263,7 @@ export default function ProductPage() {
 
           <FeatureRow
             kicker="Driver alerts"
-            title="In-cab alerts now — supervisor review after"
+            title="In-cab alerts now, supervisor review after"
             body="Operators get real-time audio and visual warnings for hazards, fatigue signals, and zone violations. Every flagged event is recorded, clipped, and saved to the safety event dashboard for review."
             points={[
               "In-cab audio + visual warnings the instant a hazard appears",
@@ -294,8 +293,7 @@ export default function ProductPage() {
             {PRODUCTIVITY_SUITE.heroSub}
           </p>
           <p className="mt-4 text-sm text-medium-grey">
-            Same cameras you can deploy today — new insight arriving in{" "}
-            {PRODUCTIVITY_SUITE.timeline}.
+            Built on the same Dozer cameras you can deploy today.
           </p>
         </div>
 
@@ -305,7 +303,7 @@ export default function ProductPage() {
             {
               n: "01",
               t: "Already on the machine",
-              d: "Runs on the same Dozer cameras deploying for safety today — no new hardware.",
+              d: "Runs on the same Dozer cameras deploying for safety today, with no new hardware.",
             },
             {
               n: "02",
@@ -315,7 +313,7 @@ export default function ProductPage() {
             {
               n: "03",
               t: "Data becomes decisions",
-              d: "Job costs, utilization, AI reports, and heat maps — exported to the tools you already run.",
+              d: "Job costs, utilization, AI reports, and heat maps, exported to the tools you already run.",
             },
           ].map((s) => (
             <div key={s.n} className="rounded-md border border-medium-grey/30 bg-dozer-white p-5">
@@ -332,8 +330,8 @@ export default function ProductPage() {
 
       <CtaBand
         location="product"
-        heading="See it on your own machine — book a 15-min intro"
-        subheading="Start with safety today and get early access to productivity analytics as they roll out over the next 60–90 days."
+        heading="See it on your own machine, book a 15-min intro"
+        subheading="Start with safety today and grow into productivity analytics on the same cameras."
       />
     </>
   );

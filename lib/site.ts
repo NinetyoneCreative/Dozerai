@@ -17,6 +17,8 @@ export const SITE = {
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Product", href: "/product" },
+  { label: "Safety", href: "/product#safety" },
+  { label: "Productivity", href: "/product#productivity" },
   { label: "Industries", href: "/industries" },
   { label: "Contact", href: "/contact" },
 ] as const;
@@ -32,7 +34,7 @@ export const EXTERNAL = {
 export const CONTACT = {
   email: "hello@dozer.ai", // TODO: confirm address
   sales: "sales@dozer.ai", // TODO: confirm address
-  phone: "+1 (555) 555-0100", // PLACEHOLDER — replace with real number
+  phone: "+1 (555) 555-0100", // PLACEHOLDER, replace with real number
   phoneHref: "tel:+15555550100", // PLACEHOLDER
   responseTime: "within one business day",
 };

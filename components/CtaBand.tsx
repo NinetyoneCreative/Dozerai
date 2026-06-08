@@ -14,7 +14,7 @@ interface CtaBandProps {
  */
 export function CtaBand({
   location,
-  heading = "See a near-miss caught on camera — book a 15-min intro",
+  heading = "See a near-miss caught on camera, book a 15-min intro",
   subheading = "A 15-minute call, no obligation. We'll assess fit and show live footage from machines in the field.",
 }: CtaBandProps) {
   return (

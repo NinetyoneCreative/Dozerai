@@ -1,12 +1,12 @@
 interface TestimonialProps {
-  /** Visual tone — match the surrounding section. */
+  /** Visual tone, match the surrounding section. */
   tone?: "light" | "dark";
   compact?: boolean;
 }
 
 /**
  * Single testimonial block. The quote and attribution are PLACEHOLDER and are
- * visibly marked as such — do not present them as a real customer quote.
+ * visibly marked as such, do not present them as a real customer quote.
  * Replace with an approved customer testimonial before launch.
  */
 export function Testimonial({ tone = "light", compact = false }: TestimonialProps) {
@@ -31,14 +31,14 @@ export function Testimonial({ tone = "light", compact = false }: TestimonialProp
           dark ? "text-white" : "text-darker-grey"
         }`}
       >
-        &ldquo;We caught a backover-in-the-making the first week — the operator
+        &ldquo;We caught a backover-in-the-making the first week, the operator
         got the in-cab alert and stopped. That alone paid for the system.&rdquo;
       </blockquote>
       <figcaption
         className={`mt-5 text-sm ${dark ? "text-dozer-white/70" : "text-dark-grey"}`}
       >
-        {/* PLACEHOLDER — replace with a real, approved customer + title */}
-        <span className="font-medium">[Name, Title]</span> — [Company]
+        {/* PLACEHOLDER, replace with a real, approved customer + title */}
+        <span className="font-medium">[Name, Title]</span>, [Company]
         <span className="ml-2 italic text-medium-grey">(placeholder)</span>
       </figcaption>
     </figure>

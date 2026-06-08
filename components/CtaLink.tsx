@@ -10,9 +10,9 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium transition-colors duration-150 focus-visible:outline-3 disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  // Primary brand CTA — dozer-yellow on dark text
+  // Primary brand CTA, dozer-yellow on dark text
   primary: "bg-dozer-yellow text-black hover:bg-[rgb(230_154_12)]",
-  // Secondary — outlined, for "watch a demo"
+  // Secondary, outlined, for "watch a demo"
   secondary:
     "border border-medium-grey/70 text-darker-grey hover:border-darker-grey hover:bg-white",
   // Tertiary text link with underline affordance
@@ -33,7 +33,7 @@ interface CtaLinkProps {
 
 /**
  * Conversion CTA. Every CTA on the site routes through this so clicks are
- * tracked consistently (cta_click) — that's what makes lift measurable.
+ * tracked consistently (cta_click), that's what makes lift measurable.
  */
 export function CtaLink({
   href,

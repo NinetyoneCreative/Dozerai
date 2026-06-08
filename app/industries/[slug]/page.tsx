@@ -38,7 +38,7 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
         path={`/industries/${industry.slug}`}
       />
 
-      {/* HERO — pain-led, with the near-miss reel on the conversion path */}
+      {/* HERO, pain-led, with the near-miss reel on the conversion path */}
       <Section tone="light" spacing="lg" aria-labelledby="ind-heading">
         <p className="mb-6">
           <Link href="/industries" className="text-sm text-dark-grey hover:text-darker-grey">
@@ -100,14 +100,14 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
               />
             </div>
             <p className="mt-3 text-center text-sm text-dark-grey">
-              Real computer-vision detection — an alert flags the hazard before it
+              Real computer-vision detection, an alert flags the hazard before it
               becomes an incident.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* PAIN — "sound familiar?" */}
+      {/* PAIN, "sound familiar?" */}
       <Section tone="white" spacing="lg" aria-labelledby="pain-heading">
         <div className="max-w-3xl">
           <p className="kicker">The reality on site</p>
@@ -128,7 +128,7 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
         </div>
       </Section>
 
-      {/* SOLUTION — how Dozer fits */}
+      {/* SOLUTION, how Dozer fits */}
       <Section id="how" tone="light" spacing="lg" aria-labelledby="how-heading">
         <div className="max-w-3xl">
           <p className="kicker">How Dozer fits</p>
@@ -136,7 +136,7 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
             One system, tuned to your environment
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
-            The same cameras, safety intelligence, and dashboards — pointed at
+            The same cameras, safety intelligence, and dashboards, pointed at
             the hazards that actually matter on a {industry.name.toLowerCase()} site.
           </p>
         </div>

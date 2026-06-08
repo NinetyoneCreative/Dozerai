@@ -2,7 +2,7 @@ import { Section } from "@/components/Section";
 import { CtaLink } from "@/components/CtaLink";
 
 /**
- * The "Innovation Club" offer — a low-commitment founding-member pilot that
+ * The "Innovation Club" offer, a low-commitment founding-member pilot that
  * replaces the old per-unit pricing framing. Lives at #pricing (linked from
  * CTAs across the site). Three pillars: 45-day pilot, one-time low-cost fee,
  * one machine.
@@ -10,7 +10,7 @@ import { CtaLink } from "@/components/CtaLink";
 const OFFER = [
   {
     title: "45-day pilot",
-    desc: "A full six weeks on your equipment, on your jobsite — long enough to capture real safety events, not a staged demo.",
+    desc: "A full six weeks on your equipment, on your jobsite, long enough to capture real safety events, not a staged demo.",
   },
   {
     title: "One-time, low-cost fee",
@@ -34,7 +34,7 @@ export function PricingBlock() {
           <p className="mt-4 text-lg text-dark-grey">
             We&apos;re onboarding a small group of forward-thinking contractors as
             founding members. Put Dozer on one machine, see real footage from your
-            own jobsite, and help shape what ships next — including early access to
+            own jobsite, and help shape what ships next, including early access to
             the Productivity &amp; Analytics Suite.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -72,7 +72,7 @@ export function PricingBlock() {
             ))}
           </ul>
           <p className="mt-6 border-t border-medium-grey/30 pt-5 text-sm text-dark-grey">
-            One machine, 45 days, real footage — for one low fee. Founding-member
+            One machine, 45 days, real footage, for one low fee. Founding-member
             spots are limited.
           </p>
         </div>

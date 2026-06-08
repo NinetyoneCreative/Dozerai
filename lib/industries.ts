@@ -8,7 +8,7 @@ import { ASSETS } from "@/lib/site";
  *
  * Copy reuses Dozer's REAL capabilities (360° vision, proximity detection,
  * in-cab alerts, object classification, GPS-tagged footage, dashboards) and
- * frames the context/pain for each vertical — no invented features.
+ * frames the context/pain for each vertical, no invented features.
  */
 
 export interface Industry {
@@ -23,9 +23,9 @@ export interface Industry {
   heroSub: string;
   /** Machines common to this vertical (shown as chips). */
   equipment: string[];
-  /** "Sound familiar?" — the specific hazards/costs of this environment. */
+  /** "Sound familiar?", the specific hazards/costs of this environment. */
   pains: { title: string; body: string }[];
-  /** How Dozer fits — real features mapped to this environment. */
+  /** How Dozer fits, real features mapped to this environment. */
   solutions: { title: string; body: string }[];
   /** Outcome bullets framed for this buyer. */
   outcomes: string[];
@@ -39,9 +39,9 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "heavy-civil",
     name: "Heavy Civil",
-    title: "Heavy Civil Safety Cameras — Excavator & Dozer Blind-Spot Detection",
+    title: "Heavy Civil Safety Cameras, Excavator & Dozer Blind-Spot Detection",
     metaDescription:
-      "Dozer.ai blind-spot cameras for heavy-civil contractors: protect grade crews on foot, prevent excavator and dozer backovers, and document utility strikes — on every machine on site.",
+      "Dozer.ai blind-spot cameras for heavy-civil contractors: protect grade crews on foot, prevent excavator and dozer backovers, and document utility strikes, on every machine on site.",
     heroKicker: "For heavy-civil contractors",
     heroHeadline: "Keep your ground crews out from under the iron",
     heroSub:
@@ -50,21 +50,21 @@ export const INDUSTRIES: Industry[] = [
     pains: [
       {
         title: "People on foot, machines in motion",
-        body: "Grade checkers and pipe crews are in the work zone all day, exactly where operators can't see them — behind the counterweight, beside the blade, in the swing radius.",
+        body: "Grade checkers and pipe crews are in the work zone all day, exactly where operators can't see them, behind the counterweight, beside the blade, in the swing radius.",
       },
       {
         title: "New operators, every phase",
-        body: "Subs rotate on and off the job. A new operator doesn't know the site, the crew, or where the utilities run — and that's when incidents happen.",
+        body: "Subs rotate on and off the job. A new operator doesn't know the site, the crew, or where the utilities run, and that's when incidents happen.",
       },
       {
         title: "Disputes you can't prove",
-        body: "Rework claims, damaged utilities, 'who hit what' — without footage it's your word against the sub's, and it costs you either way.",
+        body: "Rework claims, damaged utilities, 'who hit what', without footage it's your word against the sub's, and it costs you either way.",
       },
     ],
     solutions: [
       {
         title: "In-cab alerts before a backover",
-        body: "Computer vision classifies people vs. equipment and warns the operator in real time when a worker is in the danger zone — not after.",
+        body: "Computer vision classifies people vs. equipment and warns the operator in real time when a worker is in the danger zone, not after.",
       },
       {
         title: "360° GPS-tagged record",
@@ -72,7 +72,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Mark utilities on the map",
-        body: "Flag overhead lines and buried utilities so operators get warned in-cab as they approach — even the ones who've never been on this site.",
+        body: "Flag overhead lines and buried utilities so operators get warned in-cab as they approach, even the ones who've never been on this site.",
       },
     ],
     outcomes: [
@@ -82,12 +82,12 @@ export const INDUSTRIES: Industry[] = [
       "Lower your EMR and insurance exposure with proof your controls work",
     ],
     heroVideo: ASSETS.importantObjectsVideo,
-    ctaHeadline: "See Dozer catch a near-miss on a grading site — book a 15-min intro",
+    ctaHeadline: "See Dozer catch a near-miss on a grading site, book a 15-min intro",
   },
   {
     slug: "aggregates",
     name: "Aggregates",
-    title: "Aggregate & Quarry Safety Cameras — Haul Truck & Loader Proximity",
+    title: "Aggregate & Quarry Safety Cameras, Haul Truck & Loader Proximity",
     metaDescription:
       "Dozer.ai proximity detection for quarries and pits: protect spotters and light vehicles around haul trucks and wheel loaders, cut collisions at pinch points, and keep production moving.",
     heroKicker: "For quarries, pits & aggregate producers",
@@ -98,7 +98,7 @@ export const INDUSTRIES: Industry[] = [
     pains: [
       {
         title: "Pinch points everywhere",
-        body: "Load-and-carry cycles put loaders and trucks nose-to-tail at the face, the stockpile, and the crusher — the exact spots where a light vehicle or person disappears from view.",
+        body: "Load-and-carry cycles put loaders and trucks nose-to-tail at the face, the stockpile, and the crusher, the exact spots where a light vehicle or person disappears from view.",
       },
       {
         title: "Dust kills visibility",
@@ -112,7 +112,7 @@ export const INDUSTRIES: Industry[] = [
     solutions: [
       {
         title: "Proximity alerts at centimeter accuracy",
-        body: "Point-cloud measurement assesses distance in real time and warns the operator as a vehicle or person enters the danger zone — through the dust.",
+        body: "Point-cloud measurement assesses distance in real time and warns the operator as a vehicle or person enters the danger zone, through the dust.",
       },
       {
         title: "360° coverage on the big iron",
@@ -120,7 +120,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Track productivity, not just safety",
-        body: "GPS-tagged footage and the fleet dashboard show cycle times and where work happened — turning the safety system into an operations tool.",
+        body: "GPS-tagged footage and the fleet dashboard show cycle times and where work happened, turning the safety system into an operations tool.",
       },
     ],
     outcomes: [
@@ -130,16 +130,16 @@ export const INDUSTRIES: Industry[] = [
       "Use footage to coach operators and optimize cycle times",
     ],
     heroVideo: ASSETS.proximityVideo,
-    ctaHeadline: "Stop a pinch-point collision before it costs a shift — book a 15-min intro",
+    ctaHeadline: "Stop a pinch-point collision before it costs a shift, book a 15-min intro",
   },
   {
     slug: "demolition",
     name: "Demolition",
-    title: "Demolition Safety Cameras — High-Reach Excavator Blind-Spot Detection",
+    title: "Demolition Safety Cameras, High-Reach Excavator Blind-Spot Detection",
     metaDescription:
       "Dozer.ai cameras for demolition contractors: monitor exclusion zones, protect spotters and ground crews around high-reach excavators, and document every event in a high-hazard teardown.",
     heroKicker: "For demolition contractors",
-    heroHeadline: "Hold the exclusion zone — even when nobody's watching it",
+    heroHeadline: "Hold the exclusion zone, even when nobody's watching it",
     heroSub:
       "Teardown is the highest-hazard work there is: falling debris, shifting structures, and crews moving in and out of the drop zone. Dozer puts a second set of eyes on every machine and alerts the operator when someone enters the danger area.",
     equipment: ["High-reach excavators", "Standard excavators", "Skid steers", "Wheel loaders"],
@@ -150,11 +150,11 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Operators can't see the ground",
-        body: "From the cab of a high-reach machine focused on the attachment, the crew below and behind is out of sight — and out of mind under production pressure.",
+        body: "From the cab of a high-reach machine focused on the attachment, the crew below and behind is out of sight, and out of mind under production pressure.",
       },
       {
         title: "Incidents you have to defend",
-        body: "When something goes wrong on a demo site, you need an objective record of what happened — for OSHA, for insurance, and for your own people.",
+        body: "When something goes wrong on a demo site, you need an objective record of what happened, for OSHA, for insurance, and for your own people.",
       },
     ],
     solutions: [
@@ -164,7 +164,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "360° awareness around the machine",
-        body: "Spherical vision covers the full perimeter — the blind spots behind and beside a high-reach excavator that a spotter alone can't hold.",
+        body: "Spherical vision covers the full perimeter, the blind spots behind and beside a high-reach excavator that a spotter alone can't hold.",
       },
       {
         title: "Recorded, GPS-tagged events",
@@ -178,12 +178,12 @@ export const INDUSTRIES: Industry[] = [
       "Review near-misses to retrain crews before the next job",
     ],
     heroVideo: ASSETS.importantObjectsVideo,
-    ctaHeadline: "Put a second set of eyes on every demo machine — book a 15-min intro",
+    ctaHeadline: "Put a second set of eyes on every demo machine, book a 15-min intro",
   },
   {
     slug: "mining-landfill",
     name: "Mining / Landfill",
-    title: "Mining & Landfill Safety Cameras — Haul Truck Collision Avoidance",
+    title: "Mining & Landfill Safety Cameras, Haul Truck Collision Avoidance",
     metaDescription:
       "Dozer.ai collision avoidance for mining and landfill fleets: protect light vehicles and people around haul trucks and dozers, monitor edge and berm proximity, and run safer around the clock.",
     heroKicker: "For mining & landfill operations",
@@ -208,7 +208,7 @@ export const INDUSTRIES: Industry[] = [
     solutions: [
       {
         title: "Collision-avoidance proximity alerts",
-        body: "Centimeter-accurate proximity detection warns operators in real time when a light vehicle or person enters the danger zone — day or night.",
+        body: "Centimeter-accurate proximity detection warns operators in real time when a light vehicle or person enters the danger zone, day or night.",
       },
       {
         title: "360° vision on every machine",
@@ -216,7 +216,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Fleet-wide dashboard & documentation",
-        body: "Review safety events, footage, and proximity data by machine and map area across the whole site — the record you need for compliance reviews.",
+        body: "Review safety events, footage, and proximity data by machine and map area across the whole site, the record you need for compliance reviews.",
       },
     ],
     outcomes: [
@@ -226,7 +226,7 @@ export const INDUSTRIES: Industry[] = [
       "Document controls and events for regulatory and insurance review",
     ],
     heroVideo: ASSETS.proximityVideo,
-    ctaHeadline: "Protect light vehicles around your fleet — book a 15-min intro",
+    ctaHeadline: "Protect light vehicles around your fleet, book a 15-min intro",
   },
 ];
 

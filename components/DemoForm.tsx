@@ -12,16 +12,16 @@ interface FieldErrors {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// Free inboxes — we ask for a work email to qualify.
+// Free inboxes, we ask for a work email to qualify.
 const FREE_DOMAINS = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com", "aol.com"];
 
 /**
  * Lean demo form: 3 required (work email, full name, company) + 2 optional
- * (fleet size, phone) — down from the live site's 7 fields. Client-side
+ * (fleet size, phone), down from the live site's 7 fields. Client-side
  * validation + a real success state.
  *
  * TODO before launch: wire handleSubmit to the CRM / scheduler. The fetch to
- * /api/demo below is a placeholder — point it at HubSpot/Salesforce/Chili Piper
+ * /api/demo below is a placeholder, point it at HubSpot/Salesforce/Chili Piper
  * (or post directly to a form endpoint) and remove the simulated success.
  */
 export function DemoForm() {
@@ -91,7 +91,7 @@ export function DemoForm() {
         </div>
         <h3 className="mt-4 text-xl font-bold text-darker-grey">You&apos;re all set</h3>
         <p className="mt-2 text-dark-grey">
-          Thanks — we got your request. A Dozer specialist will reach out within
+          Thanks, we got your request. A Dozer specialist will reach out within
           one business day to book your 15-minute intro and show live footage.
         </p>
         <p className="mt-4 text-sm text-medium-grey">

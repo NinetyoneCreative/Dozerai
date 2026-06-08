@@ -7,13 +7,13 @@ import { buildMetadata } from "@/lib/seo";
 import { CONTACT, EXTERNAL } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact Dozer AI — Talk to Our Team",
+  title: "Contact Dozer AI, Talk to Our Team",
   description:
-    "Get in touch with Dozer AI. Ask about blind-spot detection and proximity safety for heavy equipment, request pricing, or book a 15-minute intro — we reply within one business day.",
+    "Get in touch with Dozer AI. Ask about blind-spot detection and proximity safety for heavy equipment, request pricing, or book a 15-minute intro, we reply within one business day.",
   path: "/contact",
 });
 
-/** Reasons people reach out — helps route the conversation. */
+/** Reasons people reach out, helps route the conversation. */
 const REASONS = [
   {
     title: "See it on your equipment",
@@ -21,11 +21,11 @@ const REASONS = [
   },
   {
     title: "Get pricing",
-    body: "Ask about the Innovation Club pilot — one machine, 45 days, one low fee.",
+    body: "Ask about the Innovation Club pilot, one machine, 45 days, one low fee.",
   },
   {
     title: "Partnerships & press",
-    body: "Integrations, resellers, or media — point us in the right direction and we'll connect you.",
+    body: "Integrations, resellers, or media, point us in the right direction and we'll connect you.",
   },
 ];
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
   return (
     <Section tone="light" spacing="lg" aria-labelledby="contact-heading">
       <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-        {/* LEFT — context, contact methods, proof */}
+        {/* LEFT, context, contact methods, proof */}
         <div>
           <p className="kicker">Contact us</p>
           <h1
@@ -108,7 +108,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* RIGHT — the form */}
+        {/* RIGHT, the form */}
         <div className="lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-md border border-medium-grey/30 bg-dozer-white p-6 sm:p-8">
             <h2 className="text-xl font-bold text-darker-grey">Send us a message</h2>

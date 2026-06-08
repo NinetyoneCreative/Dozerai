@@ -9,16 +9,16 @@ import { buildMetadata } from "@/lib/seo";
 import { ASSETS, EXTERNAL } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Book a 15-Minute Intro — See Dozer Safety Cameras Live",
+  title: "Book a 15-Minute Intro, See Dozer Safety Cameras Live",
   description:
-    "Book a 15-minute intro call — no obligation. We'll assess fit and show live footage of Dozer's blind-spot detection and backover prevention on real heavy equipment.",
+    "Book a 15-minute intro call, no obligation. We'll assess fit and show live footage of Dozer's blind-spot detection and backover prevention on real heavy equipment.",
   path: "/demo",
 });
 
 const WHAT_HAPPENS = [
-  "A 15-minute call, no obligation — we'll assess fit and show live footage.",
+  "A 15-minute call, no obligation, we'll assess fit and show live footage.",
   "We walk through detection, in-cab alerts, and the dashboard on a real machine.",
-  "You leave with the Innovation Club offer — a 45-day, one-machine pilot for one low fee.",
+  "You leave with the Innovation Club offer, a 45-day, one-machine pilot for one low fee.",
 ];
 
 export default function DemoPage() {
@@ -26,7 +26,7 @@ export default function DemoPage() {
     <>
       <Section tone="light" spacing="lg" aria-labelledby="demo-heading">
         <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          {/* LEFT — persuasion + proof */}
+          {/* LEFT, persuasion + proof */}
           <div>
             <p className="kicker">Request a demo</p>
             <h1
@@ -37,7 +37,7 @@ export default function DemoPage() {
             </h1>
             <p className="mt-5 max-w-xl text-lg text-dark-grey">
               See exactly how Dozer&apos;s blind-spot cameras catch a near-miss
-              before it becomes an incident — on the kinds of machines already in
+              before it becomes an incident, on the kinds of machines already in
               your yard.
             </p>
 
@@ -101,7 +101,7 @@ export default function DemoPage() {
             </div>
           </div>
 
-          {/* RIGHT — the lean form */}
+          {/* RIGHT, the lean form */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-md border border-medium-grey/30 bg-dozer-white p-6 sm:p-8">
               <h2 className="text-xl font-bold text-darker-grey">

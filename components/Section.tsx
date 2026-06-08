@@ -3,7 +3,7 @@ import { type ElementType, type ReactNode } from "react";
 type Tone = "light" | "white" | "dark";
 
 const toneClasses: Record<Tone, string> = {
-  // dozer-white wash — the default page tone on the live site
+  // dozer-white wash, the default page tone on the live site
   light: "bg-dozer-white text-dark-grey",
   white: "bg-white text-dark-grey",
   // dark section uses darker-grey, matching .bg-darker-grey

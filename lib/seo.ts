@@ -22,7 +22,7 @@ export function buildMetadata(opts: {
     alternates: { canonical: url },
     openGraph: {
       type: "website",
-      siteName: "Dozer.ai — Heavy Equipment Safety Cameras",
+      siteName: "Dozer.ai: Heavy Equipment Safety Cameras",
       title: opts.title,
       description: opts.description,
       url,

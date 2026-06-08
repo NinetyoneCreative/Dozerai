@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 import { INDUSTRIES } from "@/lib/industries";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Industries — Heavy Equipment Safety Cameras by Vertical",
+  title: "Industries, Heavy Equipment Safety Cameras by Vertical",
   description:
     "Dozer.ai blind-spot cameras and proximity detection, tuned to your environment: heavy civil, aggregates, demolition, and mining & landfill operations.",
   path: "/industries",
@@ -25,7 +25,7 @@ export default function IndustriesIndexPage() {
             Built for how your crews actually work
           </h1>
           <p className="mt-5 text-lg text-dark-grey">
-            The same Dozer system — cameras, AI, and dashboards — pointed at the
+            The same Dozer system, cameras, AI, and dashboards, pointed at the
             specific hazards of your site. Pick your operation to see how it fits.
           </p>
         </div>

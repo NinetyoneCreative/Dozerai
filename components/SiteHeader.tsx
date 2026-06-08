@@ -66,7 +66,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-7 md:flex">
+        <ul className="hidden items-center gap-6 lg:flex">
           {NAV_LINKS.map((link) =>
             link.href === "/industries" ? (
               <li
@@ -141,7 +141,7 @@ export function SiteHeader() {
           )}
         </ul>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           <a
             href={EXTERNAL.login}
             className="text-sm text-dark-grey transition-colors hover:text-darker-grey"
@@ -157,7 +157,7 @@ export function SiteHeader() {
         {/* Mobile toggle */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-darker-grey md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-darker-grey lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label="Toggle navigation menu"
@@ -175,7 +175,7 @@ export function SiteHeader() {
 
       {/* Mobile menu */}
       {open && (
-        <div id="mobile-menu" className="border-t border-medium-grey/30 bg-dozer-white md:hidden">
+        <div id="mobile-menu" className="border-t border-medium-grey/30 bg-dozer-white lg:hidden">
           <ul className="flex flex-col px-5 py-3">
             {NAV_LINKS.map((link) =>
               link.href === "/industries" ? (

@@ -3,8 +3,8 @@ import localFont from "next/font/local";
 /**
  * Self-hosted brand fonts, downloaded from the live dozer.ai site so the
  * redesign matches exactly:
- *  - Gotham (Book/Medium/Bold) — headings + body
- *  - Share Tech Mono — monospace accent / kicker labels
+ *  - Gotham (Book/Medium/Bold), headings + body
+ *  - Share Tech Mono, monospace accent / kicker labels
  */
 export const gotham = localFont({
   src: [

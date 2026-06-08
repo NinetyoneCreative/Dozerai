@@ -9,7 +9,7 @@ import { track } from "@/lib/analytics";
  * Loads the analytics vendor (GA4 and/or Plausible) IF a tag id is configured,
  * and tracks scroll depth at 25/50/75/100% on every route.
  *
- * TODO before launch: set one (or both) of these env vars to go live —
+ * TODO before launch: set one (or both) of these env vars to go live, 
  *   NEXT_PUBLIC_GA4_ID=G-XXXXXXX
  *   NEXT_PUBLIC_PLAUSIBLE_DOMAIN=dozer.ai
  * Until then nothing loads, but track() still console-logs in dev.
