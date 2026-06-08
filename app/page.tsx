@@ -6,7 +6,6 @@ import { SafeVideo } from "@/components/SafeVideo";
 import { ProofBar } from "@/components/ProofBar";
 import { UseCaseGrid } from "@/components/UseCaseGrid";
 import { PricingBlock } from "@/components/PricingBlock";
-import { Testimonial } from "@/components/Testimonial";
 import { CtaBand } from "@/components/CtaBand";
 import { SuiteIcon } from "@/components/SuiteIcon";
 import { buildMetadata } from "@/lib/seo";
@@ -307,16 +306,6 @@ export default function HomePage() {
       <UseCaseGrid />
 
       <PricingBlock />
-
-      {/* Testimonial */}
-      <Section tone="light" spacing="lg" aria-labelledby="proof-heading">
-        <div className="mx-auto max-w-3xl">
-          <h2 id="proof-heading" className="sr-only">
-            What customers say
-          </h2>
-          <Testimonial />
-        </div>
-      </Section>
 
       <CtaBand location="home" />
     </>
