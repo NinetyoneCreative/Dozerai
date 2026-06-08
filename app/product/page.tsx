@@ -4,7 +4,6 @@ import { CtaLink } from "@/components/CtaLink";
 import { SafeVideo } from "@/components/SafeVideo";
 import { FeatureRow } from "@/components/FeatureRow";
 import { SuiteFeatures } from "@/components/SuiteFeatures";
-import { StatusBadge } from "@/components/StatusBadge";
 import { CtaBand } from "@/components/CtaBand";
 import { ProductJsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
@@ -193,10 +192,7 @@ export default function ProductPage() {
       <Section id="safety" tone="light" spacing="lg" aria-labelledby="safety-heading">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <div className="flex items-center gap-3">
-              <p className="kicker">Safety · {SAFETY_SUITE.name}</p>
-              <StatusBadge status={SAFETY_SUITE.status} />
-            </div>
+            <p className="kicker">Safety · {SAFETY_SUITE.name}</p>
             <h2
               id="safety-heading"
               className="mt-4 text-3xl font-bold leading-tight text-darker-grey sm:text-4xl"
@@ -287,10 +283,7 @@ export default function ProductPage() {
       {/* ===================== PRODUCTIVITY ===================== */}
       <Section id="productivity" tone="white" spacing="lg" aria-labelledby="prod-heading">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="flex items-center justify-center gap-3">
-            <p className="kicker">Productivity · {PRODUCTIVITY_SUITE.name}</p>
-            <StatusBadge status={PRODUCTIVITY_SUITE.status} timeline={PRODUCTIVITY_SUITE.timeline} />
-          </div>
+          <p className="kicker">Productivity · {PRODUCTIVITY_SUITE.name}</p>
           <h2
             id="prod-heading"
             className="mt-4 text-3xl font-bold leading-tight text-darker-grey sm:text-4xl"
