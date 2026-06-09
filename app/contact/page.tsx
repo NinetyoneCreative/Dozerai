@@ -21,7 +21,7 @@ const REASONS = [
   },
   {
     title: "Get pricing",
-    body: "Ask about the Innovation Club pilot, one machine, 45 days, one low fee.",
+    body: "Ask about the Innovation Program pilot, one machine, 45 days, one low fee.",
   },
   {
     title: "Partnerships & press",

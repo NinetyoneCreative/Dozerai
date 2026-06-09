@@ -10,8 +10,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default:
-      "Dozer.ai: AI Blind-Spot & Backup Cameras for Heavy Equipment",
+    default: "Dozer.ai: AI Perceptual Intelligence for Heavy Job Sites",
     template: "%s | Dozer.ai",
   },
   description: SITE.description,

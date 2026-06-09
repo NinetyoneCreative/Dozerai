@@ -11,7 +11,7 @@ export const SITE = {
   tagline:
     "An intelligent system of cameras and sensors that monitors heavy equipment in the field.",
   description:
-    "Dozer.ai mounts AI depth-sensing cameras on excavators, dozers, wheel loaders, and haul trucks for real-time blind-spot alerts, proximity detection, and backover prevention.",
+    "Dozer is an AI perceptual intelligence system for heavy job sites. Cameras and sensors on your equipment see the people, machines, and conditions across complex sites, and turn that into safer, more productive operations.",
 };
 
 export const NAV_LINKS = [

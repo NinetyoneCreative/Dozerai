@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata({
 const WHAT_HAPPENS = [
   "A 15-minute call, no obligation, we'll assess fit and show live footage.",
   "We walk through detection, in-cab alerts, and the dashboard on a real machine.",
-  "You leave with the Innovation Club offer, a 45-day, one-machine pilot for one low fee.",
+  "You leave with the Innovation Program offer, a 45-day, one-machine pilot for one low fee.",
 ];
 
 export default function DemoPage() {
