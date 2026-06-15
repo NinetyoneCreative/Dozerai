@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "heavy equipment safety system",
   ],
   robots: { index: true, follow: true },
-  icons: { icon: "/dozer-logo-public.png" },
+  icons: { icon: "/dozer-logo.svg" },
 };
 
 export default function RootLayout({

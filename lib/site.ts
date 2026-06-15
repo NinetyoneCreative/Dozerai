@@ -49,7 +49,7 @@ export const SOCIAL_LINKS = [
 
 /** Remote brand assets (existing S3 / dozer.ai hosts). */
 export const ASSETS = {
-  logoHeader: "https://www.dozer.ai/dozer-logo-public.png",
+  logoHeader: "/dozer-logo.svg", // self-hosted brand wordmark (public/dozer-logo.svg)
   logoFooter:
     "https://dozer-public-assets.s3.us-east-2.amazonaws.com/dozer-logo-footer.png",
   footerVehicles: "https://www.dozer.ai/footer-vehicles.png",

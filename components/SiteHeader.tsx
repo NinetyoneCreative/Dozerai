@@ -58,8 +58,8 @@ export function SiteHeader() {
           <SafeImage
             src={ASSETS.logoHeader}
             alt="Dozer.ai"
-            width={120}
-            height={32}
+            width={147}
+            height={44}
             priority
             className="h-8 w-auto"
           />
