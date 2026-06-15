@@ -20,10 +20,19 @@ const FREE_DOMAINS = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "i
  * (fleet size, phone), down from the live site's 7 fields. Client-side
  * validation + a real success state.
  *
- * TODO before launch: wire handleSubmit to the CRM / scheduler. The fetch to
- * /api/demo below is a placeholder, point it at HubSpot/Salesforce/Chili Piper
- * (or post directly to a form endpoint) and remove the simulated success.
+ * Submissions are captured by Netlify Forms (requires Netlify hosting). The
+ * form carries the `data-netlify` attribute + a hidden `form-name` input so
+ * Netlify detects it in the static HTML, and the submit POSTs the fields back.
  */
+const FORM_NAME = "demo";
+
+/** URL-encode FormData for a Netlify Forms POST. */
+function encode(data: FormData): string {
+  const params = new URLSearchParams();
+  data.forEach((value, key) => params.append(key, String(value)));
+  return params.toString();
+}
+
 export function DemoForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -68,9 +77,13 @@ export function DemoForm() {
     });
 
     try {
-      // TODO: replace this placeholder with the real CRM/scheduler endpoint.
-      // Example: await fetch("/api/demo", { method: "POST", body: data });
-      await new Promise((r) => setTimeout(r, 600));
+      // Netlify Forms: POST the encoded fields (incl. the hidden form-name).
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(data),
+      });
+      if (!res.ok) throw new Error(`Form POST failed: ${res.status}`);
       setStatus("success");
       form.reset();
     } catch {
@@ -102,7 +115,24 @@ export function DemoForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} onFocus={onFirstInteraction} noValidate className="space-y-5">
+    <form
+      name={FORM_NAME}
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+      onFocus={onFirstInteraction}
+      noValidate
+      className="space-y-5"
+    >
+      {/* Netlify Forms detection + spam honeypot */}
+      <input type="hidden" name="form-name" value={FORM_NAME} />
+      <p className="hidden">
+        <label>
+          Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+        </label>
+      </p>
+
       <Field
         id="email"
         name="email"

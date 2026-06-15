@@ -1,0 +1,6 @@
+# Netlify build config for the Next.js static export.
+# `npm run build` emits ./out (output: "export" in next.config.mjs); Netlify
+# publishes that folder and scans the HTML for forms (Netlify Forms).
+[build]
+  command = "npm run build"
+  publish = "out"

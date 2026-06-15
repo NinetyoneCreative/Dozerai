@@ -17,9 +17,19 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * General "Contact us" form: 3 required (full name, work email, message) +
  * company optional. Client-side validation + real success state.
  *
- * TODO before launch: wire handleSubmit to the CRM / inbox / form endpoint.
- * The fetch is a placeholder.
+ * Submissions are captured by Netlify Forms (requires the site to be hosted on
+ * Netlify). The form carries the `data-netlify` attribute + a hidden
+ * `form-name` input so Netlify's build bot detects it in the static HTML, and
+ * the submit POSTs the encoded fields back to Netlify.
  */
+const FORM_NAME = "contact";
+
+/** URL-encode FormData for a Netlify Forms POST. */
+function encode(data: FormData): string {
+  const params = new URLSearchParams();
+  data.forEach((value, key) => params.append(key, String(value)));
+  return params.toString();
+}
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -55,9 +65,13 @@ export function ContactForm() {
     setStatus("submitting");
     track("contact_form_submit");
     try {
-      // TODO: replace with the real endpoint (CRM / inbox / form service).
-      // Example: await fetch("/api/contact", { method: "POST", body: data });
-      await new Promise((r) => setTimeout(r, 600));
+      // Netlify Forms: POST the encoded fields (incl. the hidden form-name).
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(data),
+      });
+      if (!res.ok) throw new Error(`Form POST failed: ${res.status}`);
       setStatus("success");
       form.reset();
     } catch {
@@ -86,7 +100,24 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} onFocus={onFirstInteraction} noValidate className="space-y-5">
+    <form
+      name={FORM_NAME}
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+      onFocus={onFirstInteraction}
+      noValidate
+      className="space-y-5"
+    >
+      {/* Netlify Forms detection + spam honeypot */}
+      <input type="hidden" name="form-name" value={FORM_NAME} />
+      <p className="hidden">
+        <label>
+          Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+        </label>
+      </p>
+
       <Field id="fullName" name="fullName" label="Full name" required autoComplete="name" error={errors.fullName} />
       <Field id="email" name="email" label="Work email" type="email" required autoComplete="email" error={errors.email} />
       <Field id="company" name="company" label="Company" optional autoComplete="organization" />

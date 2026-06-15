@@ -1,0 +1,7 @@
+# Netlify redirects (copied into out/ at build).
+# Old routes were consolidated onto the Product page; keep links + SEO intact.
+/intelligence    /product/   301
+/cameras         /product/   301
+/dashboards      /product/   301
+/safety          /product/   301
+/productivity    /product/   301

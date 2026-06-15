@@ -16,8 +16,9 @@ npm run dev      # http://localhost:3000
 npm run build    # static export -> ./out (all routes static)
 ```
 
-**Deployment:** auto-deploys to Hostinger via GitHub Actions on every push to
-`main`. See [DEPLOY.md](DEPLOY.md) for setup (FTP secrets, temp URL).
+**Deployment:** hosted on Netlify, which builds from GitHub on every push to
+`main` (`npm run build` → `out/`). Contact + Demo forms use Netlify Forms. See
+[DEPLOY.md](DEPLOY.md).
 
 ---
 
