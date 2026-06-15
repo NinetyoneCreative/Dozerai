@@ -2,56 +2,45 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { NAV_LINKS, EXTERNAL, ASSETS } from "@/lib/site";
+import { useEffect, useState } from "react";
+import { NAV_LINKS, ASSETS, type NavItem, type NavChild } from "@/lib/site";
 import { INDUSTRIES } from "@/lib/industries";
 import { SafeImage } from "@/components/SafeImage";
 import { CtaLink } from "@/components/CtaLink";
-import { track } from "@/lib/analytics";
+import { NavDropdown } from "@/components/NavDropdown";
 
 /**
  * Shared sticky header.
- * Nav: logo → Home · Product · Industries (dropdown) · Contact, plus Login
- * (beta app) and a primary "Request Demo" button.
+ * Nav: logo → Home · Product (Safety / Productivity) · Industries · Contact,
+ * plus a primary "Request Demo" button. (Login removed from the marketing site.)
  */
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false); // mobile menu
-  const [industriesOpen, setIndustriesOpen] = useState(false); // desktop dropdown
-  const dropdownRef = useRef<HTMLLIElement>(null);
 
   const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+    href === "/" ? pathname === "/" : pathname.startsWith(href.split("#")[0]);
 
-  // Close menus on route change.
+  // Resolve dropdown children: Product is static; Industries is built from data.
+  const childrenFor = (item: NavItem): NavChild[] | undefined => {
+    if (item.children) return item.children;
+    if (item.href === "/industries") {
+      return [
+        { label: "All industries", href: "/industries" },
+        ...INDUSTRIES.map((i) => ({ label: i.name, href: `/industries/${i.slug}` })),
+      ];
+    }
+    return undefined;
+  };
+
   useEffect(() => {
     setOpen(false);
-    setIndustriesOpen(false);
   }, [pathname]);
-
-  // Close the desktop dropdown on outside click or Escape.
-  useEffect(() => {
-    if (!industriesOpen) return;
-    const onClick = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setIndustriesOpen(false);
-      }
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIndustriesOpen(false);
-    };
-    document.addEventListener("mousedown", onClick);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onClick);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [industriesOpen]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-medium-grey/30 bg-dozer-white/90 backdrop-blur supports-[backdrop-filter]:bg-dozer-white/75">
       <nav
-        className="mx-auto flex h-16 max-w-container items-center justify-between px-5 sm:px-8"
+        className="mx-auto flex h-20 max-w-container items-center justify-between px-5 sm:px-8"
         aria-label="Primary"
       >
         <Link href="/" className="flex items-center" aria-label="Dozer.ai home">
@@ -61,94 +50,38 @@ export function SiteHeader() {
             width={147}
             height={44}
             priority
-            className="h-8 w-auto"
+            className="h-11 w-auto"
           />
         </Link>
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-6 lg:flex">
-          {NAV_LINKS.map((link) =>
-            link.href === "/industries" ? (
-              <li
-                key={link.href}
-                ref={dropdownRef}
-                className="relative"
-                onMouseEnter={() => setIndustriesOpen(true)}
-                onMouseLeave={() => setIndustriesOpen(false)}
-              >
-                <button
-                  type="button"
-                  className={`flex items-center gap-1 text-sm transition-colors hover:text-darker-grey ${
-                    isActive(link.href) ? "font-medium text-darker-grey" : "text-dark-grey"
-                  }`}
-                  aria-haspopup="true"
-                  aria-expanded={industriesOpen}
-                  onClick={() => setIndustriesOpen((v) => !v)}
-                >
-                  {link.label}
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    className={`transition-transform ${industriesOpen ? "rotate-180" : ""}`}
-                    aria-hidden="true"
-                  >
-                    <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-
-                {industriesOpen && (
-                  <div className="absolute left-0 top-full pt-2">
-                    <ul className="w-60 overflow-hidden rounded-md border border-medium-grey/30 bg-white py-1 shadow-lg">
-                      <li>
-                        <Link
-                          href="/industries"
-                          className="block px-4 py-2 text-sm font-medium text-darker-grey hover:bg-dozer-white"
-                        >
-                          All industries
-                        </Link>
-                      </li>
-                      <li aria-hidden="true">
-                        <hr className="my-1 border-medium-grey/20" />
-                      </li>
-                      {INDUSTRIES.map((ind) => (
-                        <li key={ind.slug}>
-                          <Link
-                            href={`/industries/${ind.slug}`}
-                            className="block px-4 py-2 text-sm text-dark-grey hover:bg-dozer-white hover:text-darker-grey"
-                          >
-                            {ind.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </li>
+          {NAV_LINKS.map((item) => {
+            const children = childrenFor(item);
+            return children ? (
+              <NavDropdown
+                key={item.href}
+                label={item.label}
+                active={isActive(item.href)}
+                items={children}
+              />
             ) : (
-              <li key={link.href}>
+              <li key={item.href}>
                 <Link
-                  href={link.href}
+                  href={item.href}
                   className={`text-sm transition-colors hover:text-darker-grey ${
-                    isActive(link.href) ? "font-medium text-darker-grey" : "text-dark-grey"
+                    isActive(item.href) ? "font-medium text-darker-grey" : "text-dark-grey"
                   }`}
-                  aria-current={isActive(link.href) ? "page" : undefined}
+                  aria-current={isActive(item.href) ? "page" : undefined}
                 >
-                  {link.label}
+                  {item.label}
                 </Link>
               </li>
-            )
-          )}
+            );
+          })}
         </ul>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <a
-            href={EXTERNAL.login}
-            className="text-sm text-dark-grey transition-colors hover:text-darker-grey"
-            onClick={() => track("cta_click", { cta: "header_login" })}
-          >
-            Login
-          </a>
           <CtaLink href="/demo" variant="primary" trackId="header_request_demo">
             Request Demo
           </CtaLink>
@@ -177,51 +110,39 @@ export function SiteHeader() {
       {open && (
         <div id="mobile-menu" className="border-t border-medium-grey/30 bg-dozer-white lg:hidden">
           <ul className="flex flex-col px-5 py-3">
-            {NAV_LINKS.map((link) =>
-              link.href === "/industries" ? (
-                <li key={link.href}>
+            {NAV_LINKS.map((item) => {
+              const children = childrenFor(item);
+              return (
+                <li key={item.href}>
                   <Link
-                    href="/industries"
+                    href={item.href}
                     className="block py-2 font-medium text-dark-grey hover:text-darker-grey"
                     onClick={() => setOpen(false)}
                   >
-                    {link.label}
+                    {item.label}
                   </Link>
-                  <ul className="mb-1 ml-3 border-l border-medium-grey/30 pl-3">
-                    {INDUSTRIES.map((ind) => (
-                      <li key={ind.slug}>
-                        <Link
-                          href={`/industries/${ind.slug}`}
-                          className="block py-1.5 text-sm text-dark-grey hover:text-darker-grey"
-                          onClick={() => setOpen(false)}
-                        >
-                          {ind.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  {children && (
+                    <ul className="mb-1 ml-3 border-l border-medium-grey/30 pl-3">
+                      {children
+                        .filter((c) => c.href !== item.href) // drop duplicate "overview" row
+                        .map((c) => (
+                          <li key={c.href}>
+                            <Link
+                              href={c.href}
+                              className="block py-1.5 text-sm text-dark-grey hover:text-darker-grey"
+                              onClick={() => setOpen(false)}
+                            >
+                              {c.label}
+                            </Link>
+                          </li>
+                        ))}
+                    </ul>
+                  )}
                 </li>
-              ) : (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="block py-2 text-dark-grey hover:text-darker-grey"
-                    onClick={() => setOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              )
-            )}
+              );
+            })}
           </ul>
           <div className="flex flex-col gap-3 border-t border-medium-grey/30 px-5 py-4">
-            <a
-              href={EXTERNAL.login}
-              className="text-dark-grey hover:text-darker-grey"
-              onClick={() => track("cta_click", { cta: "mobile_login" })}
-            >
-              Login
-            </a>
             <CtaLink href="/demo" variant="primary" trackId="mobile_request_demo">
               Request Demo
             </CtaLink>

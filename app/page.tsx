@@ -13,9 +13,9 @@ import { ASSETS } from "@/lib/site";
 import { SAFETY_SUITE, PRODUCTIVITY_SUITE } from "@/lib/suites";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Perceptual Intelligence for Heavy Job Sites",
+  title: "Automatic Job Site Data for Safety & Productivity",
   description:
-    "Dozer is an AI perceptual intelligence system for heavy job sites. Cameras and sensors on your equipment detect people, measure proximity, and turn messy, busy sites into safer, more productive operations.",
+    "Dozer mounts AI cameras and sensors on heavy equipment to capture job site activity automatically, replacing manual data collection and driving both safety and productivity.",
   path: "/",
 });
 
@@ -33,7 +33,7 @@ const ENVIRONMENTS = [
 const CLARITY = [
   {
     label: "What it is",
-    body: "An AI perceptual intelligence system, cameras and sensors on your equipment, plus the AI that understands what they see.",
+    body: "Cameras and sensors on your equipment, plus the AI that turns what they see into usable safety and productivity data.",
   },
   {
     label: "Who it's for",
@@ -104,19 +104,39 @@ export default function HomePage() {
       <Section tone="light" spacing="lg" aria-labelledby="hero-heading">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="kicker">AI perceptual intelligence</p>
+            <p className="kicker">Safety + productivity intelligence</p>
             <h1
               id="hero-heading"
               className="mt-4 text-4xl font-bold leading-[1.1] text-darker-grey sm:text-5xl"
             >
-              Make sense of everything moving on your job site
+              Capture what happens on your job site, automatically
             </h1>
             <p className="mt-5 max-w-xl text-lg text-dark-grey">
-              Dozer puts AI-powered eyes on your heavy equipment. It sees the
-              people, machines, materials, and changing conditions across complex
-              sites like heavy civil and underground utilities, and turns that
-              into a safer, more productive operation.
+              Most of what happens on a job site goes unrecorded. Dozer mounts AI
+              cameras and sensors on your heavy equipment to capture it in real
+              time, replacing the manual data collection your team does today, and
+              turning it into safer, more productive work.
             </p>
+
+            {/* Both benefits, visible up front */}
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-md border border-medium-grey/30 bg-white p-4">
+                <p className="font-mono text-xs uppercase tracking-[0.15em] text-dozer-yellow">
+                  Safety
+                </p>
+                <p className="mt-1 text-sm text-dark-grey">
+                  Spot people in blind spots and alert operators before contact.
+                </p>
+              </div>
+              <div className="rounded-md border border-medium-grey/30 bg-white p-4">
+                <p className="font-mono text-xs uppercase tracking-[0.15em] text-dozer-yellow">
+                  Productivity
+                </p>
+                <p className="mt-1 text-sm text-dark-grey">
+                  Turn machine activity into job-cost and utilization data, automatically.
+                </p>
+              </div>
+            </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <CtaLink href="/demo" variant="primary" trackId="home_hero_intro">
@@ -146,8 +166,8 @@ export default function HomePage() {
               />
             </div>
             <p className="mt-3 text-center text-sm text-dark-grey">
-              Real perception in a messy scene, Dozer tells people apart from
-              equipment and flags a hazard before it becomes an incident.
+              Dozer&apos;s AI identifies people, equipment, and activity in real
+              time, the data behind both safety and productivity.
             </p>
           </div>
         </div>
@@ -155,12 +175,71 @@ export default function HomePage() {
 
       <ProofBar />
 
+      {/* What it delivers, modules grouped by Safety / Productivity (surfaced early) */}
+      <Section tone="white" spacing="lg" aria-labelledby="outcomes-heading">
+        <div className="max-w-3xl">
+          <p className="kicker">What it delivers</p>
+          <h2 id="outcomes-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
+            Safer sites. More productive days.
+          </h2>
+          <p className="mt-4 text-lg text-dark-grey">
+            Safety and productivity aren&apos;t separate products, they&apos;re the
+            modules the same system delivers once it understands your site.
+          </p>
+        </div>
+
+        <div className="mt-12 space-y-12">
+          {OUTCOME_GROUPS.map(({ suite, href }) => (
+            <div key={suite.slug}>
+              {/* Group label */}
+              <div className="flex flex-wrap items-center gap-3 border-b border-medium-grey/30 pb-4">
+                <h3 className="text-xl font-bold text-darker-grey">{suite.shortName}</h3>
+                <Link
+                  href={href}
+                  className="ml-auto text-sm font-medium text-dark-grey hover:text-darker-grey"
+                >
+                  Explore →
+                </Link>
+              </div>
+
+              {/* Module cards, one per feature category */}
+              <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {suite.categories.map((cat) => (
+                  <li key={cat.key}>
+                    <Link
+                      href={`${href.split("#")[0]}#${cat.key}`}
+                      className="group flex h-full flex-col rounded-md border border-medium-grey/30 bg-white p-6 transition-colors hover:border-dozer-yellow"
+                    >
+                      <span
+                        className={`flex h-11 w-11 items-center justify-center rounded-md ${
+                          suite.status === "available"
+                            ? "bg-dozer-yellow/15 text-darker-grey"
+                            : "bg-dozer-white text-dark-grey"
+                        }`}
+                      >
+                        <SuiteIcon name={cat.icon} />
+                      </span>
+                      <h4 className="mt-4 font-bold text-darker-grey">{cat.name}</h4>
+                      <ul className="mt-2 space-y-1 text-sm text-dark-grey">
+                        {cat.features.map((f) => (
+                          <li key={f.name}>{f.name}</li>
+                        ))}
+                      </ul>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* What Dozer is / who it's for / what it drives */}
       <Section tone="light" spacing="lg" aria-labelledby="clarity-heading">
         <div className="max-w-3xl">
           <p className="kicker">What is Dozer?</p>
           <h2 id="clarity-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            Perception for sites with a lot going on
+            One system, built for safety and productivity
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
             A busy job site is full of moving parts, people on foot, equipment
@@ -241,65 +320,6 @@ export default function HomePage() {
           <CtaLink href="/product" variant="secondary" trackId="home_how_product">
             See the full system →
           </CtaLink>
-        </div>
-      </Section>
-
-      {/* What it delivers, modules grouped by Safety / Productivity */}
-      <Section tone="light" spacing="lg" aria-labelledby="outcomes-heading">
-        <div className="max-w-3xl">
-          <p className="kicker">What it delivers</p>
-          <h2 id="outcomes-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            Safer sites. More productive days.
-          </h2>
-          <p className="mt-4 text-lg text-dark-grey">
-            Safety and productivity aren&apos;t separate products, they&apos;re the
-            modules the same system delivers once it understands your site.
-          </p>
-        </div>
-
-        <div className="mt-12 space-y-12">
-          {OUTCOME_GROUPS.map(({ suite, href }) => (
-            <div key={suite.slug}>
-              {/* Group label */}
-              <div className="flex flex-wrap items-center gap-3 border-b border-medium-grey/30 pb-4">
-                <h3 className="text-xl font-bold text-darker-grey">{suite.shortName}</h3>
-                <Link
-                  href={href}
-                  className="ml-auto text-sm font-medium text-dark-grey hover:text-darker-grey"
-                >
-                  Explore →
-                </Link>
-              </div>
-
-              {/* Module cards, one per feature category */}
-              <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {suite.categories.map((cat) => (
-                  <li key={cat.key}>
-                    <Link
-                      href={`${href.split("#")[0]}#${cat.key}`}
-                      className="group flex h-full flex-col rounded-md border border-medium-grey/30 bg-white p-6 transition-colors hover:border-dozer-yellow"
-                    >
-                      <span
-                        className={`flex h-11 w-11 items-center justify-center rounded-md ${
-                          suite.status === "available"
-                            ? "bg-dozer-yellow/15 text-darker-grey"
-                            : "bg-dozer-white text-dark-grey"
-                        }`}
-                      >
-                        <SuiteIcon name={cat.icon} />
-                      </span>
-                      <h4 className="mt-4 font-bold text-darker-grey">{cat.name}</h4>
-                      <ul className="mt-2 space-y-1 text-sm text-dark-grey">
-                        {cat.features.map((f) => (
-                          <li key={f.name}>{f.name}</li>
-                        ))}
-                      </ul>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
       </Section>
 

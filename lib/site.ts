@@ -14,14 +14,30 @@ export const SITE = {
     "Dozer is an AI perceptual intelligence system for heavy job sites. Cameras and sensors on your equipment see the people, machines, and conditions across complex sites, and turn that into safer, more productive operations.",
 };
 
-export const NAV_LINKS = [
+export interface NavChild {
+  label: string;
+  href: string;
+}
+export interface NavItem {
+  label: string;
+  href: string;
+  children?: NavChild[];
+}
+
+export const NAV_LINKS: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Product", href: "/product" },
-  { label: "Safety", href: "/product#safety" },
-  { label: "Productivity", href: "/product#productivity" },
+  {
+    label: "Product",
+    href: "/product",
+    children: [
+      { label: "Product overview", href: "/product" },
+      { label: "Safety", href: "/product#safety" },
+      { label: "Productivity", href: "/product#productivity" },
+    ],
+  },
   { label: "Industries", href: "/industries" },
   { label: "Contact", href: "/contact" },
-] as const;
+];
 
 export const EXTERNAL = {
   // Login goes to the customer beta app (kept from current site).
