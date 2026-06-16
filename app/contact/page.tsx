@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { ContactForm } from "@/components/ContactForm";
-import { Testimonial } from "@/components/Testimonial";
 import { CtaLink } from "@/components/CtaLink";
 import { buildMetadata } from "@/lib/seo";
 import { CONTACT, EXTERNAL } from "@/lib/site";
@@ -100,11 +99,6 @@ export default function ContactPage() {
                 📅 Book a 15-min intro
               </CtaLink>
             </div>
-          </div>
-
-          {/* Proof */}
-          <div className="mt-8">
-            <Testimonial compact />
           </div>
         </div>
 

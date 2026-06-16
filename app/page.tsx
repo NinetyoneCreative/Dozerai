@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { CtaLink } from "@/components/CtaLink";
 import { SafeVideo } from "@/components/SafeVideo";
-import { ProofBar } from "@/components/ProofBar";
 import { UseCaseGrid } from "@/components/UseCaseGrid";
 import { PricingBlock } from "@/components/PricingBlock";
 import { CtaBand } from "@/components/CtaBand";
@@ -172,8 +171,6 @@ export default function HomePage() {
           </div>
         </div>
       </Section>
-
-      <ProofBar />
 
       {/* What it delivers, modules grouped by Safety / Productivity (surfaced early) */}
       <Section tone="white" spacing="lg" aria-labelledby="outcomes-heading">

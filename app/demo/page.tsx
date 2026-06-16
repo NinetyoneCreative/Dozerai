@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { SafeVideo } from "@/components/SafeVideo";
 import { DemoForm } from "@/components/DemoForm";
-import { Testimonial } from "@/components/Testimonial";
 import { PricingBlock } from "@/components/PricingBlock";
 import { CtaLink } from "@/components/CtaLink";
 import { buildMetadata } from "@/lib/seo";
-import { ASSETS, EXTERNAL } from "@/lib/site";
+import { ASSETS } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Book a 15-Minute Intro, See Dozer Safety Cameras Live",
@@ -73,32 +72,13 @@ export default function DemoPage() {
               incident.
             </p>
 
-            {/* Instant-calendar fallback */}
-            <div className="mt-8 rounded-md bg-dozer-white p-6">
-              <p className="font-medium text-darker-grey">Prefer to grab a time now?</p>
-              <p className="mt-1 text-sm text-dark-grey">
-                Skip the form and book straight onto a specialist&apos;s calendar.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {/* TODO: replace EXTERNAL.booking with the real Calendly / Chili Piper link */}
-                <CtaLink
-                  href={EXTERNAL.booking}
-                  variant="secondary"
-                  trackId="demo_calendar_fallback"
-                  external
-                >
-                  📅 Pick a time on the calendar
-                </CtaLink>
-                <CtaLink href="#pricing" variant="ghost" trackId="demo_jump_pricing">
-                  Just want pricing? →
-                </CtaLink>
-              </div>
-            </div>
+            {/* Jump to pricing */}
+            <p className="mt-8">
+              <CtaLink href="#pricing" variant="ghost" trackId="demo_jump_pricing">
+                Just want pricing? →
+              </CtaLink>
+            </p>
 
-            {/* Proof */}
-            <div className="mt-8">
-              <Testimonial compact />
-            </div>
           </div>
 
           {/* RIGHT, the lean form */}

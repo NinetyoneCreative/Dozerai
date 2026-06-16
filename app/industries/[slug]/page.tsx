@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Section } from "@/components/Section";
 import { CtaLink } from "@/components/CtaLink";
 import { SafeVideo } from "@/components/SafeVideo";
-import { Testimonial } from "@/components/Testimonial";
 import { PricingBlock } from "@/components/PricingBlock";
 import { CtaBand } from "@/components/CtaBand";
 import { ProductJsonLd } from "@/components/JsonLd";
@@ -188,16 +187,6 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
           Prevent <span className="text-dozer-yellow">one incident</span> and the
           system pays for itself.
         </p>
-      </Section>
-
-      {/* PROOF */}
-      <Section tone="light" spacing="lg" aria-labelledby="ind-proof-heading">
-        <div className="mx-auto max-w-3xl">
-          <h2 id="ind-proof-heading" className="sr-only">
-            What customers say
-          </h2>
-          <Testimonial />
-        </div>
       </Section>
 
       {/* PRICING + risk reversal (the close) */}
