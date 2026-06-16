@@ -3,7 +3,6 @@ import { Section } from "@/components/Section";
 import { SafeVideo } from "@/components/SafeVideo";
 import { DemoForm } from "@/components/DemoForm";
 import { PricingBlock } from "@/components/PricingBlock";
-import { CtaLink } from "@/components/CtaLink";
 import { buildMetadata } from "@/lib/seo";
 import { ASSETS } from "@/lib/site";
 
@@ -71,14 +70,6 @@ export default function DemoPage() {
               90 seconds: an alert flagging a high-risk object before it becomes an
               incident.
             </p>
-
-            {/* Jump to pricing */}
-            <p className="mt-8">
-              <CtaLink href="#pricing" variant="ghost" trackId="demo_jump_pricing">
-                Just want pricing? →
-              </CtaLink>
-            </p>
-
           </div>
 
           {/* RIGHT, the lean form */}
