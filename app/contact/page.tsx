@@ -47,21 +47,14 @@ export default function ContactPage() {
             reply {CONTACT.responseTime}.
           </p>
 
-          {/* Direct contact methods */}
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {/* Direct contact method */}
+          <div className="mt-8">
             <a
               href={`mailto:${CONTACT.email}`}
-              className="rounded-md border border-medium-grey/30 bg-white p-5 transition-colors hover:border-dozer-yellow"
+              className="block rounded-md border border-medium-grey/30 bg-white p-5 transition-colors hover:border-dozer-yellow sm:max-w-xs"
             >
               <p className="text-sm font-medium uppercase tracking-wide text-darker-grey">Email</p>
               <p className="mt-1 text-dark-grey">{CONTACT.email}</p>
-            </a>
-            <a
-              href={CONTACT.phoneHref}
-              className="rounded-md border border-medium-grey/30 bg-white p-5 transition-colors hover:border-dozer-yellow"
-            >
-              <p className="text-sm font-medium uppercase tracking-wide text-darker-grey">Phone</p>
-              <p className="mt-1 text-dark-grey">{CONTACT.phone}</p>
             </a>
           </div>
 

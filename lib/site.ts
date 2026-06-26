@@ -46,12 +46,9 @@ export const EXTERNAL = {
   booking: "https://calendly.com/dozer-ai/intro", // PLACEHOLDER
 };
 
-/** Direct contact details. TODO: confirm real values before launch. */
+/** Direct contact details. */
 export const CONTACT = {
-  email: "hello@dozer.ai", // TODO: confirm address
-  sales: "sales@dozer.ai", // TODO: confirm address
-  phone: "+1 (555) 555-0100", // PLACEHOLDER, replace with real number
-  phoneHref: "tel:+15555550100", // PLACEHOLDER
+  email: "support@dozer.ai",
   responseTime: "within one business day",
 };
 
