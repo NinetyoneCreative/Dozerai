@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { ContactForm } from "@/components/ContactForm";
+import { VideoTestimonial } from "@/components/VideoTestimonial";
 import { CtaLink } from "@/components/CtaLink";
 import { buildMetadata } from "@/lib/seo";
 import { CONTACT, EXTERNAL } from "@/lib/site";
@@ -30,6 +31,7 @@ const REASONS = [
 
 export default function ContactPage() {
   return (
+    <>
     <Section tone="light" spacing="lg" aria-labelledby="contact-heading">
       <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         {/* LEFT, context, contact methods, proof */}
@@ -109,5 +111,8 @@ export default function ContactPage() {
         </div>
       </div>
     </Section>
+
+    <VideoTestimonial tone="white" />
+    </>
   );
 }

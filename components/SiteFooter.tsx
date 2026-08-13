@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS, SOCIAL_LINKS, ASSETS, SITE } from "@/lib/site";
+import { SOCIAL_LINKS, ASSETS, SITE } from "@/lib/site";
 import { INDUSTRIES } from "@/lib/industries";
 import { SafeImage } from "@/components/SafeImage";
 
@@ -70,22 +70,23 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Product nav */}
+          {/* Solutions nav */}
           <nav aria-label="Footer">
-            <h2 className="text-sm font-medium text-darker-grey">Product</h2>
+            <h2 className="text-sm font-medium text-darker-grey">Solutions</h2>
             <ul className="mt-4 space-y-3 text-sm">
-              {(NAV_LINKS.find((l) => l.href === "/product")?.children ?? []).map((c) => (
+              {[
+                { label: "Solutions overview", href: "/product" },
+                { label: "In the field", href: "/product#field" },
+                { label: "In the cab", href: "/product#cab" },
+                { label: "In the office", href: "/product#office" },
+                { label: "Contact", href: "/contact" },
+              ].map((c) => (
                 <li key={c.href}>
                   <Link href={c.href} className="text-dark-grey hover:text-darker-grey">
                     {c.label}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/contact" className="text-dark-grey hover:text-darker-grey">
-                  Contact
-                </Link>
-              </li>
             </ul>
           </nav>
 

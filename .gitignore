@@ -9,3 +9,12 @@ next-env.d.ts
 
 # Claude Code local (personal) settings — keep launch.json shared, ignore the rest
 .claude/settings.local.json
+
+# Large source photos (optimized versions live in public/*.jpg)
+/Hero.png
+/Field.png
+/Cab.png
+/Office.png
+/Office.mp4
+/field2.png
+/important_objects (1).mp4

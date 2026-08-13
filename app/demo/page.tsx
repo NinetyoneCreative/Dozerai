@@ -3,6 +3,7 @@ import { Section } from "@/components/Section";
 import { SafeVideo } from "@/components/SafeVideo";
 import { DemoForm } from "@/components/DemoForm";
 import { PricingBlock } from "@/components/PricingBlock";
+import { VideoTestimonial } from "@/components/VideoTestimonial";
 import { buildMetadata } from "@/lib/seo";
 import { ASSETS } from "@/lib/site";
 
@@ -91,6 +92,8 @@ export default function DemoPage() {
 
       {/* Pricing + risk reversal (CTA target: /demo#pricing) */}
       <PricingBlock />
+
+      <VideoTestimonial tone="light" />
     </>
   );
 }

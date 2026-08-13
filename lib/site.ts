@@ -26,15 +26,7 @@ export interface NavItem {
 
 export const NAV_LINKS: NavItem[] = [
   { label: "Home", href: "/" },
-  {
-    label: "Product",
-    href: "/product",
-    children: [
-      { label: "Product overview", href: "/product" },
-      { label: "Safety", href: "/product#safety" },
-      { label: "Productivity", href: "/product#productivity" },
-    ],
-  },
+  { label: "Solutions", href: "/product" },
   { label: "Industries", href: "/industries" },
   { label: "Contact", href: "/contact" },
 ];
