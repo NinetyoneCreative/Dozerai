@@ -15,6 +15,8 @@ export interface Industry {
   slug: string;
   /** Short nav/card name. */
   name: string;
+  /** One-line blurb for the homepage industries grid. */
+  gridBlurb: string;
   /** SEO <title> (keyword-led, buyer language). */
   title: string;
   metaDescription: string;
@@ -39,6 +41,7 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "heavy-civil",
     name: "Heavy Civil",
+    gridBlurb: "Grading, earthmoving, and site work where ground crews and machines share tight space.",
     title: "Heavy Civil Safety Cameras, Excavator & Dozer Blind-Spot Detection",
     metaDescription:
       "Dozer.ai blind-spot cameras for heavy-civil contractors: protect grade crews on foot, prevent excavator and dozer backovers, and document utility strikes, on every machine on site.",
@@ -87,6 +90,7 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "aggregates",
     name: "Aggregates",
+    gridBlurb: "Quarries and pits with constant haul-truck traffic, loaders, and pinch points.",
     title: "Aggregate & Quarry Safety Cameras, Haul Truck & Loader Proximity",
     metaDescription:
       "Dozer.ai proximity detection for quarries and pits: protect spotters and light vehicles around haul trucks and wheel loaders, cut collisions at pinch points, and keep production moving.",
@@ -135,6 +139,7 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "demolition",
     name: "Demolition",
+    gridBlurb: "High-hazard teardown with falling debris, spotters, and shifting exclusion zones.",
     title: "Demolition Safety Cameras, High-Reach Excavator Blind-Spot Detection",
     metaDescription:
       "Dozer.ai cameras for demolition contractors: monitor exclusion zones, protect spotters and ground crews around high-reach excavators, and document every event in a high-hazard teardown.",
@@ -177,12 +182,13 @@ export const INDUSTRIES: Industry[] = [
       "Capture an objective record for OSHA and insurance",
       "Review near-misses to retrain crews before the next job",
     ],
-    heroVideo: ASSETS.importantObjectsVideo,
+    heroVideo: ASSETS.camerasHeroVideo,
     ctaHeadline: "Put a second set of eyes on every demo machine, book a 15-min intro",
   },
   {
     slug: "mining-landfill",
     name: "Mining / Landfill",
+    gridBlurb: "Large fleets, long sightlines, and 24/7 operation where blind spots are deadly.",
     title: "Mining & Landfill Safety Cameras, Haul Truck Collision Avoidance",
     metaDescription:
       "Dozer.ai collision avoidance for mining and landfill fleets: protect light vehicles and people around haul trucks and dozers, monitor edge and berm proximity, and run safer around the clock.",
@@ -225,8 +231,204 @@ export const INDUSTRIES: Industry[] = [
       "Run safer around the clock with night-capable detection",
       "Document controls and events for regulatory and insurance review",
     ],
-    heroVideo: ASSETS.proximityVideo,
+    heroVideo: ASSETS.intelligenceHeroVideo,
     ctaHeadline: "Protect light vehicles around your fleet, book a 15-min intro",
+  },
+  {
+    slug: "underground-utilities",
+    name: "Underground Utilities",
+    gridBlurb: "Trenching and pipe work where crews on foot share tight ground with excavators.",
+    title: "Underground Utility Safety Cameras, Excavator & Trench Proximity Detection",
+    metaDescription:
+      "Dozer.ai cameras for underground utility contractors: protect crews on foot around excavators and open trenches, prevent strikes and backovers, and document every dig.",
+    heroKicker: "For underground utility contractors",
+    heroHeadline: "Protect the crew working beside the trench",
+    heroSub:
+      "Locators, laborers, and pipe crews work inches from swinging excavators and backing trucks over open ground. Dozer gives every operator a virtual spotter and an in-cab alert the moment a person is in the danger zone.",
+    equipment: ["Excavators", "Backhoes", "Trenchers", "Wheel loaders", "Vacuum trucks"],
+    pains: [
+      {
+        title: "Crews in the trench and at the edge",
+        body: "Laborers and pipe setters work in and around an open trench, exactly where the operator can't see them.",
+      },
+      {
+        title: "Backing trucks and blind swings",
+        body: "Spoil trucks, vac trucks, and swinging booms move over the same narrow corridor all day.",
+      },
+      {
+        title: "Strikes you have to answer for",
+        body: "A struck line or a struck-by incident means a stand-down, a claim, and questions you need footage to answer.",
+      },
+    ],
+    solutions: [
+      {
+        title: "In-cab alerts before contact",
+        body: "Computer vision classifies people vs. equipment and warns the operator in real time when a worker is in the swing or backing path.",
+      },
+      {
+        title: "360° GPS-tagged record of the dig",
+        body: "Every machine keeps a complete, time- and location-stamped view. Isolate footage by area to document the work or settle a dispute.",
+      },
+      {
+        title: "Mark utilities and hazards on the map",
+        body: "Flag located lines and overhead hazards so operators get warned in-cab as they approach.",
+      },
+    ],
+    outcomes: [
+      "Prevent struck-by and backover incidents at the trench",
+      "Document locates, potholing, and near-misses for your safety file",
+      "Resolve damage and rework disputes with footage",
+      "Lower your EMR and insurance exposure",
+    ],
+    heroVideo: ASSETS.proximityVideo,
+    ctaHeadline: "Keep your trench crews safe, book a 15-min intro",
+  },
+  {
+    slug: "road-highway",
+    name: "Road & Highway",
+    gridBlurb: "Active work zones where crews, equipment, and live traffic share the road.",
+    title: "Road & Highway Construction Safety Cameras, Work Zone Proximity Detection",
+    metaDescription:
+      "Dozer.ai cameras for road and highway contractors: protect flaggers and crews in active work zones, prevent equipment and intruding-traffic incidents, and track paving productivity.",
+    heroKicker: "For road & highway contractors",
+    heroHeadline: "Keep the work zone safe with traffic feet away",
+    heroSub:
+      "Paving crews, flaggers, and graders work with live traffic on one side and heavy equipment on the other. Dozer watches every machine's blind spots and warns operators before contact.",
+    equipment: ["Pavers", "Rollers", "Motor graders", "Milling machines", "Haul trucks"],
+    pains: [
+      {
+        title: "Live traffic on an open work zone",
+        body: "Vehicles pass feet from your crew, and one distracted driver or blind backing move becomes a fatality.",
+      },
+      {
+        title: "Crews on foot around the paver",
+        body: "Rakers, screed hands, and grade checkers move constantly around moving equipment.",
+      },
+      {
+        title: "Night work and low visibility",
+        body: "Much of the work happens at night, when mirrors and a backup camera aren't enough.",
+      },
+    ],
+    solutions: [
+      {
+        title: "In-cab alerts for people and vehicles",
+        body: "Real-time warnings when a worker, or an intruding vehicle, enters the danger zone around a machine.",
+      },
+      {
+        title: "360° coverage day or night",
+        body: "Spherical vision covers the full perimeter of pavers, rollers, and trucks, including the deep blind spots.",
+      },
+      {
+        title: "Track paving productivity",
+        body: "GPS-tagged footage and the dashboard show cycle times and where work happened across the job.",
+      },
+    ],
+    outcomes: [
+      "Prevent work-zone struck-by and backover incidents",
+      "Protect flaggers and crews from intruding traffic",
+      "Keep paving trains moving with fewer stand-downs",
+      "Document incidents for DOT and insurance review",
+    ],
+    heroVideo: ASSETS.importantObjectsVideo,
+    ctaHeadline: "Protect your work zone, book a 15-min intro",
+  },
+  {
+    slug: "oil-gas-pipeline",
+    name: "Oil, Gas & Pipeline",
+    gridBlurb: "Well pads and pipeline right-of-ways with crews working around big iron.",
+    title: "Oil, Gas & Pipeline Safety Cameras, Heavy Equipment Proximity Detection",
+    metaDescription:
+      "Dozer.ai cameras for oil, gas, and pipeline contractors: protect crews around excavators, sidebooms, and cranes on remote pads and right-of-ways, and document every event.",
+    heroKicker: "For oil, gas & pipeline contractors",
+    heroHeadline: "A virtual spotter on every machine on the right-of-way",
+    heroSub:
+      "Pipeline spreads and well-pad work put crews on foot around excavators, sidebooms, and cranes, often on remote sites far from help. Dozer alerts operators before a person is in harm's way.",
+    equipment: ["Excavators", "Sidebooms", "Dozers", "Cranes", "Haul trucks"],
+    pains: [
+      {
+        title: "Crews around lifts and lowering-in",
+        body: "Pipe crews work directly under and beside sidebooms and cranes during lowering-in.",
+      },
+      {
+        title: "Remote sites, high stakes",
+        body: "An incident far from help is worse, and regulators and clients scrutinize your safety record.",
+      },
+      {
+        title: "Long spreads, many machines",
+        body: "Equipment strung along miles of right-of-way makes consistent spotting hard.",
+      },
+    ],
+    solutions: [
+      {
+        title: "Proximity alerts during critical lifts",
+        body: "Real-time warnings when a worker enters the danger zone around a machine or a suspended load.",
+      },
+      {
+        title: "360° coverage on every machine",
+        body: "Spherical vision covers the blind spots on excavators, sidebooms, and cranes.",
+      },
+      {
+        title: "One record across the spread",
+        body: "Review safety events and footage by machine and location for compliance and client reporting.",
+      },
+    ],
+    outcomes: [
+      "Reduce struck-by and caught-between incidents on the spread",
+      "Protect crews during lifts and lowering-in",
+      "Document controls and events for regulators and clients",
+      "Run safer on remote sites",
+    ],
+    heroVideo: ASSETS.camerasHeroVideo,
+    ctaHeadline: "Protect your pipeline crews, book a 15-min intro",
+  },
+  {
+    slug: "renewable-energy",
+    name: "Renewable Energy",
+    gridBlurb: "Utility-scale solar and wind builds with large fleets on tight timelines.",
+    title: "Solar & Wind Construction Safety Cameras, Heavy Equipment Proximity Detection",
+    metaDescription:
+      "Dozer.ai cameras for solar and wind farm construction: protect crews around earthmoving equipment and cranes on large, fast-moving renewable-energy sites.",
+    heroKicker: "For solar & wind farm builders",
+    heroHeadline: "Move fast on the build without losing sight of the crew",
+    heroSub:
+      "Utility-scale solar and wind sites run huge fleets of earthmoving equipment and cranes on tight schedules. Dozer keeps a virtual spotter on every machine so speed never costs safety.",
+    equipment: ["Excavators", "Dozers", "Motor graders", "Cranes", "Pile drivers"],
+    pains: [
+      {
+        title: "Large fleets, tight schedules",
+        body: "Aggressive timelines push cycle times across hundreds of acres and dozens of machines.",
+      },
+      {
+        title: "Crews around grading and piling",
+        body: "Laborers and installers work around graders, excavators, and pile drivers all shift.",
+      },
+      {
+        title: "Cranes and turbine lifts",
+        body: "Wind work adds high-stakes crane lifts with crews working below.",
+      },
+    ],
+    solutions: [
+      {
+        title: "In-cab alerts across the fleet",
+        body: "Real-time warnings when a person enters the danger zone around any machine.",
+      },
+      {
+        title: "360° coverage on every machine",
+        body: "Spherical vision covers the blind spots on earthmoving equipment and cranes.",
+      },
+      {
+        title: "Track productivity across the site",
+        body: "GPS-tagged activity and the dashboard show utilization and cycle times across the build.",
+      },
+    ],
+    outcomes: [
+      "Prevent struck-by and backover incidents on the build",
+      "Protect crews around grading, piling, and lifts",
+      "Keep an aggressive schedule without cutting safety",
+      "Measure utilization across a large fleet",
+    ],
+    heroVideo: ASSETS.intelligenceHeroVideo,
+    ctaHeadline: "Build safer and faster, book a 15-min intro",
   },
 ];
 
