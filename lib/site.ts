@@ -34,8 +34,8 @@ export const NAV_LINKS: NavItem[] = [
 export const EXTERNAL = {
   // Login goes to the customer beta app (kept from current site).
   login: "https://beta.app.dozer.ai",
-  // TODO: replace with the real Calendly / Chili Piper booking link before launch.
-  booking: "https://calendly.com/dozer-ai/intro", // PLACEHOLDER
+  // HubSpot meetings link for the 15-minute intro call.
+  booking: "https://meetings-na2.hubspot.com/mike-valdez/dozer-intro-call",
 };
 
 /** Direct contact details. */
@@ -44,12 +44,9 @@ export const CONTACT = {
   responseTime: "within one business day",
 };
 
-/** Social profiles for the footer. TODO: replace "#" with real URLs before launch. */
+/** Social profiles for the footer. Only LinkedIn is live today. */
 export const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "#" }, // TODO: real LinkedIn URL
-  { label: "YouTube", href: "#" }, // TODO: real YouTube URL
-  { label: "Instagram", href: "#" }, // TODO: real Instagram URL
-  { label: "Facebook", href: "#" }, // TODO: real Facebook URL
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/dozer-ai/" },
 ] as const;
 
 /** Remote brand assets (existing S3 / dozer.ai hosts). */

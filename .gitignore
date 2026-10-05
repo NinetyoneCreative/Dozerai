@@ -18,3 +18,6 @@ next-env.d.ts
 /Office.mp4
 /field2.png
 /important_objects (1).mp4
+
+# Netlify CLI build cache
+.netlify/
