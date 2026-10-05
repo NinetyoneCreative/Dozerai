@@ -3,50 +3,58 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV_LINKS, ASSETS, type NavItem, type NavChild } from "@/lib/site";
-import { INDUSTRIES } from "@/lib/industries";
+import { PRIMARY_NAV, PRIMARY_CTA, type NavItem } from "@/content/nav";
 import { SafeImage } from "@/components/SafeImage";
 import { CtaLink } from "@/components/CtaLink";
 import { NavDropdown } from "@/components/NavDropdown";
+import { ASSETS } from "@/lib/site";
 
 /**
- * Shared sticky header.
- * Nav: logo → Home · Product (Safety / Productivity) · Industries · Contact,
- * plus a primary "Request Demo" button. (Login removed from the marketing site.)
+ * Sticky primary header. Transparent over the dark homepage hero, then solid
+ * white once the user scrolls (and always solid on every other route). Nav:
+ * Product, Hardware, Platform, Industries, Company, plus one primary CTA,
+ * "Book a walkthrough".
+ *
+ * The homepage hero pulls itself up under this header (negative top margin) so
+ * the transparent bar overlays the dark hero. See HomeHero.
  */
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false); // mobile menu
+  const [scrolled, setScrolled] = useState(false);
+
+  // Only the homepage starts transparent (dark hero behind it).
+  const transparentCapable = pathname === "/";
+  const solid = scrolled || !transparentCapable || open;
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href.split("#")[0]);
 
-  // Resolve dropdown children: Product is static; Industries is built from data.
-  const childrenFor = (item: NavItem): NavChild[] | undefined => {
-    if (item.children) return item.children;
-    if (item.href === "/industries") {
-      return [
-        { label: "All industries", href: "/industries" },
-        ...INDUSTRIES.map((i) => ({ label: i.name, href: `/industries/${i.slug}` })),
-      ];
-    }
-    return undefined;
-  };
+  useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-medium-grey/30 bg-dozer-white/90 backdrop-blur supports-[backdrop-filter]:bg-dozer-white/75">
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-300 ${
+        solid
+          ? "border-b border-medium-grey/30 bg-dozer-white/90 backdrop-blur supports-[backdrop-filter]:bg-dozer-white/75"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <nav
         className="mx-auto flex h-20 max-w-container items-center justify-between px-5 sm:px-8"
         aria-label="Primary"
       >
-        <Link href="/" className="flex items-center" aria-label="Dozer.ai home">
+        <Link href="/" className="flex items-center" aria-label="Dozer AI home">
           <SafeImage
             src={ASSETS.logoHeader}
-            alt="Dozer.ai"
+            alt="Dozer AI"
             width={147}
             height={44}
             priority
@@ -56,41 +64,47 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-6 lg:flex">
-          {NAV_LINKS.map((item) => {
-            const children = childrenFor(item);
-            return children ? (
+          {PRIMARY_NAV.map((item: NavItem) =>
+            item.children ? (
               <NavDropdown
                 key={item.href}
                 label={item.label}
                 active={isActive(item.href)}
-                items={children}
+                items={item.children}
+                onDark={!solid}
               />
             ) : (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`text-sm transition-colors hover:text-darker-grey ${
-                    isActive(item.href) ? "font-medium text-darker-grey" : "text-dark-grey"
+                  className={`text-sm transition-colors ${
+                    solid
+                      ? isActive(item.href)
+                        ? "font-medium text-darker-grey"
+                        : "text-dark-grey hover:text-darker-grey"
+                      : "text-white/85 hover:text-white"
                   }`}
                   aria-current={isActive(item.href) ? "page" : undefined}
                 >
                   {item.label}
                 </Link>
               </li>
-            );
-          })}
+            ),
+          )}
         </ul>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <CtaLink href="/demo" variant="primary" trackId="header_request_demo">
-            Request Demo
+          <CtaLink href={PRIMARY_CTA.href} variant="primary" trackId="header_walkthrough">
+            {PRIMARY_CTA.label}
           </CtaLink>
         </div>
 
         {/* Mobile toggle */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-darker-grey lg:hidden"
+          className={`inline-flex items-center justify-center rounded-md p-2 lg:hidden ${
+            solid ? "text-darker-grey" : "text-white"
+          }`}
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label="Toggle navigation menu"
@@ -106,45 +120,42 @@ export function SiteHeader() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu (always solid) */}
       {open && (
         <div id="mobile-menu" className="border-t border-medium-grey/30 bg-dozer-white lg:hidden">
           <ul className="flex flex-col px-5 py-3">
-            {NAV_LINKS.map((item) => {
-              const children = childrenFor(item);
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="block py-2 font-medium text-dark-grey hover:text-darker-grey"
-                    onClick={() => setOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                  {children && (
-                    <ul className="mb-1 ml-3 border-l border-medium-grey/30 pl-3">
-                      {children
-                        .filter((c) => c.href !== item.href) // drop duplicate "overview" row
-                        .map((c) => (
-                          <li key={c.href}>
-                            <Link
-                              href={c.href}
-                              className="block py-1.5 text-sm text-dark-grey hover:text-darker-grey"
-                              onClick={() => setOpen(false)}
-                            >
-                              {c.label}
-                            </Link>
-                          </li>
-                        ))}
-                    </ul>
-                  )}
-                </li>
-              );
-            })}
+            {PRIMARY_NAV.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="block py-2 font-medium text-dark-grey hover:text-darker-grey"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+                {item.children && (
+                  <ul className="mb-1 ml-3 border-l border-medium-grey/30 pl-3">
+                    {item.children
+                      .filter((c) => c.href !== item.href)
+                      .map((c) => (
+                        <li key={c.href}>
+                          <Link
+                            href={c.href}
+                            className="block py-1.5 text-sm text-dark-grey hover:text-darker-grey"
+                            onClick={() => setOpen(false)}
+                          >
+                            {c.label}
+                          </Link>
+                        </li>
+                      ))}
+                  </ul>
+                )}
+              </li>
+            ))}
           </ul>
           <div className="flex flex-col gap-3 border-t border-medium-grey/30 px-5 py-4">
-            <CtaLink href="/demo" variant="primary" trackId="mobile_request_demo">
-              Request Demo
+            <CtaLink href={PRIMARY_CTA.href} variant="primary" trackId="mobile_walkthrough">
+              {PRIMARY_CTA.label}
             </CtaLink>
           </div>
         </div>

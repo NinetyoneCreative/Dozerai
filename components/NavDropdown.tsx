@@ -3,20 +3,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import type { NavChild } from "@/lib/site";
+import type { NavChild } from "@/content/nav";
 
 /**
  * Accessible desktop nav dropdown (opens on hover or click). Closes on route
- * change, outside click, and Escape. Used for "Product" and "Industries".
+ * change, outside click, and Escape. Used for Product, Hardware, and Industries.
+ * `onDark` styles the trigger for the transparent header over the dark hero.
  */
 export function NavDropdown({
   label,
   active,
   items,
+  onDark = false,
 }: {
   label: string;
   active: boolean;
   items: NavChild[];
+  onDark?: boolean;
 }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -51,8 +54,10 @@ export function NavDropdown({
     >
       <button
         type="button"
-        className={`flex items-center gap-1 text-sm transition-colors hover:text-darker-grey ${
-          active ? "font-medium text-darker-grey" : "text-dark-grey"
+        className={`flex items-center gap-1 text-sm transition-colors ${
+          onDark
+            ? `text-white/85 hover:text-white ${active ? "text-white" : ""}`
+            : `hover:text-darker-grey ${active ? "font-medium text-darker-grey" : "text-dark-grey"}`
         }`}
         aria-haspopup="true"
         aria-expanded={open}

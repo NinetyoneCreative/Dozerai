@@ -32,4 +32,27 @@
   --radius-md: 0.5rem;
   --radius-pill: 9999px;
   --line-height-base: 1.5;
+
+  /* ------------------------------------------------------------------ */
+  /* Product-first redesign tokens (2026 brief).                         */
+  /* The five brand colors above already ARE the brief's palette; these  */
+  /* are the semantic aliases + the new surfaces/accents the brief adds. */
+  /* Semantic name -> existing brand color:                              */
+  /*   --yellow  = --color-dozer-yellow  (#fdac13)                        */
+  /*   --page    = --color-dozer-white   (#f4f7f9)                        */
+  /*   --heading = --color-darker-grey   (#4d5260)                        */
+  /*   --body    = --color-dark-grey     (#5c6374)                        */
+  /*   --muted   = --color-medium-grey   (#a7aab1)                        */
+  /* ------------------------------------------------------------------ */
+  --yellow: var(--color-dozer-yellow); /* primary accent, CTAs, eyebrows */
+  --page: var(--color-dozer-white); /* default page background */
+  --heading: var(--color-darker-grey); /* headings on light */
+  --body: var(--color-dark-grey); /* body copy on light */
+  --muted: var(--color-medium-grey); /* borders, captions */
+  --card: rgb(255 255 255); /* card surfaces */
+  --surface-dark: rgb(28 32 41); /* #1c2029 dark bands behind UI screenshots */
+  --surface-deep: rgb(18 21 28); /* #12151c hero background */
+  --alert: rgb(240 90 40); /* #f05a28 detection bounding-box accent */
+  --ok: rgb(47 182 124); /* #2fb67c positive delta */
+  --radius: 8px; /* one radius everywhere */
 }

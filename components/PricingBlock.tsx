@@ -10,15 +10,15 @@ import { CtaLink } from "@/components/CtaLink";
 const OFFER = [
   {
     title: "45-day pilot",
-    desc: "A full six weeks on your equipment, on your jobsite, long enough to capture real safety events, not a staged demo.",
+    desc: "Six weeks on your equipment and your jobsite, long enough to capture real events, not a staged demo.",
   },
   {
     title: "One-time, low-cost fee",
-    desc: "A single low entry cost to get started. No long-term contract and no per-month surprise.",
+    desc: "A single low cost to get started. No long-term contract, no monthly surprise.",
   },
   {
     title: "One machine",
-    desc: "Start on a single excavator or dozer. Scale across the yard only once you've seen it work for yourself.",
+    desc: "Start on one excavator or dozer. Scale across the yard once you've seen it work.",
   },
 ];
 
@@ -32,10 +32,9 @@ export function PricingBlock() {
             Join the Innovation Program
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
-            We&apos;re onboarding a small group of forward-thinking contractors as
-            founding members. Put Dozer on one machine, see real footage from your
-            own jobsite, and prove out the full system, safety and productivity,
-            before you scale across the yard.
+            We&apos;re onboarding a small group of contractors as founding members.
+            Put Dozer on one machine, see real footage from your own jobsite, and
+            prove out the full system before you scale across the yard.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <CtaLink href="/demo" variant="primary" trackId="pricing_join_club">

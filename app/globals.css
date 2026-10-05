@@ -73,6 +73,20 @@
   }
 }
 
+/* Fade-and-rise on section entry, CSS-only (no JS, so it stays within the
+   "minimal client JS" budget). Progressive enhancement: content is fully
+   visible by default and only animates where scroll-driven timelines are
+   supported and the user has not asked for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 20%;
+    }
+  }
+}
+
 /* Respect users who prefer reduced motion: kill transitions/animations. */
 @media (prefers-reduced-motion: reduce) {
   *,

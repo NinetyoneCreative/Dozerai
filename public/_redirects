@@ -1,7 +1,29 @@
-# Netlify redirects (copied into out/ at build).
-# Old routes were consolidated onto the Product page; keep links + SEO intact.
-/intelligence    /product/   301
-/cameras         /product/   301
-/dashboards      /product/   301
-/safety          /product/   301
-/productivity    /product/   301
+# Netlify redirects (copied into out/ at build). Keep old links + SEO intact
+# after the product-first reorganization of the site.
+
+# Product -> Solution (single page; suite pages folded in as anchors)
+/product                          /solution/                      301
+/product/safety                   /solution/                      301
+/product/productivity             /solution/                      301
+/intelligence                     /solution/                      301
+/safety                           /solution/                      301
+/productivity                     /solution/                      301
+
+# Hardware is now one page; old SKU pages fold in as anchors
+/hardware/camera                  /hardware/                      301
+/hardware/edge-computer           /hardware/                      301
+/hardware/tablet                  /hardware/                      301
+/cameras                          /hardware/                      301
+
+# Other legacy top-level routes
+/dashboards                       /platform/                      301
+/contact                          /demo/                          301
+
+# Legacy industry slugs -> the six current trades
+/industries/heavy-civil           /industries/earthwork-grading/     301
+/industries/aggregates            /industries/mining/                301
+/industries/mining-landfill       /industries/mining/                301
+/industries/underground-utilities /industries/underground-utility/   301
+/industries/road-highway          /industries/paving/                301
+/industries/oil-gas-pipeline      /industries/pipeline/              301
+/industries/renewable-energy      /industries/                       301

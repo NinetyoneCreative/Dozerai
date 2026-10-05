@@ -34,7 +34,7 @@ export const PERSONAS: Persona[] = [
     who: "Foremen & spotters",
     teaser: "Live proximity alerts and 360° awareness for everyone on the ground.",
     title: "A second set of eyes on every machine",
-    body: "Dozer watches the whole work area around each machine, so the people on the ground get warned before a machine ever gets too close.",
+    body: "Dozer watches the area around each machine, so the crew on the ground gets warned before a machine gets too close.",
     points: [
       "Real-time proximity alerts that act as a virtual spotter",
       "360° view of the cabin, attachment, and every blind spot",
@@ -52,7 +52,7 @@ export const PERSONAS: Persona[] = [
     who: "Operators",
     teaser: "Real-time in-cab warnings before a person or hazard is in the way.",
     title: "In-cab alerts before contact, not after",
-    body: "Operators get real-time audio and visual warnings the instant a person or hazard enters a blind spot, with enough time to stop.",
+    body: "Operators get audio and visual warnings the instant a person or hazard enters a blind spot, with time to stop.",
     points: [
       "In-cab audio and visual hazard alerts",
       "Blind-spot and proximity detection on every side",
@@ -70,7 +70,7 @@ export const PERSONAS: Persona[] = [
     who: "Foremen & management",
     teaser: "One dashboard for safety events, productivity, and disputes.",
     title: "The whole jobsite, on one dashboard",
-    body: "Review safety events, measure how productively work gets done, and settle disputes by machine and map area, without leaving your desk.",
+    body: "Review safety events, measure how productively work gets done, and settle disputes by machine and map area, all from your desk.",
     points: [
       "Safety event review with clips and full incident history",
       "Job-cost allocation and equipment utilization",

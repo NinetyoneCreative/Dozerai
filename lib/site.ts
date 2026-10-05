@@ -11,7 +11,7 @@ export const SITE = {
   tagline:
     "An intelligent system of cameras and sensors that monitors heavy equipment in the field.",
   description:
-    "Dozer is an AI perceptual intelligence system for heavy job sites. Cameras and sensors on your equipment see the people, machines, and conditions across complex sites, and turn that into safer, more productive operations.",
+    "Dozer puts AI cameras and sensors on your heavy equipment to keep crews safe and jobsites productive, from the field to the cab to the office.",
 };
 
 export interface NavChild {
@@ -26,7 +26,7 @@ export interface NavItem {
 
 export const NAV_LINKS: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Solutions", href: "/product" },
+  { label: "Solution", href: "/solution" },
   { label: "Industries", href: "/industries" },
   { label: "Contact", href: "/contact" },
 ];

@@ -14,8 +14,8 @@ interface CtaBandProps {
  */
 export function CtaBand({
   location,
-  heading = "See a near-miss caught on camera, book a 15-min intro",
-  subheading = "A 15-minute call, no obligation. We'll assess fit and show live footage from machines in the field.",
+  heading = "See a near-miss caught on camera",
+  subheading = "Book a 15-minute call, no obligation. We'll assess fit and show live footage from real machines.",
 }: CtaBandProps) {
   return (
     <Section tone="dark" spacing="lg" aria-labelledby={`cta-${location}`}>

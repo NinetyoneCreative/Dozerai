@@ -48,7 +48,7 @@ export const INDUSTRIES: Industry[] = [
     heroKicker: "For heavy-civil contractors",
     heroHeadline: "Keep your ground crews out from under the iron",
     heroSub:
-      "On a grading site, checkers, pipe layers, and laborers work feet from swinging excavators and backing dozers. Dozer gives every operator a 360° virtual spotter and an in-cab alert the moment a person enters the blind spot.",
+      "Checkers, pipe layers, and laborers work feet from swinging excavators and backing dozers. Dozer gives every operator a 360° virtual spotter and an in-cab alert the moment a person enters a blind spot.",
     equipment: ["Excavators", "Dozers", "Motor graders", "Wheel loaders", "Haul trucks"],
     pains: [
       {

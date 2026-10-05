@@ -26,10 +26,7 @@ export function PersonaBand({
       {/* Copy */}
       <div className={reverse ? "lg:order-2" : ""}>
         <p className="kicker">{persona.eyebrow}</p>
-        <p className="mt-3 text-sm font-medium uppercase tracking-wide text-medium-grey">
-          {persona.who}
-        </p>
-        <h3 className="mt-2 text-2xl font-bold text-darker-grey sm:text-3xl">{persona.title}</h3>
+        <h3 className="mt-4 text-2xl font-bold text-darker-grey sm:text-3xl">{persona.title}</h3>
         <p className="mt-4 text-lg text-dark-grey">{persona.body}</p>
         <ul className="mt-6 space-y-3">
           {persona.points.map((point) => (
