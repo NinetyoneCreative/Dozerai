@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
-import { ContactForm } from "@/components/ContactForm";
+import { HubspotForm } from "@/components/HubspotForm";
+import { VideoTestimonial } from "@/components/VideoTestimonial";
 import { CtaLink } from "@/components/CtaLink";
 import { buildMetadata } from "@/lib/seo";
 import { CONTACT, EXTERNAL } from "@/lib/site";
@@ -30,6 +31,7 @@ const REASONS = [
 
 export default function ContactPage() {
   return (
+    <>
     <Section tone="light" spacing="lg" aria-labelledby="contact-heading">
       <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         {/* LEFT, context, contact methods, proof */}
@@ -87,7 +89,6 @@ export default function ContactPage() {
               Skip the form and book straight onto a specialist&apos;s calendar.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
-              {/* TODO: replace EXTERNAL.booking with the real Calendly / Chili Piper link */}
               <CtaLink href={EXTERNAL.booking} variant="secondary" trackId="contact_calendar" external>
                 📅 Book a 15-min intro
               </CtaLink>
@@ -103,11 +104,14 @@ export default function ContactPage() {
               We reply {CONTACT.responseTime}.
             </p>
             <div className="mt-6">
-              <ContactForm />
+              <HubspotForm trackId="contact_form_submit" />
             </div>
           </div>
         </div>
       </div>
     </Section>
+
+    <VideoTestimonial tone="white" />
+    </>
   );
 }

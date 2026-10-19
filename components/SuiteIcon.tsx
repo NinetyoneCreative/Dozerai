@@ -1,4 +1,4 @@
-import type { IconKey } from "@/lib/suites";
+import type { IconKey } from "@/lib/capabilities";
 
 /** Minimal line icons for suite feature categories (no icon library). */
 export function SuiteIcon({ name, className = "" }: { name: IconKey; className?: string }) {

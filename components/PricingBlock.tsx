@@ -34,8 +34,8 @@ export function PricingBlock() {
           <p className="mt-4 text-lg text-dark-grey">
             We&apos;re onboarding a small group of forward-thinking contractors as
             founding members. Put Dozer on one machine, see real footage from your
-            own jobsite, and help shape what ships next, including early access to
-            the Productivity &amp; Analytics Suite.
+            own jobsite, and prove out the full system, safety and productivity,
+            before you scale across the yard.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <CtaLink href="/demo" variant="primary" trackId="pricing_join_club">

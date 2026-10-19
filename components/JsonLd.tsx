@@ -14,8 +14,7 @@ export function OrganizationJsonLd() {
     url: SITE.url,
     logo: SITE.url + "/dozer-logo-public.png",
     description: SITE.description,
-    // TODO: replace "#" social URLs in lib/site.ts before launch.
-    sameAs: SOCIAL_LINKS.map((s) => s.href).filter((h) => h !== "#"),
+    sameAs: SOCIAL_LINKS.map((s) => s.href),
   };
   return (
     <script

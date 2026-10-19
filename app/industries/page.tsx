@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/Section";
 import { CtaBand } from "@/components/CtaBand";
+import { VideoTestimonial } from "@/components/VideoTestimonial";
 import { buildMetadata } from "@/lib/seo";
 import { INDUSTRIES } from "@/lib/industries";
 
@@ -57,6 +58,8 @@ export default function IndustriesIndexPage() {
           ))}
         </div>
       </Section>
+
+      <VideoTestimonial tone="white" />
 
       <CtaBand location="industries_index" />
     </>
