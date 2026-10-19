@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { SafeVideo } from "@/components/SafeVideo";
-import { DemoForm } from "@/components/DemoForm";
+import { HubspotForm } from "@/components/HubspotForm";
 import { PricingBlock } from "@/components/PricingBlock";
 import { VideoTestimonial } from "@/components/VideoTestimonial";
 import { buildMetadata } from "@/lib/seo";
@@ -80,10 +80,10 @@ export default function DemoPage() {
                 Tell us where to send the footage
               </h2>
               <p className="mt-1.5 text-sm text-dark-grey">
-                Three quick fields. We&apos;ll handle the rest.
+                A few quick details. We&apos;ll handle the rest.
               </p>
               <div className="mt-6">
-                <DemoForm />
+                <HubspotForm trackId="demo_form_submit" />
               </div>
             </div>
           </div>
