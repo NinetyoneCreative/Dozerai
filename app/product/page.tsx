@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { CtaLink } from "@/components/CtaLink";
-import { SafeVideo } from "@/components/SafeVideo";
 import { FeatureRow } from "@/components/FeatureRow";
 import { SuiteFeatures } from "@/components/SuiteFeatures";
 import { CtaBand } from "@/components/CtaBand";
@@ -81,17 +80,21 @@ export default function ProductPage() {
               </CtaLink>
             </div>
           </div>
-          <div className="overflow-hidden rounded-md border border-medium-grey/30 bg-black">
-            <SafeVideo
-              src="/product-camera/camera-assembly.mp4"
-              poster="/product-camera/camera-assembly-poster.jpg"
-              label="The Dozer camera housing assembling around the depth camera, piece by piece."
-              trackId="product_hero_video"
-              ambient
-              loop={false}
-              className="aspect-video w-full object-cover"
+          {/* Assembly loop; its edges are feathered into the page colour so it has no frame */}
+          <picture>
+            <source
+              media="(prefers-reduced-motion: reduce)"
+              srcSet="/product-camera/camera-assembly.png"
             />
-          </div>
+            {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF, served as-is */}
+            <img
+              src="/product-camera/camera-assembly.gif"
+              alt="The Dozer camera housing assembling around the depth camera, piece by piece."
+              width={810}
+              height={456}
+              className="block h-auto w-full"
+            />
+          </picture>
         </div>
       </Section>
 
