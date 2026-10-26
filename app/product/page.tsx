@@ -201,29 +201,20 @@ export default function ProductPage() {
 
       {/* ===================== SAFETY ===================== */}
       <Section id="safety" tone="light" spacing="lg" aria-labelledby="safety-heading">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="kicker">{SAFETY_SUITE.name}</p>
-            <h2
-              id="safety-heading"
-              className="mt-4 text-3xl font-bold leading-tight text-darker-grey sm:text-4xl"
-            >
-              {SAFETY_SUITE.heroHeadline}
-            </h2>
-            <p className="mt-5 max-w-xl text-lg text-dark-grey">{SAFETY_SUITE.heroSub}</p>
-          </div>
-          <div className="overflow-hidden rounded-md border border-medium-grey/30 bg-black">
-            <SafeVideo
-              src={ASSETS.intelligenceHeroVideo}
-              label="Dozer AI classifying personnel and vehicles around heavy equipment in real time."
-              trackId="product_safety_video"
-              ambient
-              className="aspect-video w-full object-cover"
-            />
-          </div>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="kicker">{SAFETY_SUITE.name}</p>
+          <h2
+            id="safety-heading"
+            className="mt-4 text-3xl font-bold leading-tight text-darker-grey sm:text-4xl"
+          >
+            {SAFETY_SUITE.heroHeadline}
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-dark-grey">
+            {SAFETY_SUITE.heroSub}
+          </p>
         </div>
 
-        <div className="mt-20 space-y-20">
+        <div className="mt-16 space-y-20">
           <div id="object-detection" className="scroll-mt-28">
             <FeatureRow
               kicker="Object detection"
