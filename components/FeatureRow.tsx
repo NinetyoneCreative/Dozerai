@@ -13,6 +13,8 @@ interface FeatureRowProps {
     | { type: "video"; src: string; label: string; trackId?: string };
   /** Place media on the left instead of the right. */
   reverse?: boolean;
+  /** UI elements layered over the media (positioned against it). */
+  overlay?: ReactNode;
 }
 
 /**
@@ -26,6 +28,7 @@ export function FeatureRow({
   points,
   media,
   reverse = false,
+  overlay,
 }: FeatureRowProps) {
   return (
     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -51,7 +54,7 @@ export function FeatureRow({
       </div>
 
       <div
-        className={`overflow-hidden rounded-md border border-medium-grey/30 bg-white ${
+        className={`relative overflow-hidden rounded-md border border-medium-grey/30 bg-white ${
           reverse ? "lg:order-1" : ""
         }`}
       >
@@ -72,6 +75,7 @@ export function FeatureRow({
             className="h-auto w-full"
           />
         )}
+        {overlay}
       </div>
     </div>
   );

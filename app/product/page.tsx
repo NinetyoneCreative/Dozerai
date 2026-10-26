@@ -7,6 +7,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { AppTour } from "@/components/AppTour";
 import { TabletShowcase } from "@/components/TabletShowcase";
 import { CameraShowcase } from "@/components/CameraShowcase";
+import { DetectionLegend, ProximityCard } from "@/components/ProductOverlays";
 import { ProductJsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { ASSETS } from "@/lib/site";
@@ -253,6 +254,11 @@ export default function ProductPage() {
                 label: "Computer vision classifying important objects on a busy jobsite.",
                 trackId: "product_safety_objects_video",
               }}
+              overlay={
+                <div className="absolute left-3 top-3 right-3">
+                  <DetectionLegend />
+                </div>
+              }
             />
           </div>
 
@@ -272,6 +278,7 @@ export default function ProductPage() {
               label: "Stereoscopic proximity measurement watching a machine's blind spots.",
               trackId: "product_safety_prox_video",
             }}
+            overlay={<ProximityCard />}
           />
         </div>
       </Section>

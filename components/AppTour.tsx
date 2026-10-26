@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { APP_TOUR, type TourView } from "@/lib/appTour";
 import { track } from "@/lib/analytics";
+import { FloatCard, CheckIcon } from "@/components/ProductOverlays";
 
 /** Every view in order, with the top-level section it belongs to. */
 const VIEWS: (TourView & { section: string })[] = APP_TOUR.flatMap((s) =>
@@ -200,7 +201,7 @@ export function AppTour() {
         </div>
 
         {/* Browser-window frame around the app recording */}
-        <figure className="order-first overflow-hidden rounded-md lg:order-none border border-medium-grey/40 bg-white shadow-[0_24px_60px_-24px_rgba(77,82,96,0.35)]">
+        <figure className="relative order-first overflow-hidden rounded-md lg:order-none border border-medium-grey/40 bg-white shadow-[0_24px_60px_-24px_rgba(77,82,96,0.35)]">
           <div className="flex items-center gap-1.5 border-b border-medium-grey/30 bg-dozer-white px-3 py-2" aria-hidden="true">
             <span className="h-2.5 w-2.5 rounded-full bg-medium-grey/50" />
             <span className="h-2.5 w-2.5 rounded-full bg-medium-grey/50" />
@@ -221,6 +222,13 @@ export function AppTour() {
               className="block h-auto w-full"
             />
           </picture>
+          <FloatCard
+            key={`card-${view.id}`}
+            icon={CheckIcon}
+            title={view.label}
+            detail={view.points[0]}
+            className="absolute bottom-3 left-3 hidden w-56 xl:block"
+          />
         </figure>
       </div>
     </div>

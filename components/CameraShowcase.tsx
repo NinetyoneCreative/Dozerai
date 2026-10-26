@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Pill, LiveDot } from "@/components/ProductOverlays";
 
 const VIEWS = [
   {
@@ -9,6 +10,7 @@ const VIEWS = [
     src: "/product-camera/camera-housing.jpg",
     alt: "Dozer camera unit in its yellow protective housing, ready to bolt onto a machine.",
     caption: "The housing bolts to the machine and shields the camera from dust, water, and impact.",
+    chip: "IP-6/7 housing",
   },
   {
     id: "bare",
@@ -16,6 +18,7 @@ const VIEWS = [
     src: "/product-camera/camera-bare.jpg",
     alt: "The Dozer stereoscopic depth camera on its ball-head mount, with the housing removed.",
     caption: "Inside: a stereoscopic depth camera on an adjustable ball-head mount.",
+    chip: "Stereo depth camera",
   },
 ] as const;
 
@@ -46,6 +49,12 @@ export function CameraShowcase() {
             } ${v.id === view ? "opacity-100" : "opacity-0"}`}
           />
         ))}
+        <div className="pointer-events-none absolute inset-x-3 top-3 flex items-start justify-between gap-2" aria-hidden="true">
+          <Pill>
+            <LiveDot /> Watching 360°
+          </Pill>
+          <Pill tone="dark">{active.chip}</Pill>
+        </div>
       </div>
       <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-5">
         <div

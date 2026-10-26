@@ -1,4 +1,5 @@
 import { TABLET_VIEW, APP_TOUR } from "@/lib/appTour";
+import { Pill, LiveDot, ProximityCard, AlertBanner, FloatCard, PlayIcon } from "@/components/ProductOverlays";
 
 /**
  * Product visuals for the home page's field / cab / office rows. Each one is a
@@ -6,30 +7,6 @@ import { TABLET_VIEW, APP_TOUR } from "@/lib/appTour";
  * few UI elements rebuilt in HTML on top, so the rows read as "the product"
  * rather than stock jobsite photos.
  */
-
-/** Small status pill used across the overlays. */
-function Pill({ children, tone = "light" }: { children: React.ReactNode; tone?: "light" | "dark" }) {
-  return (
-    <span
-      className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold shadow-sm ${
-        tone === "dark"
-          ? "bg-darker-grey/90 text-white backdrop-blur"
-          : "border border-medium-grey/30 bg-white/95 text-darker-grey backdrop-blur"
-      }`}
-    >
-      {children}
-    </span>
-  );
-}
-
-function LiveDot({ color = "bg-[#2fbf71]" }: { color?: string }) {
-  return (
-    <span className="relative flex h-2 w-2" aria-hidden="true">
-      <span className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-60 motion-reduce:hidden ${color}`} />
-      <span className={`relative inline-flex h-2 w-2 rounded-full ${color}`} />
-    </span>
-  );
-}
 
 /** In the field: the camera unit, with a proximity-zone readout. */
 export function FieldVisual() {
@@ -50,26 +27,7 @@ export function FieldVisual() {
         </Pill>
       </div>
 
-      {/* Proximity zone card */}
-      <div
-        className="m-3 mt-0 rounded-md border border-medium-grey/30 bg-white/95 p-4 shadow-[0_16px_40px_-20px_rgba(77,82,96,0.5)] backdrop-blur sm:absolute sm:bottom-4 sm:right-4 sm:m-0 sm:w-64"
-        aria-hidden="true"
-      >
-        <div className="flex items-center justify-between text-xs font-semibold text-darker-grey">
-          <span>Proximity zone</span>
-          <span className="rounded bg-[#ff8a1f]/15 px-1.5 py-0.5 text-[#c25e00]">Person</span>
-        </div>
-        <div className="mt-3 flex h-2 overflow-hidden rounded-full">
-          <span className="flex-1 bg-dozer-yellow" />
-          <span className="flex-1 bg-[#ff8a1f]" />
-          <span className="flex-1 bg-[#e5484d]" />
-        </div>
-        <div className="mt-1.5 flex justify-between font-mono text-[0.65rem] uppercase tracking-wider text-medium-grey">
-          <span>Caution</span>
-          <span>Warning</span>
-          <span>Stop</span>
-        </div>
-      </div>
+      <ProximityCard />
     </figure>
   );
 }
@@ -95,23 +53,7 @@ export function CabVisual() {
         </div>
       </div>
 
-      {/* Alert banner, the way it pops up for the operator */}
-      <div
-        className="absolute -bottom-5 left-1/2 flex w-[88%] max-w-sm -translate-x-1/2 items-center gap-3 rounded-md bg-[#e5484d] px-4 py-3 text-white shadow-[0_16px_40px_-16px_rgba(229,72,77,0.8)]"
-        aria-hidden="true"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="shrink-0">
-          <path d="M12 3 2 20h20L12 3Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-          <path d="M12 10v4M12 17h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-        <div className="min-w-0">
-          <p className="text-sm font-bold leading-tight">Person in blind spot</p>
-          <p className="text-xs text-white/85">Rear camera · stop zone</p>
-        </div>
-        <span className="ml-auto">
-          <LiveDot color="bg-white" />
-        </span>
-      </div>
+      <AlertBanner title="Person in blind spot" detail="Rear camera · stop zone" />
     </figure>
   );
 }
@@ -141,29 +83,13 @@ export function OfficeVisual() {
           />
         </picture>
       </div>
-
-      {/* Floating event card */}
-      <div
-        className="absolute -bottom-6 -left-3 hidden w-60 rounded-md border border-medium-grey/30 bg-white p-4 shadow-[0_20px_50px_-20px_rgba(77,82,96,0.55)] sm:block"
-        aria-hidden="true"
-      >
-        <div className="flex items-center gap-2">
-          <span className="flex h-7 w-7 items-center justify-center rounded bg-dozer-yellow/20 text-darker-grey">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7L8 5Z" />
-            </svg>
-          </span>
-          <div>
-            <p className="text-sm font-bold leading-tight text-darker-grey">Safety event</p>
-            <p className="text-xs text-dark-grey">Proximity · clip saved</p>
-          </div>
-        </div>
-        <div className="mt-3 flex gap-1.5">
-          <span className="rounded-full bg-dozer-white px-2 py-0.5 text-[0.7rem] text-dark-grey">Machine</span>
-          <span className="rounded-full bg-dozer-white px-2 py-0.5 text-[0.7rem] text-dark-grey">Map area</span>
-          <span className="rounded-full bg-dozer-white px-2 py-0.5 text-[0.7rem] text-dark-grey">History</span>
-        </div>
-      </div>
+      <FloatCard
+        icon={PlayIcon}
+        title="Safety event"
+        detail="Proximity · clip saved"
+        tags={["Machine", "Map area", "History"]}
+        className="absolute -bottom-6 -left-3 hidden sm:block"
+      />
     </figure>
   );
 }
