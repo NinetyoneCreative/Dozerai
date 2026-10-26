@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV_LINKS, ASSETS, type NavItem, type NavChild } from "@/lib/site";
+import { NAV_LINKS, ASSETS, EXTERNAL, type NavItem, type NavChild } from "@/lib/site";
 import { INDUSTRIES } from "@/lib/industries";
 import { SafeImage } from "@/components/SafeImage";
 import { CtaLink } from "@/components/CtaLink";
@@ -12,7 +12,7 @@ import { NavDropdown } from "@/components/NavDropdown";
 /**
  * Shared sticky header.
  * Nav: logo → Home · Product (Safety / Productivity) · Industries · Contact,
- * plus a primary "Request Demo" button. (Login removed from the marketing site.)
+ * plus a Login button (customer app) and the primary "Request Demo" button.
  */
 export function SiteHeader() {
   const pathname = usePathname();
@@ -81,7 +81,16 @@ export function SiteHeader() {
           })}
         </ul>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex">
+          <CtaLink
+            href={EXTERNAL.login}
+            external
+            variant="secondary"
+            trackId="header_login"
+            className="bg-white px-5"
+          >
+            Login
+          </CtaLink>
           <CtaLink href="/demo" variant="primary" trackId="header_request_demo">
             Request Demo
           </CtaLink>
@@ -143,6 +152,9 @@ export function SiteHeader() {
             })}
           </ul>
           <div className="flex flex-col gap-3 border-t border-medium-grey/30 px-5 py-4">
+            <CtaLink href={EXTERNAL.login} external variant="secondary" trackId="mobile_login">
+              Login
+            </CtaLink>
             <CtaLink href="/demo" variant="primary" trackId="mobile_request_demo">
               Request Demo
             </CtaLink>
