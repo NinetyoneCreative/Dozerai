@@ -27,6 +27,26 @@ const USE_CASES = [
     name: "Mining / Landfill",
     body: "Large fleets, long sightlines, and 24/7 operation where blind spots are deadly.",
   },
+  {
+    id: "underground-utilities",
+    name: "Underground Utilities",
+    body: "Trenching and pipe work where crews on foot share tight ground with excavators.",
+  },
+  {
+    id: "road-highway",
+    name: "Road & Highway",
+    body: "Active work zones where crews, equipment, and live traffic share the road.",
+  },
+  {
+    id: "oil-gas-pipeline",
+    name: "Oil, Gas & Pipeline",
+    body: "Well pads and pipeline right-of-ways with crews working around big iron.",
+  },
+  {
+    id: "renewable-energy",
+    name: "Renewable Energy",
+    body: "Utility-scale solar and wind builds with large fleets on tight timelines.",
+  },
 ];
 
 export function UseCaseGrid() {

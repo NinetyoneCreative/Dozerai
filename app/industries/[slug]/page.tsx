@@ -5,6 +5,7 @@ import { Section } from "@/components/Section";
 import { CtaLink } from "@/components/CtaLink";
 import { SafeVideo } from "@/components/SafeVideo";
 import { PricingBlock } from "@/components/PricingBlock";
+import { CustomerStory } from "@/components/CustomerStory";
 import { CtaBand } from "@/components/CtaBand";
 import { ProductJsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
@@ -191,6 +192,8 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
 
       {/* PRICING + risk reversal (the close) */}
       <PricingBlock />
+
+      <CustomerStory location={`industry_${industry.slug}`} />
 
       <CtaBand location={`industry_${industry.slug}`} heading={industry.ctaHeadline} />
     </>

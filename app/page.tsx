@@ -6,7 +6,7 @@ import { UseCaseGrid } from "@/components/UseCaseGrid";
 import { PricingBlock } from "@/components/PricingBlock";
 import { CtaBand } from "@/components/CtaBand";
 import { FieldVisual, CabVisual, OfficeVisual } from "@/components/HomeVisuals";
-import { YouTubeLite } from "@/components/YouTubeLite";
+import { CustomerStory } from "@/components/CustomerStory";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -246,26 +246,7 @@ export default function HomePage() {
         </p>
       </Section>
 
-      {/* Customer story */}
-      <Section tone="white" spacing="lg" aria-labelledby="story-heading">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="kicker">Customer story</p>
-            <h2 id="story-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-              Hear it from a Dozer customer
-            </h2>
-            <p className="mt-4 text-lg text-dark-grey">
-              From out in the field to in the office, Smith Denison has transformed
-              how they handle safety and productivity.
-            </p>
-          </div>
-          <YouTubeLite
-            id="LniqXy8HlL0"
-            title="Smith Denison on using Dozer for safety and productivity"
-            trackId="home_customer_story"
-          />
-        </div>
-      </Section>
+      <CustomerStory location="home" />
 
       <UseCaseGrid />
 
