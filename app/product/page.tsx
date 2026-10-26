@@ -7,6 +7,7 @@ import { SuiteFeatures } from "@/components/SuiteFeatures";
 import { CtaBand } from "@/components/CtaBand";
 import { AppTour } from "@/components/AppTour";
 import { TabletShowcase } from "@/components/TabletShowcase";
+import { CameraShowcase } from "@/components/CameraShowcase";
 import { ProductJsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { ASSETS } from "@/lib/site";
@@ -82,10 +83,12 @@ export default function ProductPage() {
           </div>
           <div className="overflow-hidden rounded-md border border-medium-grey/30 bg-black">
             <SafeVideo
-              src={ASSETS.camerasHeroVideo}
-              label="Dozer cameras and sensors mounted on heavy equipment in the field."
+              src="/product-camera/camera-assembly.mp4"
+              poster="/product-camera/camera-assembly-poster.jpg"
+              label="The Dozer camera housing assembling around the depth camera, piece by piece."
               trackId="product_hero_video"
               ambient
+              loop={false}
               className="aspect-video w-full object-cover"
             />
           </div>
@@ -125,22 +128,38 @@ export default function ProductPage() {
             </li>
           ))}
         </ol>
+      </Section>
 
-        <div className="mt-20">
-          <FeatureRow
-            title="Cameras and sensors built for the jobsite"
-            body="Durable, IP-rated cameras with a 360° spherical field of view and stereoscopic depth sensing, mounted right on the machine and built to survive harsh conditions."
-            points={[
-              "360° view of the cabin, attachment, and everything around the machine",
-              "Stereoscopic depth sensing for centimeter-accurate proximity",
-              "IP-6/7-rated housing that withstands dust, water, and impact",
-            ]}
-            media={{
-              type: "image",
-              src: ASSETS.fieldOfView,
-              alt: "360-degree field of view around an excavator captured by Dozer cameras.",
-            }}
-          />
+      {/* The camera unit, with and without its housing */}
+      <Section id="camera" tone="light" spacing="lg" aria-labelledby="camera-heading">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)]">
+          <div>
+            <p className="kicker">The camera</p>
+            <h2 id="camera-heading" className="mt-3 text-3xl font-bold text-darker-grey sm:text-4xl">
+              Cameras and sensors built for the jobsite
+            </h2>
+            <p className="mt-4 text-lg text-dark-grey">
+              Each unit pairs a stereoscopic depth camera with a rugged housing that
+              bolts straight onto the machine. Take the housing off to see
+              what&apos;s inside.
+            </p>
+            <ul className="mt-6 space-y-2.5">
+              {[
+                "360° view of the cabin, attachment, and everything around the machine",
+                "Stereoscopic depth sensing for centimeter-accurate proximity",
+                "IP-6/7-rated housing that withstands dust, water, and impact",
+              ].map((p) => (
+                <li key={p} className="flex items-start gap-3 text-dark-grey">
+                  <span
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-dozer-yellow"
+                    aria-hidden="true"
+                  />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <CameraShowcase />
         </div>
       </Section>
 

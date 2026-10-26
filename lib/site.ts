@@ -31,6 +31,7 @@ export const NAV_LINKS: NavItem[] = [
     href: "/product",
     children: [
       { label: "Product overview", href: "/product" },
+      { label: "The camera", href: "/product#camera" },
       { label: "In-cab tablet", href: "/product#in-cab" },
       { label: "The Dozer app", href: "/product#platform" },
       { label: "Safety", href: "/product#safety" },

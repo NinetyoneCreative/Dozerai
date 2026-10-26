@@ -11,6 +11,8 @@ interface SafeVideoProps {
   poster?: string;
   /** Autoplay muted loop (for ambient hero footage). */
   ambient?: boolean;
+  /** Override looping (ambient videos loop by default). */
+  loop?: boolean;
   /** Analytics id; fires video_play on first play. */
   trackId?: string;
 }
@@ -26,6 +28,7 @@ export function SafeVideo({
   className = "",
   poster,
   ambient = false,
+  loop = ambient,
   trackId,
 }: SafeVideoProps) {
   const [failed, setFailed] = useState(false);
@@ -39,7 +42,7 @@ export function SafeVideo({
       aria-label={label}
       poster={poster}
       muted={ambient}
-      loop={ambient}
+      loop={loop}
       autoPlay={ambient}
       playsInline
       preload="metadata"
