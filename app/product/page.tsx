@@ -57,7 +57,7 @@ export default function ProductPage() {
 
       {/* Hero */}
       <Section tone="light" spacing="lg" aria-labelledby="product-heading">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.45fr)]">
           <div>
             <p className="kicker">Dozer AI · The product</p>
             <h1
@@ -89,9 +89,9 @@ export default function ProductPage() {
             {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF, served as-is */}
             <img
               src="/product-camera/camera-assembly.gif"
-              alt="The Dozer camera housing assembling around the depth camera, piece by piece."
-              width={810}
-              height={456}
+              alt="The Dozer camera housing assembling around the depth camera piece by piece, then coming apart again."
+              width={1000}
+              height={562}
               className="block h-auto w-full"
             />
           </picture>
