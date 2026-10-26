@@ -102,7 +102,7 @@ export const PRODUCTIVITY_SUITE: Suite = {
   slug: "productivity",
   name: "Productivity & Analytics Suite",
   shortName: "Productivity & Analytics",
-  status: "coming-soon",
+  status: "available",
   title: "Productivity & Analytics Suite, Heavy Equipment Fleet Analytics",
   metaDescription:
     "The Dozer.ai Productivity & Analytics Suite turns machine activity into job-cost allocation, utilization analytics, AI jobsite reports, heat maps, and ERP integrations.",

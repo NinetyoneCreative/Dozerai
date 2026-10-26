@@ -79,15 +79,6 @@ export default function ProductPage() {
                 See how it works
               </CtaLink>
             </div>
-            {/* In-page jumps to the two applications */}
-            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              <a href="#safety" className="font-medium text-dark-grey hover:text-darker-grey">
-                ↓ Safety
-              </a>
-              <a href="#productivity" className="font-medium text-dark-grey hover:text-darker-grey">
-                ↓ Productivity
-              </a>
-            </div>
           </div>
           <div className="overflow-hidden rounded-md border border-medium-grey/30 bg-black">
             <SafeVideo
@@ -101,12 +92,12 @@ export default function ProductPage() {
         </div>
       </Section>
 
-      {/* How it works, the five stages */}
+      {/* How it works: the five stages, then the hardware they start from */}
       <Section id="how-it-works" tone="white" spacing="lg" aria-labelledby="how-heading">
         <div className="max-w-3xl">
           <p className="kicker">How it works</p>
           <h2 id="how-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            From the machine to a decision, one connected system
+            From the machine to a decision
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
             Every part of Dozer works together, so raw footage becomes something
@@ -134,13 +125,9 @@ export default function ProductPage() {
             </li>
           ))}
         </ol>
-      </Section>
 
-      {/* The system in detail: input (cameras) + output (dashboard) */}
-      <Section tone="light" spacing="lg" aria-label="The system in detail">
-        <div className="space-y-20">
+        <div className="mt-20">
           <FeatureRow
-            kicker="Eyes on site"
             title="Cameras and sensors built for the jobsite"
             body="Durable, IP-rated cameras with a 360° spherical field of view and stereoscopic depth sensing, mounted right on the machine and built to survive harsh conditions."
             points={[
@@ -154,47 +141,15 @@ export default function ProductPage() {
               alt: "360-degree field of view around an excavator captured by Dozer cameras.",
             }}
           />
-
-          <FeatureRow
-            reverse
-            kicker="Insights & actions"
-            title="Alerts in the cab. Answers on the dashboard."
-            body="Operators get real-time warnings the moment a hazard appears. Supervisors get a single dashboard to review footage, events, productivity, and disputes, by machine and by map area."
-            points={[
-              "In-cab alerts for hazards, proximity, and zone violations",
-              "Review events and footage by machine or location",
-              "One record for safety, productivity, and dispute resolution",
-            ]}
-            media={{
-              type: "image",
-              src: ASSETS.dashboardCarousel,
-              alt: "Dozer dashboard showing footage, safety events, and productivity by machine and map area.",
-            }}
-          />
         </div>
       </Section>
 
-      {/* The desktop app, tab by tab */}
-      <Section id="platform" tone="white" spacing="lg" aria-labelledby="platform-heading">
-        <div className="max-w-3xl">
-          <p className="kicker">Inside the Dozer app</p>
-          <h2 id="platform-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            See exactly what your team sees
-          </h2>
-          <p className="mt-4 text-lg text-dark-grey">
-            The Dozer app is where the footage becomes answers. Walk through it the
-            way your supervisors do, from the daily summary down to a single
-            machine&apos;s clip.
-          </p>
-        </div>
-        <div className="mt-10">
-          <AppTour />
-        </div>
-      </Section>
-
-      {/* The in-cab operator tablet */}
+      {/* The in-cab operator tablet (#driver-alerts is linked from the home page) */}
       <Section id="in-cab" tone="dark" spacing="lg" aria-labelledby="in-cab-heading">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
+        <div
+          id="driver-alerts"
+          className="grid scroll-mt-28 items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]"
+        >
           <div>
             <p className="kicker">In the cab</p>
             <h2 id="in-cab-heading" className="mt-3 text-3xl font-bold text-white sm:text-4xl">
@@ -226,18 +181,21 @@ export default function ProductPage() {
         </div>
       </Section>
 
-      {/* Applications intro */}
-      <Section tone="white" spacing="sm" aria-labelledby="apps-heading">
+      {/* The desktop app, tab by tab */}
+      <Section id="platform" tone="white" spacing="lg" aria-labelledby="platform-heading">
         <div className="max-w-3xl">
-          <p className="kicker">What it helps you do</p>
-          <h2 id="apps-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            One product, two applications
+          <p className="kicker">Inside the Dozer app</p>
+          <h2 id="platform-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
+            See exactly what your team sees
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
-            Safety and productivity aren&apos;t separate products, they&apos;re what
-            the same system delivers once it understands your site, all from the
-            same cameras on the same machines.
+            The Dozer app is where the footage becomes answers. Walk through it the
+            way your supervisors do, from the daily summary down to a single
+            machine&apos;s clip.
           </p>
+        </div>
+        <div className="mt-10">
+          <AppTour />
         </div>
       </Section>
 
@@ -253,14 +211,6 @@ export default function ProductPage() {
               {SAFETY_SUITE.heroHeadline}
             </h2>
             <p className="mt-5 max-w-xl text-lg text-dark-grey">{SAFETY_SUITE.heroSub}</p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <CtaLink href="/demo" variant="primary" trackId="product_safety_intro">
-                Book a 15-min intro
-              </CtaLink>
-              <CtaLink href="/demo#pricing" variant="ghost" trackId="product_safety_pricing">
-                Get pricing
-              </CtaLink>
-            </div>
           </div>
           <div className="overflow-hidden rounded-md border border-medium-grey/30 bg-black">
             <SafeVideo
@@ -272,30 +222,26 @@ export default function ProductPage() {
             />
           </div>
         </div>
-      </Section>
 
-      {/* Safety feature grid (Object Detection + Driver Alerts) */}
-      <SuiteFeatures suite={SAFETY_SUITE} />
-
-      {/* Safety visual highlights */}
-      <Section tone="light" spacing="lg" aria-label="Safety capabilities in the field">
-        <div className="space-y-20">
-          <FeatureRow
-            kicker="Object detection"
-            title="Important objects in a chaotic environment"
-            body="Computer vision classifies personnel, vehicles, and objects around the machine in real time, so the system knows the difference between a dirt pile and a person."
-            points={[
-              "Real-time detection of workers, equipment, and vehicles",
-              "Exclusion-zone proximity monitoring around heavy equipment",
-              "PPE compliance: hard hat, vest, and safety-gear verification",
-            ]}
-            media={{
-              type: "video",
-              src: ASSETS.importantObjectsVideo,
-              label: "Computer vision classifying important objects on a busy jobsite.",
-              trackId: "product_safety_objects_video",
-            }}
-          />
+        <div className="mt-20 space-y-20">
+          <div id="object-detection" className="scroll-mt-28">
+            <FeatureRow
+              kicker="Object detection"
+              title="Important objects in a chaotic environment"
+              body="Computer vision classifies personnel, vehicles, and objects around the machine in real time, so the system knows the difference between a dirt pile and a person."
+              points={[
+                "Real-time detection of workers, equipment, and vehicles",
+                "Exclusion-zone proximity monitoring around heavy equipment",
+                "PPE compliance: hard hat, vest, and safety-gear verification",
+              ]}
+              media={{
+                type: "video",
+                src: ASSETS.importantObjectsVideo,
+                label: "Computer vision classifying important objects on a busy jobsite.",
+                trackId: "product_safety_objects_video",
+              }}
+            />
+          </div>
 
           <FeatureRow
             reverse
@@ -314,27 +260,17 @@ export default function ProductPage() {
               trackId: "product_safety_prox_video",
             }}
           />
-
-          <FeatureRow
-            kicker="Driver alerts"
-            title="In-cab alerts now, supervisor review after"
-            body="Operators get real-time audio and visual warnings for hazards, fatigue signals, and zone violations. Every flagged event is recorded, clipped, and saved to the safety event dashboard for review."
-            points={[
-              "In-cab audio + visual warnings the instant a hazard appears",
-              "Supervisor view of all flagged events, clips, and incident history",
-              "An objective record for documentation, training, and insurance",
-            ]}
-            media={{
-              type: "image",
-              src: ASSETS.inCabAlert,
-              alt: "In-cab alert UI showing a high-risk object detected in the blind spot.",
-            }}
-          />
         </div>
       </Section>
 
       {/* ===================== PRODUCTIVITY ===================== */}
-      <Section id="productivity" tone="white" spacing="lg" aria-labelledby="prod-heading">
+      <Section
+        id="productivity"
+        tone="white"
+        spacing="lg"
+        className="pb-0 sm:pb-0"
+        aria-labelledby="prod-heading"
+      >
         <div className="mx-auto max-w-3xl text-center">
           <p className="kicker">{PRODUCTIVITY_SUITE.name}</p>
           <h2
@@ -346,36 +282,6 @@ export default function ProductPage() {
           <p className="mx-auto mt-5 max-w-2xl text-lg text-dark-grey">
             {PRODUCTIVITY_SUITE.heroSub}
           </p>
-          <p className="mt-4 text-sm text-medium-grey">
-            Built on the same Dozer cameras you can deploy today.
-          </p>
-        </div>
-
-        {/* "Built on the hardware you already have" explainer */}
-        <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-3">
-          {[
-            {
-              n: "01",
-              t: "Already on the machine",
-              d: "Runs on the same Dozer cameras deploying for safety today, with no new hardware.",
-            },
-            {
-              n: "02",
-              t: "Activity becomes data",
-              d: "Machine state, location, and cycle times get logged continuously and tied to project phase.",
-            },
-            {
-              n: "03",
-              t: "Data becomes decisions",
-              d: "Job costs, utilization, AI reports, and heat maps, exported to the tools you already run.",
-            },
-          ].map((s) => (
-            <div key={s.n} className="rounded-md border border-medium-grey/30 bg-dozer-white p-5">
-              <span className="font-mono text-sm text-dozer-yellow">{s.n}</span>
-              <p className="mt-1 font-medium text-darker-grey">{s.t}</p>
-              <p className="mt-1 text-sm text-dark-grey">{s.d}</p>
-            </div>
-          ))}
         </div>
       </Section>
 
@@ -385,7 +291,7 @@ export default function ProductPage() {
       <CtaBand
         location="product"
         heading="See it on your own machine, book a 15-min intro"
-        subheading="Start with safety today and grow into productivity analytics on the same cameras."
+        subheading="We'll walk you through live footage, in-cab alerts, and the app, using machines in the field."
       />
     </>
   );
