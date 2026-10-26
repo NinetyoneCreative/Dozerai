@@ -5,6 +5,8 @@ import { SafeVideo } from "@/components/SafeVideo";
 import { FeatureRow } from "@/components/FeatureRow";
 import { SuiteFeatures } from "@/components/SuiteFeatures";
 import { CtaBand } from "@/components/CtaBand";
+import { AppTour } from "@/components/AppTour";
+import { TabletShowcase } from "@/components/TabletShowcase";
 import { ProductJsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { ASSETS } from "@/lib/site";
@@ -169,6 +171,58 @@ export default function ProductPage() {
               alt: "Dozer dashboard showing footage, safety events, and productivity by machine and map area.",
             }}
           />
+        </div>
+      </Section>
+
+      {/* The desktop app, tab by tab */}
+      <Section id="platform" tone="white" spacing="lg" aria-labelledby="platform-heading">
+        <div className="max-w-3xl">
+          <p className="kicker">Inside the Dozer app</p>
+          <h2 id="platform-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
+            See exactly what your team sees
+          </h2>
+          <p className="mt-4 text-lg text-dark-grey">
+            The Dozer app is where the footage becomes answers. Walk through it the
+            way your supervisors do, from the daily summary down to a single
+            machine&apos;s clip.
+          </p>
+        </div>
+        <div className="mt-10">
+          <AppTour />
+        </div>
+      </Section>
+
+      {/* The in-cab operator tablet */}
+      <Section id="in-cab" tone="dark" spacing="lg" aria-labelledby="in-cab-heading">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
+          <div>
+            <p className="kicker">In the cab</p>
+            <h2 id="in-cab-heading" className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+              Every blind spot, on one screen
+            </h2>
+            <p className="mt-4 text-lg text-dozer-white/80">
+              A tablet in the cab shows the operator live front, side, and rear
+              cameras around a top-down view of the machine. Dozer boxes and labels
+              every truck, car, and person it sees, and the zone turns from yellow
+              to orange to red as something gets closer.
+            </p>
+            <ul className="mt-6 space-y-2.5">
+              {[
+                "Front, side, and rear cameras, all on one screen",
+                "Live distance and angle on every object Dozer detects",
+                "Color-coded zones that escalate as something closes in",
+              ].map((p) => (
+                <li key={p} className="flex items-start gap-3 text-dozer-white/90">
+                  <span
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-dozer-yellow"
+                    aria-hidden="true"
+                  />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <TabletShowcase />
         </div>
       </Section>
 

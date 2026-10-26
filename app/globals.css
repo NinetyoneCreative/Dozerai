@@ -84,3 +84,13 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Auto-advance progress bar under the active app-tour tab. */
+@keyframes app-tour-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
