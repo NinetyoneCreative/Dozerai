@@ -1,5 +1,6 @@
 import { Section } from "@/components/Section";
 import { CtaLink } from "@/components/CtaLink";
+import { EXTERNAL } from "@/lib/site";
 
 interface CtaBandProps {
   /** Where this band lives, for analytics attribution. */
@@ -28,7 +29,7 @@ export function CtaBand({
           {subheading}
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <CtaLink href="/demo" variant="primary" trackId={`ctaband_${location}_intro`}>
+          <CtaLink href={EXTERNAL.booking} external variant="primary" trackId={`ctaband_${location}_intro`}>
             Book a 15-min intro
           </CtaLink>
           <CtaLink href="/demo#pricing" variant="dark" trackId={`ctaband_${location}_pricing`}>

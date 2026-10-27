@@ -45,8 +45,8 @@ export const NAV_LINKS: NavItem[] = [
 export const EXTERNAL = {
   // Login goes to the customer beta app (kept from current site).
   login: "https://beta.app.dozer.ai",
-  // TODO: replace with the real Calendly / Chili Piper booking link before launch.
-  booking: "https://calendly.com/dozer-ai/intro", // PLACEHOLDER
+  // "Book a 15-min intro": the HubSpot meetings scheduler (same link as the live site).
+  booking: "https://meetings-na2.hubspot.com/mike-valdez/dozer-intro-call",
 };
 
 /**

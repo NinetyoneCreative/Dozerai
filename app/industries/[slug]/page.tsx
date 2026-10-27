@@ -10,6 +10,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { ProductJsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { INDUSTRIES, getIndustry } from "@/lib/industries";
+import { EXTERNAL } from "@/lib/site";
 
 /** Pre-render every industry page at build time. */
 export function generateStaticParams() {
@@ -57,7 +58,7 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
             <p className="mt-5 max-w-xl text-lg text-dark-grey">{industry.heroSub}</p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <CtaLink href="/demo" variant="primary" trackId={`ind_${industry.slug}_hero_intro`}>
+              <CtaLink href={EXTERNAL.booking} external variant="primary" trackId={`ind_${industry.slug}_hero_intro`}>
                 Book a 15-min intro
               </CtaLink>
               <CtaLink

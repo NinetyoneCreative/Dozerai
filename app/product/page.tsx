@@ -10,7 +10,7 @@ import { CameraShowcase } from "@/components/CameraShowcase";
 import { DetectionLegend, ProximityCard } from "@/components/ProductOverlays";
 import { ProductJsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
-import { ASSETS } from "@/lib/site";
+import { ASSETS, EXTERNAL } from "@/lib/site";
 import { SAFETY_SUITE, PRODUCTIVITY_SUITE } from "@/lib/suites";
 
 const DESCRIPTION =
@@ -73,7 +73,7 @@ export default function ProductPage() {
               your team can act on, for a safer, more productive site.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <CtaLink href="/demo" variant="primary" trackId="product_hero_intro">
+              <CtaLink href={EXTERNAL.booking} external variant="primary" trackId="product_hero_intro">
                 Book a 15-min intro
               </CtaLink>
               <CtaLink href="#how-it-works" variant="secondary" trackId="product_hero_how">

@@ -87,7 +87,6 @@ export default function ContactPage() {
               Skip the form and book straight onto a specialist&apos;s calendar.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
-              {/* TODO: replace EXTERNAL.booking with the real Calendly / Chili Piper link */}
               <CtaLink href={EXTERNAL.booking} variant="secondary" trackId="contact_calendar" external>
                 📅 Book a 15-min intro
               </CtaLink>

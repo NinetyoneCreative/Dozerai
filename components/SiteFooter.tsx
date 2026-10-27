@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS, SOCIAL_LINKS, ASSETS, SITE } from "@/lib/site";
+import { NAV_LINKS, SOCIAL_LINKS, ASSETS, SITE, EXTERNAL } from "@/lib/site";
 import { INDUSTRIES } from "@/lib/industries";
 import { SafeImage } from "@/components/SafeImage";
 
@@ -111,9 +111,14 @@ export function SiteFooter() {
             <h2 className="text-sm font-medium text-darker-grey">Get started</h2>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <Link href="/demo" className="text-dark-grey hover:text-darker-grey">
+                <a
+                  href={EXTERNAL.booking}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-dark-grey hover:text-darker-grey"
+                >
                   Book a 15-min intro
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/demo#pricing" className="text-dark-grey hover:text-darker-grey">

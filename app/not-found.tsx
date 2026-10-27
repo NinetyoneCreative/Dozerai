@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Section } from "@/components/Section";
+import { EXTERNAL } from "@/lib/site";
 
 export default function NotFound() {
   return (
@@ -19,12 +20,14 @@ export default function NotFound() {
           >
             Back home
           </Link>
-          <Link
-            href="/demo"
+          <a
+            href={EXTERNAL.booking}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md border border-medium-grey/60 px-6 py-3 font-medium text-darker-grey hover:bg-white"
           >
             Book a 15-min intro
-          </Link>
+          </a>
         </div>
       </div>
     </Section>
