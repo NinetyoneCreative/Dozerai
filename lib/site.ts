@@ -49,6 +49,16 @@ export const EXTERNAL = {
   booking: "https://calendly.com/dozer-ai/intro", // PLACEHOLDER
 };
 
+/**
+ * HubSpot form used for every lead form on the site (demo + contact), the
+ * same form the live dozer.ai embeds. Portal and form IDs are public by design.
+ */
+export const HUBSPOT = {
+  region: "na2",
+  portalId: "48464019",
+  formId: "0ca0b5c9-e75d-4757-9d38-46bf0374a24e",
+};
+
 /** Direct contact details. */
 export const CONTACT = {
   email: "support@dozer.ai",

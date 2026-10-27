@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { SafeVideo } from "@/components/SafeVideo";
-import { DemoForm } from "@/components/DemoForm";
+import { HubSpotForm } from "@/components/HubSpotForm";
 import { PricingBlock } from "@/components/PricingBlock";
 import { buildMetadata } from "@/lib/seo";
 import { ASSETS } from "@/lib/site";
@@ -72,17 +72,17 @@ export default function DemoPage() {
             </p>
           </div>
 
-          {/* RIGHT, the lean form */}
+          {/* RIGHT, the HubSpot form */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-md border border-medium-grey/30 bg-dozer-white p-6 sm:p-8">
               <h2 className="text-xl font-bold text-darker-grey">
                 Tell us where to send the footage
               </h2>
               <p className="mt-1.5 text-sm text-dark-grey">
-                Three quick fields. We&apos;ll handle the rest.
+                A few quick details and we&apos;ll handle the rest.
               </p>
               <div className="mt-6">
-                <DemoForm />
+                <HubSpotForm events={{ start: "demo_form_start", submit: "demo_form_submit" }} />
               </div>
             </div>
           </div>

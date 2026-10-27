@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
-import { ContactForm } from "@/components/ContactForm";
+import { HubSpotForm } from "@/components/HubSpotForm";
 import { CtaLink } from "@/components/CtaLink";
 import { buildMetadata } from "@/lib/seo";
 import { CONTACT, EXTERNAL } from "@/lib/site";
@@ -98,12 +98,12 @@ export default function ContactPage() {
         {/* RIGHT, the form */}
         <div className="lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-md border border-medium-grey/30 bg-dozer-white p-6 sm:p-8">
-            <h2 className="text-xl font-bold text-darker-grey">Send us a message</h2>
+            <h2 className="text-xl font-bold text-darker-grey">Get in touch</h2>
             <p className="mt-1.5 text-sm text-dark-grey">
               We reply {CONTACT.responseTime}.
             </p>
             <div className="mt-6">
-              <ContactForm />
+              <HubSpotForm events={{ start: "contact_form_start", submit: "contact_form_submit" }} />
             </div>
           </div>
         </div>
