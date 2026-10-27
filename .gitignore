@@ -9,3 +9,6 @@ next-env.d.ts
 
 # Claude Code local (personal) settings — keep launch.json shared, ignore the rest
 .claude/settings.local.json
+
+# Netlify CLI local state (site link)
+.netlify/
