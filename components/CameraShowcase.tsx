@@ -28,7 +28,7 @@ const VIEWS = [
  * fade away around the camera.
  */
 export function CameraShowcase() {
-  const [view, setView] = useState<(typeof VIEWS)[number]["id"]>("housing");
+  const [view, setView] = useState<(typeof VIEWS)[number]["id"]>("bare");
   const active = VIEWS.find((v) => v.id === view) ?? VIEWS[0];
 
   return (
