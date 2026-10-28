@@ -2,7 +2,7 @@ import { Section } from "@/components/Section";
 import { CtaLink } from "@/components/CtaLink";
 
 /**
- * The "Innovation Program" offer, a low-commitment founding-member pilot that
+ * The "Dozer Pilot Program" offer, a low-commitment founding-member pilot that
  * replaces the old per-unit pricing framing. Lives at #pricing (linked from
  * CTAs across the site). Three pillars: 45-day pilot, one-time low-cost fee,
  * one machine.
@@ -27,9 +27,9 @@ export function PricingBlock() {
     <Section id="pricing" tone="white" spacing="lg" aria-labelledby="pricing-heading">
       <div className="grid items-center gap-10 lg:grid-cols-2">
         <div>
-          <p className="kicker">Innovation Program</p>
+          <p className="kicker">Dozer Pilot Program</p>
           <h2 id="pricing-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
-            Join the Innovation Program
+            Join the Dozer Pilot Program
           </h2>
           <p className="mt-4 text-lg text-dark-grey">
             We&apos;re onboarding a small group of forward-thinking contractors as
@@ -39,7 +39,7 @@ export function PricingBlock() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <CtaLink href="/demo" variant="primary" trackId="pricing_join_club">
-              Join the Innovation Program
+              Join the Dozer Pilot Program
             </CtaLink>
             <CtaLink href="/demo" variant="secondary" trackId="pricing_talk_first">
               Talk to us first
