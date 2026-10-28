@@ -17,8 +17,8 @@ export function CustomerStory({ location }: { location: string }) {
           </p>
         </div>
         <YouTubeLite
-          id="LniqXy8HlL0"
-          title="Smith Denison on using Dozer for safety and productivity"
+          id="ray9oNANwwY"
+          title="Smith Denison Construction on Dozer AI, customer testimonial"
           trackId={`${location}_customer_story`}
         />
       </div>

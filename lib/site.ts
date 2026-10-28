@@ -68,7 +68,7 @@ export const CONTACT = {
 /** Social profiles for the footer. TODO: replace "#" with real URLs before launch. */
 export const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "#" }, // TODO: real LinkedIn URL
-  { label: "YouTube", href: "#" }, // TODO: real YouTube URL
+  { label: "YouTube", href: "https://www.youtube.com/@DozerAI-z3r" },
   { label: "Instagram", href: "#" }, // TODO: real Instagram URL
   { label: "Facebook", href: "#" }, // TODO: real Facebook URL
 ] as const;
