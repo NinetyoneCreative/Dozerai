@@ -114,10 +114,10 @@ export default function HomePage() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element -- static export, pre-sized hero */}
         <img
-          src="/home/hero.jpg"
-          alt="A jobsite at golden hour: a foreman with a tablet beside an excavator, with a Dozer camera unit mounted on the machine in the foreground"
-          width={2400}
-          height={1340}
+          src="/home/hero.webp"
+          alt="A Dozer camera unit mounted on heavy equipment at golden hour, with an excavator digging and a worker with a tablet beside the survey stakes"
+          width={1360}
+          height={768}
           fetchPriority="high"
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
