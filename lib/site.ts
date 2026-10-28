@@ -65,12 +65,10 @@ export const CONTACT = {
   responseTime: "within one business day",
 };
 
-/** Social profiles for the footer. TODO: replace "#" with real URLs before launch. */
+/** Social profiles for the footer. */
 export const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "#" }, // TODO: real LinkedIn URL
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/dozer-ai/" },
   { label: "YouTube", href: "https://www.youtube.com/@DozerAI-z3r" },
-  { label: "Instagram", href: "#" }, // TODO: real Instagram URL
-  { label: "Facebook", href: "#" }, // TODO: real Facebook URL
 ] as const;
 
 /** Remote brand assets (existing S3 / dozer.ai hosts). */

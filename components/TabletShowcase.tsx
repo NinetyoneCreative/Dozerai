@@ -25,7 +25,7 @@ export function TabletShowcase() {
           </picture>
         </div>
       </div>
-      <AlertBanner title="Person in blind spot" detail="Rear camera · stop zone" />
+      <AlertBanner title="Truck in blind spot" detail="Rear camera · stop zone" />
     </figure>
   );
 }
