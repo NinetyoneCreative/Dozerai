@@ -8,6 +8,7 @@ import { AppTour } from "@/components/AppTour";
 import { TabletShowcase } from "@/components/TabletShowcase";
 import { CameraShowcase } from "@/components/CameraShowcase";
 import { DetectionLegend, ProximityCard } from "@/components/ProductOverlays";
+import { ProductHeroOverlays } from "@/components/ProductHeroOverlays";
 import { ProductJsonLd } from "@/components/JsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { ASSETS, EXTERNAL } from "@/lib/site";
@@ -82,20 +83,23 @@ export default function ProductPage() {
             </div>
           </div>
           {/* Assembly loop; its edges are feathered into the page colour so it has no frame */}
-          <picture>
-            <source
-              media="(prefers-reduced-motion: reduce)"
-              srcSet="/product-camera/camera-assembly.png"
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF, served as-is */}
-            <img
-              src="/product-camera/camera-assembly.gif"
-              alt="The Dozer camera housing assembling around the depth camera piece by piece, then coming apart again."
-              width={1000}
-              height={562}
-              className="block h-auto w-full"
-            />
-          </picture>
+          <div className="relative">
+            <picture>
+              <source
+                media="(prefers-reduced-motion: reduce)"
+                srcSet="/product-camera/camera-assembly.png"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF, served as-is */}
+              <img
+                src="/product-camera/camera-assembly.gif"
+                alt="The Dozer camera housing assembling around the depth camera piece by piece, then coming apart again."
+                width={1000}
+                height={562}
+                className="block h-auto w-full"
+              />
+            </picture>
+            <ProductHeroOverlays />
+          </div>
         </div>
       </Section>
 

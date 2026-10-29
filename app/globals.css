@@ -94,3 +94,67 @@
     transform: scaleX(1);
   }
 }
+
+/* Product hero: small UI pieces floating around the camera assembly GIF. */
+@keyframes hero-chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes hero-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+/* One detection tag lit at a time; three tags offset by 1s each in a 3s cycle. */
+@keyframes hero-highlight {
+  0%,
+  40%,
+  100% {
+    opacity: 0.4;
+  }
+  8%,
+  32% {
+    opacity: 1;
+  }
+}
+@keyframes hero-bar {
+  0%,
+  100% {
+    transform: scaleY(0.45);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.hero-chip {
+  animation: hero-chip-in 0.6s ease-out both;
+}
+.hero-bob {
+  animation: hero-bob 6s ease-in-out infinite;
+}
+.hero-highlight {
+  animation: hero-highlight 3s ease-in-out infinite;
+}
+.hero-bar {
+  transform-origin: bottom;
+  animation: hero-bar 2.4s ease-in-out infinite;
+}
+/* Reduced motion: hold everything still in its visible state. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-chip,
+  .hero-bob,
+  .hero-highlight,
+  .hero-bar {
+    animation: none !important;
+  }
+}
