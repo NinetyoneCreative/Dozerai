@@ -20,7 +20,7 @@ const REASONS = [
   },
   {
     title: "Get pricing",
-    body: "Ask about the Dozer Pilot Program: one machine, 45 days, one low fee.",
+    body: "Ask about the Dozer Pilot Program, one machine, 45 days, one low fee.",
   },
   {
     title: "Partnerships & press",

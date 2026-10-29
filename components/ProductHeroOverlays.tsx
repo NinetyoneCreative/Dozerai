@@ -3,7 +3,7 @@ import { Pill, LiveDot } from "@/components/ProductOverlays";
 
 /**
  * Small animated UI pieces stacked on the right of the product-page camera
- * GIF, one per part of the system: the cameras (360° vision), the AI
+ * GIF, one per part of the system: the cameras (blind-side watch), the AI
  * (detection), the operator (in-cab alert) and the office (dashboard). They
  * fade in one after another and stay up. Decorative only, so the whole layer
  * is aria-hidden; reduced-motion visitors get them held still.
@@ -34,9 +34,12 @@ const TAGS = [
 const BARS = [0.55, 0.8, 0.65, 1, 0.75, 0.9];
 
 const liveVision = (
-  <Pill>
-    <LiveDot /> Live · 360° vision
-  </Pill>
+  // Right-aligned and kept on one line: in the stack it runs a little past the cards on the left.
+  <span className="flex justify-end whitespace-nowrap">
+    <Pill>
+      <LiveDot /> Live · Watching the blind side
+    </Pill>
+  </span>
 );
 
 export function ProductHeroOverlays() {
@@ -48,8 +51,8 @@ export function ProductHeroOverlays() {
       </div>
 
       {/* Tablet and up: the whole system, stacked down the right side */}
-      <div className="absolute right-0 top-1/2 hidden w-48 -translate-y-1/2 flex-col gap-2 sm:flex lg:-right-4">
-        {/* Cameras: always-on 360° vision */}
+      <div className="absolute right-0 top-1/2 hidden w-48 -translate-y-1/2 flex-col gap-2 sm:flex">
+        {/* Cameras: always-on blind-side watch */}
         <Float delay={0.3}>{liveVision}</Float>
 
         {/* AI: what it's classifying, one tag brightening at a time */}

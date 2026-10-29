@@ -28,7 +28,7 @@ const STAGES = [
   {
     n: "01",
     name: "Eyes on site",
-    body: "Rugged, IP-rated cameras and depth sensors mount directly on your excavators, dozers, loaders, and haul trucks, giving every machine a 360° view of the people, equipment, and ground around it.",
+    body: "Rugged, IP-rated cameras and depth sensors mount directly on your excavators, dozers, loaders, and haul trucks, giving every machine eyes on the people, equipment, and ground around it.",
   },
   {
     n: "02",
@@ -153,7 +153,7 @@ export default function ProductPage() {
             </p>
             <ul className="mt-6 space-y-2.5">
               {[
-                "360° view of the cabin, attachment, and everything around the machine",
+                "Watches the cab, the attachment, and the ground around the machine",
                 "Stereoscopic depth sensing for centimeter-accurate proximity",
                 "IP-6/7-rated housing that withstands dust, water, and impact",
               ].map((p) => (

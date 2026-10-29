@@ -51,7 +51,7 @@ export function CameraShowcase() {
         ))}
         <div className="pointer-events-none absolute inset-x-3 top-3 flex items-start justify-between gap-2" aria-hidden="true">
           <Pill>
-            <LiveDot /> Watching 360°
+            <LiveDot /> Watching the blind side
           </Pill>
           <Pill tone="dark">{active.chip}</Pill>
         </div>

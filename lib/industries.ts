@@ -6,7 +6,7 @@ import { ASSETS } from "@/lib/site";
  *   Hero (pain-led) → "sound familiar?" pains → how Dozer fits →
  *   outcomes/ROI → proof → pricing/risk-reversal → CTA band.
  *
- * Copy reuses Dozer's REAL capabilities (360° vision, proximity detection,
+ * Copy reuses Dozer's REAL capabilities (on-machine cameras, proximity detection,
  * in-cab alerts, object classification, GPS-tagged footage, dashboards) and
  * frames the context/pain for each vertical, no invented features.
  */
@@ -45,7 +45,7 @@ export const INDUSTRIES: Industry[] = [
     heroKicker: "For heavy-civil contractors",
     heroHeadline: "Keep your ground crews out from under the iron",
     heroSub:
-      "On a grading site, checkers, pipe layers, and laborers work feet from swinging excavators and backing dozers. Dozer gives every operator a 360° virtual spotter and an in-cab alert the moment a person enters the blind spot.",
+      "On a grading site, checkers, pipe layers, and laborers work feet from swinging excavators and backing dozers. Dozer gives every operator a virtual spotter that never looks away and an in-cab alert the moment a person enters the blind spot.",
     equipment: ["Excavators", "Dozers", "Motor graders", "Wheel loaders", "Haul trucks"],
     pains: [
       {
@@ -67,7 +67,7 @@ export const INDUSTRIES: Industry[] = [
         body: "Computer vision classifies people vs. equipment and warns the operator in real time when a worker is in the danger zone, not after.",
       },
       {
-        title: "360° GPS-tagged record",
+        title: "GPS-tagged record of every shift",
         body: "Every machine carries a complete, time- and location-stamped view. Isolate footage by area on the map to settle a rework dispute in minutes.",
       },
       {
@@ -115,8 +115,8 @@ export const INDUSTRIES: Industry[] = [
         body: "Point-cloud measurement assesses distance in real time and warns the operator as a vehicle or person enters the danger zone, through the dust.",
       },
       {
-        title: "360° coverage on the big iron",
-        body: "Spherical vision covers the full perimeter of a loader or haul truck, including the deep blind spots mirrors never reach.",
+        title: "Eyes on the big iron's blind side",
+        body: "Cameras on the machine watch the deep blind spots on loaders and haul trucks that mirrors never reach.",
       },
       {
         title: "Track productivity, not just safety",
@@ -163,8 +163,8 @@ export const INDUSTRIES: Industry[] = [
         body: "Computer vision classifies people in a chaotic, debris-filled scene and alerts the operator in-cab the instant a worker enters the danger area.",
       },
       {
-        title: "360° awareness around the machine",
-        body: "Spherical vision covers the full perimeter, the blind spots behind and beside a high-reach excavator that a spotter alone can't hold.",
+        title: "Eyes behind and beside the machine",
+        body: "Watches the blind spots behind and beside a high-reach excavator that a spotter alone can't hold.",
       },
       {
         title: "Recorded, GPS-tagged events",
@@ -189,7 +189,7 @@ export const INDUSTRIES: Industry[] = [
     heroKicker: "For mining & landfill operations",
     heroHeadline: "Big iron, long shifts, and blind spots that can be fatal",
     heroSub:
-      "Light vehicles, people, and 100-ton machines share the same haul roads and tip faces 24/7. Dozer's proximity detection and 360° vision give every operator a virtual spotter and a real-time alert before contact.",
+      "Light vehicles, people, and 100-ton machines share the same haul roads and tip faces 24/7. Dozer's proximity detection and on-machine cameras give every operator a virtual spotter and a real-time alert before contact.",
     equipment: ["Haul trucks", "Dozers", "Wheel loaders", "Motor graders", "Compactors"],
     pains: [
       {
@@ -211,8 +211,8 @@ export const INDUSTRIES: Industry[] = [
         body: "Centimeter-accurate proximity detection warns operators in real time when a light vehicle or person enters the danger zone, day or night.",
       },
       {
-        title: "360° vision on every machine",
-        body: "Spherical coverage eliminates the deep blind spots on haul trucks and dozers that mirrors and a single backup camera leave open.",
+        title: "A spotter on every machine",
+        body: "Covers the deep blind spots on haul trucks and dozers that mirrors and a single backup camera leave open.",
       },
       {
         title: "Fleet-wide dashboard & documentation",
@@ -259,7 +259,7 @@ export const INDUSTRIES: Industry[] = [
         body: "Computer vision classifies people vs. equipment and warns the operator in real time when a worker is in the swing or backing path.",
       },
       {
-        title: "360° GPS-tagged record of the dig",
+        title: "GPS-tagged record of the dig",
         body: "Every machine keeps a complete, time- and location-stamped view. Isolate footage by area to document the work or settle a dispute.",
       },
       {
@@ -307,8 +307,8 @@ export const INDUSTRIES: Industry[] = [
         body: "Real-time warnings when a worker, or an intruding vehicle, enters the danger zone around a machine.",
       },
       {
-        title: "360° coverage day or night",
-        body: "Spherical vision covers the full perimeter of pavers, rollers, and trucks, including the deep blind spots.",
+        title: "Blind-spot coverage, day or night",
+        body: "Watches the deep blind spots around pavers, rollers, and trucks.",
       },
       {
         title: "Track paving productivity",
@@ -355,8 +355,8 @@ export const INDUSTRIES: Industry[] = [
         body: "Real-time warnings when a worker enters the danger zone around a machine or a suspended load.",
       },
       {
-        title: "360° coverage on every machine",
-        body: "Spherical vision covers the blind spots on excavators, sidebooms, and cranes.",
+        title: "Eyes where the operator can't look",
+        body: "On-machine cameras watch the blind spots on excavators, sidebooms, and cranes.",
       },
       {
         title: "One record across the spread",
@@ -403,8 +403,8 @@ export const INDUSTRIES: Industry[] = [
         body: "Real-time warnings when a person enters the danger zone around any machine.",
       },
       {
-        title: "360° coverage on every machine",
-        body: "Spherical vision covers the blind spots on earthmoving equipment and cranes.",
+        title: "Blind-spot watch across the fleet",
+        body: "On-machine cameras watch the blind spots on earthmoving equipment and cranes.",
       },
       {
         title: "Track productivity across the site",

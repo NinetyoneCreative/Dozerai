@@ -23,7 +23,7 @@ export function FieldVisual() {
       />
       <div className="absolute left-4 top-4">
         <Pill>
-          <LiveDot /> Watching 360°
+          <LiveDot /> Watching the blind side
         </Pill>
       </div>
 
