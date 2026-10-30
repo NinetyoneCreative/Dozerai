@@ -196,7 +196,7 @@ export const TERMS_OF_SERVICE: LegalDocument = {
         { type: "p", text: "For questions about these Terms, contact us at:" },
         {
           type: "lines",
-          lines: ["Dozer AI, Inc.", "6775 Skyview Drive", "Oakland, CA 94605", "Email: support@dozer.ai"],
+          lines: ["Dozer AI, Inc.", "6775 Skyview Drive", "Oakland, CA 94605", "Phone: (707) 563-9898", "Email: support@dozer.ai"],
         },
       ],
     },
@@ -437,6 +437,7 @@ export const PRIVACY_POLICY: LegalDocument = {
             "Dozer AI, Inc.",
             "6775 Skyview Drive",
             "Oakland, CA 94605",
+            "Phone: (707) 563-9898",
             "Email: support@dozer.ai",
             "Website: https://www.dozer.ai",
           ],

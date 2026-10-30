@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS, SOCIAL_LINKS, ASSETS, SITE, EXTERNAL } from "@/lib/site";
+import { NAV_LINKS, SOCIAL_LINKS, ASSETS, SITE, EXTERNAL, CONTACT } from "@/lib/site";
 import { INDUSTRIES } from "@/lib/industries";
 import { SafeImage } from "@/components/SafeImage";
 
@@ -116,6 +116,11 @@ export function SiteFooter() {
                 <Link href="/contact" className="text-dark-grey hover:text-darker-grey">
                   Contact us
                 </Link>
+              </li>
+              <li>
+                <a href={`tel:${CONTACT.phoneE164}`} className="text-dark-grey hover:text-darker-grey">
+                  {CONTACT.phone}
+                </a>
               </li>
               <li>
                 <Link href="/privacy-policy" className="text-dark-grey hover:text-darker-grey">

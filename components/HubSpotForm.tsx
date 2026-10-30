@@ -71,7 +71,7 @@ export function HubSpotForm({ events }: HubSpotFormProps) {
         failed.current = true;
         if (container.current) {
           container.current.innerHTML =
-            '<p class="text-sm text-dark-grey">The form didn’t load. Please email <a class="underline" href="mailto:support@dozer.ai">support@dozer.ai</a> and we’ll get right back to you.</p>';
+            '<p class="text-sm text-dark-grey">The form didn’t load. Please call <a class="underline" href="tel:+17075639898">(707) 563-9898</a> or email <a class="underline" href="mailto:support@dozer.ai">support@dozer.ai</a> and we’ll get right back to you.</p>';
         }
       });
     return () => {

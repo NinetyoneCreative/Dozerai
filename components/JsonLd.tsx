@@ -1,4 +1,4 @@
-import { SITE, SOCIAL_LINKS } from "@/lib/site";
+import { SITE, SOCIAL_LINKS, CONTACT } from "@/lib/site";
 
 /**
  * JSON-LD structured data. Organization is rendered site-wide; Product is
@@ -15,6 +15,16 @@ export function OrganizationJsonLd() {
     logo: SITE.url + "/dozer-logo-public.png",
     description: SITE.description,
     sameAs: SOCIAL_LINKS.map((s) => s.href),
+    telephone: CONTACT.phoneE164,
+    email: CONTACT.email,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: CONTACT.phoneE164,
+      email: CONTACT.email,
+      contactType: "sales",
+      areaServed: "US",
+      availableLanguage: "English",
+    },
   };
   return (
     <script

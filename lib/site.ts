@@ -62,6 +62,9 @@ export const HUBSPOT = {
 /** Direct contact details. */
 export const CONTACT = {
   email: "support@dozer.ai",
+  phone: "(707) 563-9898",
+  /** The same number in tel: / schema.org form. */
+  phoneE164: "+17075639898",
   responseTime: "within one business day",
 };
 
