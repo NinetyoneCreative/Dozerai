@@ -46,3 +46,22 @@ export function track(event: AnalyticsEvent, props: Props = {}): void {
     console.debug("[analytics]", event, props);
   }
 }
+
+/**
+ * Raw dataLayer push for interaction events (e.g. the /demo page's engagement
+ * events). These are NOT Google Ads conversions and must never be wired as
+ * such: the only conversion is the gtag "demo_form_submit" event in track().
+ */
+export function dataLayerPush(event: string, props: Record<string, unknown> = {}): void {
+  if (typeof window === "undefined") return;
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event, ...props });
+  } catch {
+    // storage/CSP edge cases: never throw from analytics
+  }
+  if (process.env.NODE_ENV !== "production") {
+    // eslint-disable-next-line no-console
+    console.debug("[dataLayer]", event, props);
+  }
+}

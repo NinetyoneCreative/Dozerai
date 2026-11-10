@@ -3,16 +3,27 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV_LINKS, ASSETS, EXTERNAL, type NavItem, type NavChild } from "@/lib/site";
+import { NAV_LINKS, ASSETS, EXTERNAL, CONTACT, type NavItem, type NavChild } from "@/lib/site";
 import { INDUSTRIES } from "@/lib/industries";
 import { SafeImage } from "@/components/SafeImage";
 import { CtaLink } from "@/components/CtaLink";
 import { NavDropdown } from "@/components/NavDropdown";
+import { dataLayerPush } from "@/lib/analytics";
+
+/** Simple phone handset glyph for the /demo click-to-call. */
+function PhoneIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M6.6 10.8a15.9 15.9 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.57 3.6a1 1 0 0 1-.25 1l-2.2 2.2Z" />
+    </svg>
+  );
+}
 
 /**
  * Shared sticky header.
  * Nav: logo → Home · Product (Safety / Productivity) · Industries · Contact,
  * plus a Login button (customer app) and the primary "Request Demo" button.
+ * On /demo it collapses to logo + click-to-call (see the early return).
  */
 export function SiteHeader() {
   const pathname = usePathname();
@@ -36,6 +47,42 @@ export function SiteHeader() {
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  // Stripped-down header on the /demo conversion page: logo + click-to-call only.
+  // No nav and no "Request Demo" button, since the visitor is already here.
+  // (trailingSlash is on, so the path can be "/demo" or "/demo/".)
+  if (pathname.replace(/\/$/, "") === "/demo") {
+    const onPhone = () => dataLayerPush("demo_phone_click", { location: "header" });
+    return (
+      <header className="sticky top-0 z-50 border-b border-medium-grey/30 bg-dozer-white/90 backdrop-blur supports-[backdrop-filter]:bg-dozer-white/75">
+        <nav
+          className="mx-auto flex h-20 max-w-container items-center justify-between px-5 sm:px-8"
+          aria-label="Primary"
+        >
+          <Link href="/" className="flex items-center" aria-label="Dozer AI home">
+            <SafeImage src={ASSETS.logoHeader} alt="Dozer AI" width={147} height={44} priority className="h-11 w-auto" />
+          </Link>
+          {/* Desktop: full phone text; mobile: icon button */}
+          <a
+            href={`tel:${CONTACT.phoneE164}`}
+            onClick={onPhone}
+            className="hidden items-center gap-2 rounded-md border border-medium-grey/70 px-4 py-2 text-sm font-medium text-darker-grey transition-colors hover:border-darker-grey hover:bg-white sm:inline-flex"
+          >
+            <PhoneIcon />
+            {CONTACT.phone}
+          </a>
+          <a
+            href={`tel:${CONTACT.phoneE164}`}
+            onClick={onPhone}
+            aria-label="Call Dozer AI"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-medium-grey/70 text-darker-grey transition-colors hover:border-darker-grey hover:bg-white sm:hidden"
+          >
+            <PhoneIcon />
+          </a>
+        </nav>
+      </header>
+    );
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-medium-grey/30 bg-dozer-white/90 backdrop-blur supports-[backdrop-filter]:bg-dozer-white/75">

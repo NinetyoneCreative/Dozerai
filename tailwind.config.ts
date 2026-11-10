@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 /**
  * Brand tokens mirror styles/tokens.css and were extracted verbatim from the
- * live dozer.ai CSS bundle (042fb76698679e6b.css). Do not "improve" these —
+ * live dozer.ai CSS bundle (042fb76698679e6b.css). Do not "improve" these;
  * the redesign must read as the same company.
  */
 const config: Config = {
@@ -19,6 +19,7 @@ const config: Config = {
         "darker-grey": "rgb(77 82 96 / <alpha-value>)", // #4D5260 dark section / ink
         "dark-grey": "rgb(92 99 116 / <alpha-value>)", // #5C6374 body text
         "medium-grey": "rgb(167 170 177 / <alpha-value>)", // #A7AAB1 borders / muted
+        "surface-dark": "rgb(43 47 56 / <alpha-value>)", // #2B2F38 deep charcoal for /demo dark modules
       },
       fontFamily: {
         // Gotham powers headings + body; var set by next/font in layout.tsx.

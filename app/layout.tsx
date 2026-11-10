@@ -4,6 +4,7 @@ import { gotham, shareTechMono } from "./fonts";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Analytics } from "@/components/Analytics";
+import { AttributionCapture } from "@/components/AttributionCapture";
 import { OrganizationJsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -46,6 +47,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <Analytics />
+        <AttributionCapture />
       </body>
     </html>
   );

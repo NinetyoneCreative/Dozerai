@@ -7,13 +7,15 @@ interface YouTubeLiteProps {
   id: string;
   title: string;
   trackId: string;
+  /** Extra callback fired on first play (e.g. a dataLayer push on /demo). */
+  onPlay?: () => void;
 }
 
 /**
  * Click-to-load YouTube embed: shows the thumbnail and a play button, and only
  * loads the (heavy) YouTube iframe once someone actually presses play.
  */
-export function YouTubeLite({ id, title, trackId }: YouTubeLiteProps) {
+export function YouTubeLite({ id, title, trackId, onPlay }: YouTubeLiteProps) {
   const [playing, setPlaying] = useState(false);
 
   return (
@@ -32,6 +34,7 @@ export function YouTubeLite({ id, title, trackId }: YouTubeLiteProps) {
           onClick={() => {
             setPlaying(true);
             track("video_play", { video: trackId });
+            onPlay?.();
           }}
           className="group absolute inset-0 h-full w-full"
           aria-label={`Play video: ${title}`}

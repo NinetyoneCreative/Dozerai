@@ -12,3 +12,14 @@ next-env.d.ts
 
 # Netlify CLI local state (site link)
 .netlify/
+
+# Large raw source media kept locally (optimized versions live in public/)
+/Hero.png
+/Field.png
+/Cab.png
+/Office.png
+/Office.mp4
+/field2.png
+/important_objects (1).mp4
+/Hero_Image.png
+/Inthecab.png
